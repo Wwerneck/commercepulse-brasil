@@ -1,0 +1,30 @@
+{
+  "bcb_sgs": [
+    {
+      "name": "selic_target",
+      "series_code": 432,
+      "description": "Meta da taxa Selic definida pelo Copom",
+      "frequency": "daily"
+    },
+    {
+      "name": "usd_brl",
+      "series_code": 1,
+      "description": "Taxa de cambio comercial para venda: real brasileiro / dolar americano",
+      "frequency": "daily"
+    },
+    {
+      "name": "ibc_br",
+      "series_code": 24363,
+      "description": "Indice de Atividade Economica do Banco Central - IBC-Br",
+      "frequency": "monthly"
+    }
+  ],
+  "ibge_sidra": [
+    {
+      "name": "ipca",
+      "table": "1737",
+      "path": "n1/all/v/63/p/201609-201809",
+      "description": "IPCA mensal via SIDRA alinhado ao periodo de vendas Olist."
+    }
+  ]
+}

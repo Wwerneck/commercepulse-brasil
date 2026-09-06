@@ -1,0 +1,50 @@
+[project]
+name = "commercepulse-brasil"
+version = "0.1.0"
+description = "Data Engineering and AI platform for Brazilian e-commerce and macroeconomic indicators."
+requires-python = ">=3.11"
+dependencies = [
+    "duckdb>=1.0.0",
+    "fastapi>=0.111.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "pandera>=0.20.0",
+    "pyarrow>=16.0.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "requests>=2.32.0",
+    "scikit-learn>=1.5.0",
+    "mlflow>=3.16.0",
+    "streamlit>=1.36.0",
+    "plotly>=5.22.0",
+    "psycopg2-binary>=2.9.0",
+    "uvicorn>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "ruff>=0.5.0",
+]
+ml = [
+    "xgboost>=2.0.0",
+]
+orchestration = [
+    "apache-airflow>=2.9.0",
+]
+warehouse = [
+    "dbt-core>=1.8.0",
+    "dbt-postgres>=1.8.0",
+    "psycopg2-binary>=2.9.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

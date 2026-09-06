@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: stg_sales_daily
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: gmv
+        tests:
+          - not_null
+
+  - name: stg_sales_monthly
+    columns:
+      - name: month
+        tests:
+          - unique
+          - not_null
+      - name: gmv
+        tests:
+          - not_null
+
+  - name: stg_category_performance
+    columns:
+      - name: category
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_economic_indicators
+    columns:
+      - name: reference_month
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_dim_date
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_sales
+    columns:
+      - name: month
+        tests:
+          - unique
+          - not_null
+
+  - name: mart_category
+    columns:
+      - name: category
+        tests:
+          - unique
+          - not_null

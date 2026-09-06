@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: analytics
+    schema: analytics
+    tables:
+      - name: dim_date
+      - name: dim_customer
+      - name: dim_seller
+      - name: dim_category
+      - name: dim_economic_indicator
+      - name: fact_sales_daily
+      - name: fact_sales_monthly
+      - name: fact_category_performance
+      - name: fact_economic_indicators

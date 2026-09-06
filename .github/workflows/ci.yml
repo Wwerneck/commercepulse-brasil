@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Lint
+        run: ruff check .
+      - name: Parse Airflow DAG
+        run: python -c "import importlib.util; p='airflow/dags/commercepulse_pipeline.py'; s=importlib.util.spec_from_file_location('dag', p); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); assert len(m.PIPELINE_TASKS) == 21"
+      - name: Import API and dashboard
+        run: python -c "import api.main; import dashboard.app"
+      - name: Tests
+        run: pytest
