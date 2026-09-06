@@ -537,7 +537,19 @@ def render_anomalies() -> None:
 
 def render_observability() -> None:
     st.subheader("Observabilidade")
-    report = fetch_json("/observability")
+    try:
+        report = fetch_json("/observability")
+    except requests.HTTPError as exc:
+        st.error(
+            "Nao foi possivel carregar a observabilidade. "
+            "Reinicie a API para garantir que a versao atual esteja em execucao."
+        )
+        st.code(f"uvicorn api.main:app --host 127.0.0.1 --port 8000\n\n{exc}")
+        return
+    except requests.RequestException as exc:
+        st.error("API indisponivel no momento.")
+        st.code(f"uvicorn api.main:app --host 127.0.0.1 --port 8000\n\n{exc}")
+        return
     cols = st.columns(4)
     cols[0].metric("Status geral", STATUS_LABELS.get(report["status"], report["status"]))
     cols[1].metric("Checks", report["checks_total"])
