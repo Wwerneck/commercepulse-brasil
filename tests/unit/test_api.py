@@ -41,6 +41,16 @@ def test_catalog_endpoint_lists_gold_and_reports(monkeypatch) -> None:
     assert "kpis" in response.json()["latest_reports"]
 
 
+def test_catalog_service_normalizes_report_paths() -> None:
+    assert services._normalize_path("data\\gold\\report.json") == "data/gold/report.json"
+
+
+def test_json_safe_normalizes_nested_windows_paths() -> None:
+    payload = services._json_safe({"path": "models\\reports\\forecast.json"})
+
+    assert payload["path"] == "models/reports/forecast.json"
+
+
 def test_latest_kpis_endpoint(monkeypatch) -> None:
     monkeypatch.setattr(
         services,

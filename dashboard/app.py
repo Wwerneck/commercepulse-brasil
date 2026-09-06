@@ -17,17 +17,17 @@ PAGES = [
     "Resumo Executivo",
     "Vendas",
     "Categorias",
-    "Analise Economica",
-    "Aprendizado de Maquina",
+    "Análise Econômica",
+    "Aprendizado de Máquina",
     "Anomalias",
     "Observabilidade",
-    "Catalogo",
+    "Catálogo",
 ]
 
 METRIC_LABELS = {
     "gmv": "GMV",
     "orders": "Pedidos",
-    "average_ticket": "Ticket medio",
+    "average_ticket": "Ticket médio",
     "mae": "MAE",
     "rmse": "RMSE",
     "mape": "MAPE",
@@ -40,15 +40,15 @@ SEGMENT_LABELS = {
     "vip": "VIP",
 }
 
-STATUS_LABELS = {"passed": "Aprovado", "warning": "Atencao", "failed": "Falha"}
+STATUS_LABELS = {"passed": "Aprovado", "warning": "Atenção", "failed": "Falha"}
 
 REPORT_LABELS = {
     "kpis": "Indicadores-chave de desempenho",
-    "economic": "Analise economica",
-    "forecast": "Previsao de vendas",
-    "segmentation": "Segmentacao de clientes",
-    "anomaly": "Deteccao de anomalias",
-    "reviews": "Inteligencia de avaliacoes",
+    "economic": "Análise econômica",
+    "forecast": "Previsão de vendas",
+    "segmentation": "Segmentação de clientes",
+    "anomaly": "Detecção de anomalias",
+    "reviews": "Inteligência de avaliações",
 }
 
 st.set_page_config(page_title="CommercePulse Brasil", layout="wide")
@@ -217,19 +217,6 @@ def normalize_path(value: str) -> str:
     return value.replace("\\", "/")
 
 
-def prepare_catalog_table(rows: list[dict[str, Any]], name_column: str) -> pd.DataFrame:
-    table = pd.DataFrame(rows)
-    if table.empty:
-        return table
-    table["nome"] = table["name"].map(humanize_label)
-    table["linhas"] = table["rows"].map(format_number)
-    table["colunas"] = table["columns"].map(len)
-    table["caminho"] = table["path"].map(normalize_path)
-    return table[[name_column, "linhas", "colunas", "caminho"]].rename(
-        columns={name_column: "nome"}
-    )
-
-
 def api_status() -> bool:
     try:
         fetch_json("/health")
@@ -280,7 +267,7 @@ def render_header() -> str:
         <div class="hero-panel">
             <div class="hero-title">Painel executivo de performance, economia e IA</div>
             <div class="hero-text">
-                E-commerce brasileiro integrado a indicadores oficiais, modelos analiticos
+                E-commerce brasileiro integrado a indicadores oficiais, modelos analíticos
                 e observabilidade operacional.
                 API <span class="{status_class}">{status_text}</span>.
             </div>
@@ -328,14 +315,14 @@ def render_overview() -> None:
             "#6E5A8A",
         )
     with cols[1]:
-        render_kpi_card("Avaliacao", f"{kpis['average_review_score']:.2f}", "Nota media", "#A64B3C")
+        render_kpi_card("Avaliação", f"{kpis['average_review_score']:.2f}", "Nota média", "#A64B3C")
     with cols[2]:
-        render_kpi_card("Ticket medio", format_currency(kpis["average_ticket"]), "Por item vendido")
+        render_kpi_card("Ticket médio", format_currency(kpis["average_ticket"]), "Por item vendido")
 
     cols = st.columns(3)
     with cols[0]:
         render_kpi_card(
-            "Frete medio",
+            "Frete médio",
             format_currency(kpis["average_freight"]),
             "Media diaria",
             "#2E7D6B",
@@ -344,7 +331,7 @@ def render_overview() -> None:
         render_kpi_card(
             "Entrega media",
             f"{kpis['average_delivery_days']:.2f} dias",
-            "Prazo medio",
+            "Prazo médio",
             "#B07D2B",
         )
     with cols[1]:
@@ -359,7 +346,7 @@ def render_overview() -> None:
         f"""
         <div class="executive-strip">
             Periodo analisado: <strong>{kpis["period_start"]}</strong> a
-            <strong>{kpis["period_end"]}</strong>. Categoria lider por GMV:
+            <strong>{kpis["period_end"]}</strong>. Categoria líder por GMV:
             <strong>{humanize_label(kpis["top_category_by_gmv"])}</strong>.
         </div>
         """,
@@ -374,8 +361,8 @@ def render_overview() -> None:
             x="period",
             y="GMV",
             markers=True,
-            title="Evolucao mensal do GMV",
-            labels={"period": "Mes"},
+            title="Evolução mensal do GMV",
+            labels={"period": "Mês"},
         )
         fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 8})
         st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -387,7 +374,7 @@ def render_overview() -> None:
             x="gmv",
             y="categoria",
             orientation="h",
-            title="Categorias lideres",
+            title="Categorias líderes",
             labels={"gmv": "GMV", "category": "Categoria"},
         )
         fig.update_traces(marker={"color": "#2E7D6B"})
@@ -400,7 +387,7 @@ def render_overview() -> None:
         values="customers",
         color="average_monetary",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
-        title="Composicao da base por segmento de cliente",
+        title="Composição da base por segmento de cliente",
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
 
@@ -412,7 +399,7 @@ def render_sales() -> None:
     monthly = dataframe_from_api("/sales/monthly", {"limit": 24}).sort_values("period")
 
     metric = st.segmented_control(
-        "Metrica",
+        "Métrica",
         ["gmv", "orders", "average_ticket"],
         format_func=lambda item: METRIC_LABELS[item],
         default="gmv",
@@ -422,7 +409,7 @@ def render_sales() -> None:
         x="period",
         y=metric,
         labels={"period": "Data", metric: METRIC_LABELS[metric]},
-        title=f"{METRIC_LABELS[metric]} diario",
+        title=f"{METRIC_LABELS[metric]} diário",
     )
     fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 7})
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -433,7 +420,7 @@ def render_sales() -> None:
         fig.update_traces(marker={"color": "#2E7D6B"})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with cols[1]:
-        fig = px.line(monthly, x="period", y="average_ticket", markers=True, title="Ticket medio")
+        fig = px.line(monthly, x="period", y="average_ticket", markers=True, title="Ticket médio")
         fig.update_traces(line={"width": 3, "color": "#B07D2B"}, marker={"size": 7})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     st.dataframe(daily, use_container_width=True, hide_index=True)
@@ -453,12 +440,12 @@ def render_categories() -> None:
         color="average_ticket",
         hover_name="categoria",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
-        title="Categorias por escala, GMV e ticket medio",
+        title="Categorias por escala, GMV e ticket médio",
         labels={
             "orders": "Pedidos",
             "gmv": "GMV",
             "items_sold": "Itens vendidos",
-            "average_ticket": "Ticket medio",
+            "average_ticket": "Ticket médio",
         },
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -466,17 +453,31 @@ def render_categories() -> None:
 
 
 def render_economic_analysis() -> None:
-    st.subheader("Analise Economica")
+    st.subheader("Análise Econômica")
     report = fetch_json("/ml/reports/economic/latest")["payload"]
     correlations = pd.DataFrame(report["correlations"])
     correlations["correlacao_abs"] = correlations["correlation"].abs()
     strongest = correlations.sort_values("correlacao_abs", ascending=False).iloc[0]
 
     cols = st.columns(4)
-    cols[0].metric("Correlacoes", format_number(len(correlations)))
-    cols[1].metric("Maior relacao", f"{strongest['metric']} x {strongest['indicator']}")
-    cols[2].metric("Correlacao", f"{strongest['correlation']:.3f}")
-    cols[3].metric("Observacoes", format_number(strongest["observations"]))
+    with cols[0]:
+        render_kpi_card("Correlações", format_number(len(correlations)), "Combinações avaliadas")
+    with cols[1]:
+        render_kpi_card(
+            "Maior relação",
+            f"{strongest['metric']} x {strongest['indicator']}",
+            "Maior valor absoluto",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card("Correlação", f"{strongest['correlation']:.3f}", "Coeficiente", "#B07D2B")
+    with cols[3]:
+        render_kpi_card(
+            "Observações",
+            format_number(strongest["observations"]),
+            "Meses analisados",
+            "#6E5A8A",
+        )
 
     fig = px.bar(
         correlations.sort_values("correlation"),
@@ -484,12 +485,12 @@ def render_economic_analysis() -> None:
         y="indicator",
         color="metric",
         orientation="h",
-        title="Correlacoes entre vendas e indicadores economicos",
-        labels={"correlation": "Correlacao", "indicator": "Indicador", "metric": "Metrica"},
+        title="Correlações entre vendas e indicadores econômicos",
+        labels={"correlation": "Correlação", "indicator": "Indicador", "metric": "Métrica"},
         color_discrete_sequence=EXECUTIVE_COLORS,
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
-    st.info("As correlacoes sao descritivas e nao implicam causalidade.")
+    st.info("As correlações são descritivas e não implicam causalidade.")
     st.dataframe(
         correlations.drop(columns=["correlacao_abs"]),
         use_container_width=True,
@@ -498,7 +499,7 @@ def render_economic_analysis() -> None:
 
 
 def render_ml() -> None:
-    st.subheader("Aprendizado de Maquina")
+    st.subheader("Aprendizado de Máquina")
     forecast = fetch_json("/ml/reports/forecast/latest")["payload"]
     segmentation = fetch_json("/ml/reports/segmentation/latest")["payload"]
     reviews = fetch_json("/ml/reports/reviews/latest")["payload"]
@@ -506,10 +507,24 @@ def render_ml() -> None:
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
 
     cols = st.columns(4)
-    cols[0].metric("Melhor modelo", forecast["best_model"])
-    cols[1].metric("Clientes segmentados", format_number(segmentation["rows"]))
-    cols[2].metric("K selecionado", segmentation["selected_k"])
-    cols[3].metric("Cobertura textual", format_percent(reviews["text_coverage_ratio"]))
+    with cols[0]:
+        render_kpi_card("Melhor modelo", forecast["best_model"], "Menor MAE")
+    with cols[1]:
+        render_kpi_card(
+            "Clientes segmentados",
+            format_compact_number(segmentation["rows"]),
+            "Base RFM",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card("K selecionado", str(segmentation["selected_k"]), "Clusters", "#B07D2B")
+    with cols[3]:
+        render_kpi_card(
+            "Cobertura textual",
+            format_percent(reviews["text_coverage_ratio"]),
+            "Reviews com texto",
+            "#A64B3C",
+        )
 
     fig = px.bar(
         segments,
@@ -518,7 +533,7 @@ def render_ml() -> None:
         color="average_monetary",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Clientes por segmento",
-        labels={"segmento": "Segmento", "customers": "Clientes", "average_monetary": "Valor medio"},
+        labels={"segmento": "Segmento", "customers": "Clientes", "average_monetary": "Valor médio"},
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
 
@@ -528,8 +543,8 @@ def render_ml() -> None:
         x="model_name",
         y=["MAE", "RMSE", "MAPE"],
         barmode="group",
-        title="Comparacao dos modelos de forecast",
-        labels={"model_name": "Modelo", "value": "Valor", "variable": "Metrica"},
+        title="Comparação dos modelos de previsão",
+        labels={"model_name": "Modelo", "value": "Valor", "variable": "Métrica"},
         color_discrete_sequence=EXECUTIVE_COLORS,
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -538,14 +553,22 @@ def render_ml() -> None:
 
 def render_anomalies() -> None:
     st.subheader("Anomalias")
-    only_overlap = st.toggle("Somente sobreposicao entre metodos", value=False)
+    only_overlap = st.toggle("Somente sobreposição entre métodos", value=False)
     anomalies = dataframe_from_api("/anomalies", {"limit": 100, "only_overlap": only_overlap})
     report = fetch_json("/ml/reports/anomaly/latest")["payload"]
 
     cols = st.columns(3)
-    cols[0].metric("Z-score", report["zscore_anomaly_days"])
-    cols[1].metric("Isolation Forest", report["isolation_forest_anomaly_days"])
-    cols[2].metric("Sobreposicao", report["overlap_days"])
+    with cols[0]:
+        render_kpi_card("Z-score", str(report["zscore_anomaly_days"]), "Dias sinalizados")
+    with cols[1]:
+        render_kpi_card(
+            "Isolation Forest",
+            str(report["isolation_forest_anomaly_days"]),
+            "Dias sinalizados",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card("Sobreposição", str(report["overlap_days"]), "Ambos os métodos", "#B07D2B")
 
     if anomalies.empty:
         st.info("Nenhuma anomalia encontrada para o filtro selecionado.")
@@ -557,12 +580,12 @@ def render_anomalies() -> None:
         size="orders",
         color="anomaly_method_overlap",
         color_discrete_sequence=["#2E7D6B", "#A64B3C"],
-        title="Dias com comportamento anomalo",
+        title="Dias com comportamento anômalo",
         labels={
             "date": "Data",
             "gmv": "GMV",
             "orders": "Pedidos",
-            "anomaly_method_overlap": "Sobreposicao",
+            "anomaly_method_overlap": "Sobreposição",
         },
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -575,20 +598,24 @@ def render_observability() -> None:
         report = fetch_json("/observability")
     except requests.HTTPError as exc:
         st.error(
-            "Nao foi possivel carregar a observabilidade. "
-            "Reinicie a API para garantir que a versao atual esteja em execucao."
+            "Não foi possível carregar a observabilidade. "
+            "Reinicie a API para garantir que a versão atual esteja em execução."
         )
         st.code(f"uvicorn api.main:app --host 127.0.0.1 --port 8000\n\n{exc}")
         return
     except requests.RequestException as exc:
-        st.error("API indisponivel no momento.")
+        st.error("API indisponível no momento.")
         st.code(f"uvicorn api.main:app --host 127.0.0.1 --port 8000\n\n{exc}")
         return
     cols = st.columns(4)
-    cols[0].metric("Status geral", STATUS_LABELS.get(report["status"], report["status"]))
-    cols[1].metric("Checks", report["checks_total"])
-    cols[2].metric("Falhas criticas", report["checks_failed"])
-    cols[3].metric("Avisos", report["checks_warned"])
+    with cols[0]:
+        render_kpi_card("Status geral", STATUS_LABELS.get(report["status"], report["status"]))
+    with cols[1]:
+        render_kpi_card("Checks", str(report["checks_total"]), "Validações executadas", "#2E7D6B")
+    with cols[2]:
+        render_kpi_card("Falhas críticas", str(report["checks_failed"]), "Bloqueantes", "#A64B3C")
+    with cols[3]:
+        render_kpi_card("Avisos", str(report["checks_warned"]), "Não bloqueantes", "#B07D2B")
 
     checks = pd.DataFrame(report["checks"])
     if checks.empty:
@@ -600,7 +627,7 @@ def render_observability() -> None:
         x="status",
         color="severity",
         barmode="group",
-        title="Distribuicao dos checks operacionais",
+        title="Distribuição dos checks operacionais",
         labels={"status": "Status", "severity": "Severidade"},
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -608,14 +635,14 @@ def render_observability() -> None:
 
 
 def render_catalog() -> None:
-    st.subheader("Catalogo")
+    st.subheader("Catálogo")
     catalog = fetch_json("/catalog")
     gold = pd.DataFrame(catalog["gold"])
     outputs = pd.DataFrame(catalog["model_outputs"])
     reports = pd.DataFrame(
         [
             {
-                "relatorio": REPORT_LABELS.get(report_type, humanize_label(report_type)),
+                "relatório": REPORT_LABELS.get(report_type, humanize_label(report_type)),
                 "tipo": report_type,
                 "caminho": normalize_path(path),
             }
@@ -655,9 +682,9 @@ def render_catalog() -> None:
             hide_index=True,
         )
 
-    st.write("Outputs de aprendizado de maquina")
+    st.write("Outputs de aprendizado de máquina")
     if outputs.empty:
-        st.info("Nenhum output de aprendizado de maquina encontrado.")
+        st.info("Nenhum output de aprendizado de máquina encontrado.")
     else:
         outputs["nome"] = outputs["name"].map(humanize_label)
         outputs["linhas"] = outputs["rows"].map(format_number)
@@ -671,7 +698,7 @@ def render_catalog() -> None:
 
     st.write("Relatorios recentes")
     if reports.empty:
-        st.info("Nenhum relatorio recente encontrado.")
+        st.info("Nenhum relatório recente encontrado.")
     else:
         st.dataframe(reports, use_container_width=True, hide_index=True)
 
@@ -680,7 +707,7 @@ def main() -> None:
     apply_theme()
     page = render_header()
     if not api_status():
-        st.error("API indisponivel. Inicie com: uvicorn api.main:app --host 127.0.0.1 --port 8000")
+        st.error("API indisponível. Inicie com: uvicorn api.main:app --host 127.0.0.1 --port 8000")
         return
 
     if page == "Resumo Executivo":
@@ -689,9 +716,9 @@ def main() -> None:
         render_sales()
     elif page == "Categorias":
         render_categories()
-    elif page == "Analise Economica":
+    elif page == "Análise Econômica":
         render_economic_analysis()
-    elif page == "Aprendizado de Maquina":
+    elif page == "Aprendizado de Máquina":
         render_ml()
     elif page == "Anomalias":
         render_anomalies()

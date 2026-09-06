@@ -52,7 +52,13 @@ def _json_safe(value: Any) -> Any:
         return value.date().isoformat()
     if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
         return None
+    if isinstance(value, str):
+        return _normalize_path(value)
     return value
+
+
+def _normalize_path(path: Path | str) -> str:
+    return str(path).replace("\\", "/")
 
 
 def _read_gold(dataset: str, settings: Settings | None = None) -> pd.DataFrame:
@@ -87,7 +93,12 @@ def latest_report(report_type: str) -> dict[str, Any]:
 
 def dataset_info(path: Path, name: str) -> DatasetInfo:
     df = read_parquet(path)
-    return DatasetInfo(name=name, path=str(path), rows=len(df), columns=list(df.columns))
+    return DatasetInfo(
+        name=name,
+        path=_normalize_path(path),
+        rows=len(df),
+        columns=list(df.columns),
+    )
 
 
 def catalog(settings: Settings | None = None) -> dict[str, Any]:
@@ -103,7 +114,7 @@ def catalog(settings: Settings | None = None) -> dict[str, Any]:
     reports = {}
     for report_type in REPORT_PATTERNS:
         try:
-            reports[report_type] = str(latest_report_path(report_type))
+            reports[report_type] = _normalize_path(latest_report_path(report_type))
         except HTTPException:
             continue
     return {"gold": gold_infos, "model_outputs": model_infos, "latest_reports": reports}
@@ -206,4 +217,4 @@ def anomalies(limit: int, only_overlap: bool = False) -> list[AnomalyDay]:
 
 def observability(settings: Settings | None = None) -> ObservabilityResponse:
     report = build_observability_report(_settings(settings))
-    return ObservabilityResponse(**asdict(report))
+    return ObservabilityResponse(**_json_safe(asdict(report)))

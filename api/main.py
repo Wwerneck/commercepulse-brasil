@@ -75,7 +75,7 @@ def latest_ml_report(report_type: str) -> ReportResponse:
     path = services.latest_report_path(report_type)
     return ReportResponse(
         report_type=report_type,
-        path=str(path),
+        path=services._normalize_path(path),
         payload=services.latest_report(report_type),
     )
 
