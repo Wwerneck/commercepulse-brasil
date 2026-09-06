@@ -100,18 +100,19 @@ def apply_theme() -> None:
             background: #ffffff;
             border: 1px solid #dfe5ec;
             border-radius: 8px;
-            padding: 16px 18px;
+            padding: 18px 20px;
             box-shadow: 0 8px 22px rgba(23, 32, 51, 0.06);
-            min-height: 128px;
+            min-height: 136px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border-top: 4px solid #1F4E79;
             margin-bottom: 1rem;
+            overflow: hidden;
         }
         .kpi-label {
             color: #5d6678;
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0;
@@ -119,16 +120,21 @@ def apply_theme() -> None:
         }
         .kpi-value {
             color: #0f1b2d;
-            font-size: clamp(1.55rem, 2.4vw, 2.2rem);
-            line-height: 1.05;
+            font-size: clamp(1.55rem, 2vw, 2rem);
+            line-height: 1.08;
             font-weight: 700;
             margin-top: 8px;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .kpi-note {
             color: #667085;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             margin-top: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .executive-strip {
             border: 1px solid #dfe5ec;
@@ -186,7 +192,7 @@ def format_compact_currency(value: float | int | None) -> str:
     if value is None:
         return "-"
     if abs(value) >= 1_000_000:
-        return f"R$ {value / 1_000_000:.2f} mi".replace(".", ",")
+        return f"R$ {value / 1_000_000:.1f} mi".replace(".", ",")
     if abs(value) >= 1_000:
         return f"R$ {value / 1_000:.1f} mil".replace(".", ",")
     return format_currency(value)
@@ -196,7 +202,7 @@ def format_compact_number(value: float | int | None) -> str:
     if value is None:
         return "-"
     if abs(value) >= 1_000_000:
-        return f"{value / 1_000_000:.2f} mi".replace(".", ",")
+        return f"{value / 1_000_000:.1f} mi".replace(".", ",")
     if abs(value) >= 1_000:
         return f"{value / 1_000:.1f} mil".replace(".", ",")
     return format_number(value)
@@ -291,7 +297,7 @@ def render_overview() -> None:
     categories = dataframe_from_api("/categories/top", {"limit": 10})
     segments = dataframe_from_api("/customers/segments")
 
-    cols = st.columns(5)
+    cols = st.columns(3)
     with cols[0]:
         render_kpi_card(
             "GMV total",
@@ -312,20 +318,22 @@ def render_overview() -> None:
             "Pedidos com itens",
             "#B07D2B",
         )
-    with cols[3]:
+
+    cols = st.columns(3)
+    with cols[0]:
         render_kpi_card(
             "Clientes",
             format_compact_number(kpis["customers_total"]),
             "Base atendida",
             "#6E5A8A",
         )
-    with cols[4]:
-        render_kpi_card("Avaliacao", f"{kpis['average_review_score']:.2f}", "Nota media", "#A64B3C")
-
-    cols = st.columns(4)
-    with cols[0]:
-        render_kpi_card("Ticket medio", format_currency(kpis["average_ticket"]), "Por item vendido")
     with cols[1]:
+        render_kpi_card("Avaliacao", f"{kpis['average_review_score']:.2f}", "Nota media", "#A64B3C")
+    with cols[2]:
+        render_kpi_card("Ticket medio", format_currency(kpis["average_ticket"]), "Por item vendido")
+
+    cols = st.columns(3)
+    with cols[0]:
         render_kpi_card(
             "Frete medio",
             format_currency(kpis["average_freight"]),
@@ -339,7 +347,7 @@ def render_overview() -> None:
             "Prazo medio",
             "#B07D2B",
         )
-    with cols[3]:
+    with cols[1]:
         render_kpi_card(
             "Taxa de atraso",
             format_percent(kpis["average_delay_rate"]),
