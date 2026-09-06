@@ -4,7 +4,7 @@
 
 FASE 20 concluida em 2026-09-06.
 
-O dashboard Streamlit consome a FastAPI local para apresentar KPIs, series Gold, rankings, resultados de ML, anomalias e catalogo de artefatos.
+O dashboard Streamlit consome a FastAPI local para apresentar KPIs, series Gold, rankings, analise economica, resultados de ML, anomalias e catalogo de artefatos.
 
 ## Execucao Local
 
@@ -41,10 +41,17 @@ Para apontar para outra API, defina a variavel de ambiente `COMMERCEPULSE_API_UR
 - `Visao Geral`: KPIs executivos, GMV mensal e top categorias.
 - `Vendas`: serie diaria, serie mensal, pedidos e ticket medio.
 - `Categorias`: dispersao de categorias por pedidos, GMV, itens vendidos e ticket medio.
-- `Machine Learning`: forecast, segmentacao de clientes e qualidade de reviews.
+- `Analise Economica`: correlacoes entre vendas e indicadores economicos.
+- `Aprendizado de Maquina`: forecast, segmentacao de clientes e qualidade de reviews.
 - `Anomalias`: comparacao entre z-score e Isolation Forest.
 - `Observabilidade`: status operacional, falhas, avisos e checks dos artefatos.
 - `Catalogo`: datasets Gold, outputs de ML e relatorios recentes.
+
+## UX
+
+- Navegacao principal no topo da pagina.
+- Textos padronizados em portugues.
+- Primeiro painel em formato executivo, com KPIs, periodo analisado e principais destaques.
 
 ## Qualidade
 
