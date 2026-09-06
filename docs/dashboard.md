@@ -52,6 +52,10 @@ Para apontar para outra API, defina a variavel de ambiente `COMMERCEPULSE_API_UR
 - Navegacao principal no topo da pagina.
 - Textos padronizados em portugues.
 - Primeiro painel em formato executivo, com KPIs, periodo analisado e principais destaques.
+- Cards customizados para evitar corte de numeros grandes.
+- Valores executivos em formato compacto, como `R$ 15,84 mi` e `98,7 mil`.
+- Paleta visual sobria para leitura corporativa.
+- Graficos Plotly com layout, cores, titulos e rotulos padronizados.
 
 ## Qualidade
 

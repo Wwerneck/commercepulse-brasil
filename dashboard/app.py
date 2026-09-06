@@ -11,6 +11,8 @@ import streamlit as st
 
 API_BASE_URL = os.getenv("COMMERCEPULSE_API_URL", "http://127.0.0.1:8000")
 
+EXECUTIVE_COLORS = ["#1F4E79", "#2E7D6B", "#B07D2B", "#6E5A8A", "#A64B3C", "#4F6F52"]
+
 PAGES = [
     "Resumo Executivo",
     "Vendas",
@@ -48,35 +50,88 @@ def apply_theme() -> None:
         """
         <style>
         .block-container {
-            padding-top: 1.6rem;
+            padding-top: 1.2rem;
             padding-bottom: 2rem;
-            max-width: 1320px;
+            max-width: 1400px;
         }
-        div[data-testid="stMetric"] {
-            background: #ffffff;
-            border: 1px solid #e6e8eb;
+        h1 {
+            color: #172033;
+            font-size: 2.45rem !important;
+            line-height: 1.05;
+            margin-bottom: 0.35rem;
+        }
+        h2, h3 {
+            color: #172033;
+            letter-spacing: 0;
+        }
+        .stSelectbox div[data-baseweb="select"] > div {
+            background: #eef1f5;
+            border: 1px solid #d7dde6;
             border-radius: 8px;
-            padding: 14px 16px;
-            box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+            min-height: 52px;
         }
-        div[data-testid="stMetricLabel"] p {
-            color: #475467;
-            font-size: 0.86rem;
-        }
-        div[data-testid="stMetricValue"] {
-            color: #101828;
-            font-weight: 700;
-        }
-        .executive-strip {
-            border: 1px solid #e6e8eb;
+        .hero-panel {
+            border: 1px solid #d9e1ea;
             border-radius: 8px;
-            padding: 14px 16px;
-            background: #f8fafc;
-            color: #344054;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, #172033 0%, #1F4E79 62%, #2E7D6B 100%);
+            color: #ffffff;
             margin: 0.35rem 0 1rem 0;
         }
+        .hero-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .hero-text {
+            color: #e9eef5;
+            font-size: 0.92rem;
+        }
+        .kpi-card {
+            background: #ffffff;
+            border: 1px solid #dfe5ec;
+            border-radius: 8px;
+            padding: 16px 18px;
+            box-shadow: 0 8px 22px rgba(23, 32, 51, 0.06);
+            min-height: 128px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 4px solid #1F4E79;
+            margin-bottom: 1rem;
+        }
+        .kpi-label {
+            color: #5d6678;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            white-space: nowrap;
+        }
+        .kpi-value {
+            color: #0f1b2d;
+            font-size: clamp(1.55rem, 2.4vw, 2.2rem);
+            line-height: 1.05;
+            font-weight: 700;
+            margin-top: 8px;
+            white-space: nowrap;
+        }
+        .kpi-note {
+            color: #667085;
+            font-size: 0.8rem;
+            margin-top: 8px;
+        }
+        .executive-strip {
+            border: 1px solid #dfe5ec;
+            border-radius: 8px;
+            padding: 15px 18px;
+            background: #f7f9fb;
+            color: #344054;
+            margin: 0.35rem 0 1rem 0;
+            box-shadow: 0 4px 16px rgba(23, 32, 51, 0.04);
+        }
         .status-ok {
-            color: #067647;
+            color: #7FE0B5;
             font-weight: 700;
         }
         .status-off {
@@ -118,6 +173,31 @@ def format_percent(value: float | int | None) -> str:
     return f"{value:.2%}".replace(".", ",")
 
 
+def format_compact_currency(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    if abs(value) >= 1_000_000:
+        return f"R$ {value / 1_000_000:.2f} mi".replace(".", ",")
+    if abs(value) >= 1_000:
+        return f"R$ {value / 1_000:.1f} mil".replace(".", ",")
+    return format_currency(value)
+
+
+def format_compact_number(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    if abs(value) >= 1_000_000:
+        return f"{value / 1_000_000:.2f} mi".replace(".", ",")
+    if abs(value) >= 1_000:
+        return f"{value / 1_000:.1f} mil".replace(".", ",")
+    return format_number(value)
+
+
+def humanize_label(value: str) -> str:
+    words = value.replace("_", " ").split()
+    return " ".join(word.capitalize() for word in words)
+
+
 def api_status() -> bool:
     try:
         fetch_json("/health")
@@ -129,26 +209,49 @@ def api_status() -> bool:
 def style_figure(fig: go.Figure) -> go.Figure:
     fig.update_layout(
         template="plotly_white",
-        height=390,
-        margin={"l": 20, "r": 20, "t": 45, "b": 20},
+        height=420,
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#ffffff",
+        colorway=EXECUTIVE_COLORS,
+        margin={"l": 28, "r": 24, "t": 62, "b": 34},
         font={"family": "Arial", "size": 13, "color": "#344054"},
+        title={"font": {"size": 18, "color": "#172033"}, "x": 0.02, "xanchor": "left"},
         legend={"orientation": "h", "yanchor": "bottom", "y": 1.02, "xanchor": "right", "x": 1},
     )
-    fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(gridcolor="#eef2f6")
+    fig.update_xaxes(showgrid=False, zeroline=False, linecolor="#d9e1ea")
+    fig.update_yaxes(gridcolor="#edf1f5", zeroline=False, linecolor="#d9e1ea")
     return fig
 
 
+def render_kpi_card(label: str, value: str, note: str = "", accent: str = "#1F4E79") -> None:
+    st.markdown(
+        f"""
+        <div class="kpi-card" style="border-top-color: {accent};">
+            <div>
+                <div class="kpi-label">{label}</div>
+                <div class="kpi-value">{value}</div>
+            </div>
+            <div class="kpi-note">{note}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
 def render_header() -> str:
-    st.title("CommercePulse Brasil")
     online = api_status()
     status_class = "status-ok" if online else "status-off"
     status_text = "online" if online else "offline"
+    st.title("CommercePulse Brasil")
     st.markdown(
         f"""
-        <div class="executive-strip">
-            Plataforma executiva de dados e IA para e-commerce brasileiro.
-            API <span class="{status_class}">{status_text}</span> em {API_BASE_URL}.
+        <div class="hero-panel">
+            <div class="hero-title">Painel executivo de performance, economia e IA</div>
+            <div class="hero-text">
+                E-commerce brasileiro integrado a indicadores oficiais, modelos analiticos
+                e observabilidade operacional.
+                API <span class="{status_class}">{status_text}</span>.
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -163,24 +266,67 @@ def render_overview() -> None:
     segments = dataframe_from_api("/customers/segments")
 
     cols = st.columns(5)
-    cols[0].metric("GMV total", format_currency(kpis["gmv_total"]))
-    cols[1].metric("Receita de produtos", format_currency(kpis["revenue_total"]))
-    cols[2].metric("Pedidos", format_number(kpis["orders_total"]))
-    cols[3].metric("Clientes", format_number(kpis["customers_total"]))
-    cols[4].metric("Avaliacao media", f"{kpis['average_review_score']:.2f}")
+    with cols[0]:
+        render_kpi_card(
+            "GMV total",
+            format_compact_currency(kpis["gmv_total"]),
+            "Valor bruto vendido",
+        )
+    with cols[1]:
+        render_kpi_card(
+            "Receita",
+            format_compact_currency(kpis["revenue_total"]),
+            "Produtos sem frete",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card(
+            "Pedidos",
+            format_compact_number(kpis["orders_total"]),
+            "Pedidos com itens",
+            "#B07D2B",
+        )
+    with cols[3]:
+        render_kpi_card(
+            "Clientes",
+            format_compact_number(kpis["customers_total"]),
+            "Base atendida",
+            "#6E5A8A",
+        )
+    with cols[4]:
+        render_kpi_card("Avaliacao", f"{kpis['average_review_score']:.2f}", "Nota media", "#A64B3C")
 
     cols = st.columns(4)
-    cols[0].metric("Ticket medio", format_currency(kpis["average_ticket"]))
-    cols[1].metric("Frete medio", format_currency(kpis["average_freight"]))
-    cols[2].metric("Entrega media", f"{kpis['average_delivery_days']:.2f} dias")
-    cols[3].metric("Taxa de atraso", format_percent(kpis["average_delay_rate"]))
+    with cols[0]:
+        render_kpi_card("Ticket medio", format_currency(kpis["average_ticket"]), "Por item vendido")
+    with cols[1]:
+        render_kpi_card(
+            "Frete medio",
+            format_currency(kpis["average_freight"]),
+            "Media diaria",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card(
+            "Entrega media",
+            f"{kpis['average_delivery_days']:.2f} dias",
+            "Prazo medio",
+            "#B07D2B",
+        )
+    with cols[3]:
+        render_kpi_card(
+            "Taxa de atraso",
+            format_percent(kpis["average_delay_rate"]),
+            "Entregas fora do prazo",
+            "#A64B3C",
+        )
 
     st.markdown(
         f"""
         <div class="executive-strip">
             Periodo analisado: <strong>{kpis["period_start"]}</strong> a
             <strong>{kpis["period_end"]}</strong>. Categoria lider por GMV:
-            <strong>{kpis["top_category_by_gmv"]}</strong>.
+            <strong>{humanize_label(kpis["top_category_by_gmv"])}</strong>.
         </div>
         """,
         unsafe_allow_html=True,
@@ -188,25 +334,29 @@ def render_overview() -> None:
 
     left, right = st.columns((2, 1))
     with left:
+        monthly["GMV"] = monthly["gmv"]
         fig = px.line(
             monthly,
             x="period",
-            y="gmv",
+            y="GMV",
             markers=True,
             title="Evolucao mensal do GMV",
-            labels={"period": "Mes", "gmv": "GMV"},
+            labels={"period": "Mes"},
         )
+        fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 8})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with right:
         categories_chart = categories.sort_values("gmv")
+        categories_chart["categoria"] = categories_chart["category"].map(humanize_label)
         fig = px.bar(
             categories_chart,
             x="gmv",
-            y="category",
+            y="categoria",
             orientation="h",
             title="Categorias lideres",
             labels={"gmv": "GMV", "category": "Categoria"},
         )
+        fig.update_traces(marker={"color": "#2E7D6B"})
         st.plotly_chart(style_figure(fig), use_container_width=True)
 
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
@@ -215,6 +365,7 @@ def render_overview() -> None:
         path=["segmento"],
         values="customers",
         color="average_monetary",
+        color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Composicao da base por segmento de cliente",
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
@@ -239,14 +390,17 @@ def render_sales() -> None:
         labels={"period": "Data", metric: METRIC_LABELS[metric]},
         title=f"{METRIC_LABELS[metric]} diario",
     )
+    fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 7})
     st.plotly_chart(style_figure(fig), use_container_width=True)
 
     cols = st.columns(2)
     with cols[0]:
         fig = px.bar(monthly, x="period", y="orders", title="Pedidos mensais")
+        fig.update_traces(marker={"color": "#2E7D6B"})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with cols[1]:
         fig = px.line(monthly, x="period", y="average_ticket", markers=True, title="Ticket medio")
+        fig.update_traces(line={"width": 3, "color": "#B07D2B"}, marker={"size": 7})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     st.dataframe(daily, use_container_width=True, hide_index=True)
 
@@ -255,6 +409,7 @@ def render_categories() -> None:
     st.subheader("Categorias")
     limit = st.slider("Quantidade de categorias", min_value=5, max_value=50, value=20)
     categories = dataframe_from_api("/categories/top", {"limit": limit})
+    categories["categoria"] = categories["category"].map(humanize_label)
 
     fig = px.scatter(
         categories,
@@ -262,7 +417,8 @@ def render_categories() -> None:
         y="gmv",
         size="items_sold",
         color="average_ticket",
-        hover_name="category",
+        hover_name="categoria",
+        color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Categorias por escala, GMV e ticket medio",
         labels={
             "orders": "Pedidos",
@@ -296,6 +452,7 @@ def render_economic_analysis() -> None:
         orientation="h",
         title="Correlacoes entre vendas e indicadores economicos",
         labels={"correlation": "Correlacao", "indicator": "Indicador", "metric": "Metrica"},
+        color_discrete_sequence=EXECUTIVE_COLORS,
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
     st.info("As correlacoes sao descritivas e nao implicam causalidade.")
@@ -325,6 +482,7 @@ def render_ml() -> None:
         x="segmento",
         y="customers",
         color="average_monetary",
+        color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Clientes por segmento",
         labels={"segmento": "Segmento", "customers": "Clientes", "average_monetary": "Valor medio"},
     )
@@ -338,6 +496,7 @@ def render_ml() -> None:
         barmode="group",
         title="Comparacao dos modelos de forecast",
         labels={"model_name": "Modelo", "value": "Valor", "variable": "Metrica"},
+        color_discrete_sequence=EXECUTIVE_COLORS,
     )
     st.plotly_chart(style_figure(fig), use_container_width=True)
     st.dataframe(segments, use_container_width=True, hide_index=True)
@@ -363,6 +522,7 @@ def render_anomalies() -> None:
         y="gmv",
         size="orders",
         color="anomaly_method_overlap",
+        color_discrete_sequence=["#2E7D6B", "#A64B3C"],
         title="Dias com comportamento anomalo",
         labels={
             "date": "Data",
