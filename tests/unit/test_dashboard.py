@@ -3,6 +3,7 @@ from dashboard.app import (
     format_compact_number,
     format_currency,
     format_number,
+    page_index_from_query,
 )
 
 
@@ -22,3 +23,8 @@ def test_formatters_handle_none() -> None:
 def test_compact_formatters_keep_large_cards_short() -> None:
     assert format_compact_currency(15_843_553.24) == "R$ 15,8 mi"
     assert format_compact_number(98_666) == "98,7 mil"
+
+
+def test_page_index_from_query_supports_short_links() -> None:
+    assert page_index_from_query("economia") > 0
+    assert page_index_from_query("inexistente") == 0

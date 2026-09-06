@@ -23,6 +23,16 @@ PAGES = [
     "Observabilidade",
     "Catálogo",
 ]
+PAGE_QUERY_VALUES = {
+    "resumo": "Resumo Executivo",
+    "vendas": "Vendas",
+    "categorias": "Categorias",
+    "economia": "Análise Econômica",
+    "ml": "Aprendizado de Máquina",
+    "anomalias": "Anomalias",
+    "observabilidade": "Observabilidade",
+    "catalogo": "Catálogo",
+}
 
 METRIC_LABELS = {
     "gmv": "GMV",
@@ -58,6 +68,10 @@ def apply_theme() -> None:
     st.markdown(
         """
         <style>
+        #MainMenu, footer, header, [data-testid="stToolbar"], [data-testid="stDecoration"] {
+            visibility: hidden;
+            height: 0;
+        }
         .block-container {
             padding-top: 1.2rem;
             padding-bottom: 2rem;
@@ -217,6 +231,13 @@ def normalize_path(value: str) -> str:
     return value.replace("\\", "/")
 
 
+def page_index_from_query(page_value: str | None) -> int:
+    if not page_value:
+        return 0
+    page = PAGE_QUERY_VALUES.get(page_value.lower(), page_value)
+    return PAGES.index(page) if page in PAGES else 0
+
+
 def api_status() -> bool:
     try:
         fetch_json("/health")
@@ -275,7 +296,13 @@ def render_header() -> str:
         """,
         unsafe_allow_html=True,
     )
-    return st.selectbox("Selecionar visao", PAGES, index=0, label_visibility="collapsed")
+    requested_page = st.query_params.get("page")
+    return st.selectbox(
+        "Selecionar visão",
+        PAGES,
+        index=page_index_from_query(requested_page),
+        label_visibility="collapsed",
+    )
 
 
 def render_overview() -> None:
