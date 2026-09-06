@@ -42,6 +42,15 @@ SEGMENT_LABELS = {
 
 STATUS_LABELS = {"passed": "Aprovado", "warning": "Atencao", "failed": "Falha"}
 
+REPORT_LABELS = {
+    "kpis": "Indicadores-chave de desempenho",
+    "economic": "Analise economica",
+    "forecast": "Previsao de vendas",
+    "segmentation": "Segmentacao de clientes",
+    "anomaly": "Deteccao de anomalias",
+    "reviews": "Inteligencia de avaliacoes",
+}
+
 st.set_page_config(page_title="CommercePulse Brasil", layout="wide")
 
 
@@ -196,6 +205,23 @@ def format_compact_number(value: float | int | None) -> str:
 def humanize_label(value: str) -> str:
     words = value.replace("_", " ").split()
     return " ".join(word.capitalize() for word in words)
+
+
+def normalize_path(value: str) -> str:
+    return value.replace("\\", "/")
+
+
+def prepare_catalog_table(rows: list[dict[str, Any]], name_column: str) -> pd.DataFrame:
+    table = pd.DataFrame(rows)
+    if table.empty:
+        return table
+    table["nome"] = table["name"].map(humanize_label)
+    table["linhas"] = table["rows"].map(format_number)
+    table["colunas"] = table["columns"].map(len)
+    table["caminho"] = table["path"].map(normalize_path)
+    return table[[name_column, "linhas", "colunas", "caminho"]].rename(
+        columns={name_column: "nome"}
+    )
 
 
 def api_status() -> bool:
@@ -576,12 +602,70 @@ def render_observability() -> None:
 def render_catalog() -> None:
     st.subheader("Catalogo")
     catalog = fetch_json("/catalog")
+    gold = pd.DataFrame(catalog["gold"])
+    outputs = pd.DataFrame(catalog["model_outputs"])
+    reports = pd.DataFrame(
+        [
+            {
+                "relatorio": REPORT_LABELS.get(report_type, humanize_label(report_type)),
+                "tipo": report_type,
+                "caminho": normalize_path(path),
+            }
+            for report_type, path in catalog["latest_reports"].items()
+        ]
+    )
+
+    cols = st.columns(3)
+    with cols[0]:
+        render_kpi_card("Datasets Gold", format_number(len(gold)), "Camada analitica")
+    with cols[1]:
+        render_kpi_card(
+            "Outputs de ML",
+            format_number(len(outputs)),
+            "Artefatos consumidos",
+            "#2E7D6B",
+        )
+    with cols[2]:
+        render_kpi_card(
+            "Relatorios",
+            format_number(len(reports)),
+            "Ultimos artefatos",
+            "#B07D2B",
+        )
+
     st.write("Datasets Gold")
-    st.dataframe(pd.DataFrame(catalog["gold"]), use_container_width=True, hide_index=True)
+    if gold.empty:
+        st.info("Nenhum dataset Gold encontrado.")
+    else:
+        gold["nome"] = gold["name"].map(humanize_label)
+        gold["linhas"] = gold["rows"].map(format_number)
+        gold["colunas"] = gold["columns"].map(len)
+        gold["caminho"] = gold["path"].map(normalize_path)
+        st.dataframe(
+            gold[["nome", "linhas", "colunas", "caminho"]],
+            use_container_width=True,
+            hide_index=True,
+        )
+
     st.write("Outputs de aprendizado de maquina")
-    st.dataframe(pd.DataFrame(catalog["model_outputs"]), use_container_width=True, hide_index=True)
+    if outputs.empty:
+        st.info("Nenhum output de aprendizado de maquina encontrado.")
+    else:
+        outputs["nome"] = outputs["name"].map(humanize_label)
+        outputs["linhas"] = outputs["rows"].map(format_number)
+        outputs["colunas"] = outputs["columns"].map(len)
+        outputs["caminho"] = outputs["path"].map(normalize_path)
+        st.dataframe(
+            outputs[["nome", "linhas", "colunas", "caminho"]],
+            use_container_width=True,
+            hide_index=True,
+        )
+
     st.write("Relatorios recentes")
-    st.json(catalog["latest_reports"])
+    if reports.empty:
+        st.info("Nenhum relatorio recente encontrado.")
+    else:
+        st.dataframe(reports, use_container_width=True, hide_index=True)
 
 
 def main() -> None:
