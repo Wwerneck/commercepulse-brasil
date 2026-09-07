@@ -40,6 +40,7 @@ services:
       dockerfile: docker/api.Dockerfile
     environment:
       DATA_DIR: /app/data
+      MODELS_DIR: /app/models
       MLFLOW_TRACKING_URI: http://mlflow:5000
     ports:
       - "8000:8000"

@@ -1,7 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Any
 
 from sklearn.ensemble import IsolationForest
@@ -33,9 +32,9 @@ def compare_anomaly_methods(settings: Settings | None = None) -> AnomalyDetectio
     df["anomaly_method_overlap"] = df["any_zscore_anomaly"] & df["isolation_forest_anomaly"]
 
     generated_at = datetime.now(UTC)
-    output_path = Path("models") / "outputs" / "anomaly_method_comparison.parquet"
+    output_path = cfg.models_dir / "outputs" / "anomaly_method_comparison.parquet"
     report_path = (
-        Path("models") / "reports" / f"anomaly_detection_{generated_at:%Y%m%dT%H%M%SZ}.json"
+        cfg.models_dir / "reports" / f"anomaly_detection_{generated_at:%Y%m%dT%H%M%SZ}.json"
     )
     write_parquet(df, output_path)
     report_path.parent.mkdir(parents=True, exist_ok=True)

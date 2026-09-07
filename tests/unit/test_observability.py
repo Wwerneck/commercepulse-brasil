@@ -12,6 +12,7 @@ def _settings(tmp_path: Path) -> Settings:
         app_env="test",
         log_level="INFO",
         data_dir=tmp_path / "data",
+        models_dir=tmp_path / "models",
         bcb_base_url="https://example.com/bcb",
         ibge_sidra_base_url="https://example.com/ibge",
         request_timeout_seconds=30,

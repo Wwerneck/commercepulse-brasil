@@ -1,7 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -42,9 +41,9 @@ def build_review_intelligence(settings: Settings | None = None) -> ReviewIntelli
         .reset_index()
     )
     generated_at = datetime.now(UTC)
-    output_path = Path("models") / "outputs" / "review_intelligence_summary.parquet"
+    output_path = cfg.models_dir / "outputs" / "review_intelligence_summary.parquet"
     report_path = (
-        Path("models") / "reports" / f"review_intelligence_{generated_at:%Y%m%dT%H%M%SZ}.json"
+        cfg.models_dir / "reports" / f"review_intelligence_{generated_at:%Y%m%dT%H%M%SZ}.json"
     )
     write_parquet(summary, output_path)
     report_path.parent.mkdir(parents=True, exist_ok=True)

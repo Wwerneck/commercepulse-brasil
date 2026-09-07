@@ -1,7 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Any
 
 from sklearn.cluster import KMeans
@@ -75,9 +74,9 @@ def build_customer_segmentation(settings: Settings | None = None) -> Segmentatio
     rfm["ml_segment"] = rfm["cluster"].map(labels)
 
     generated_at = datetime.now(UTC)
-    output_path = Path("models") / "outputs" / "customer_segments.parquet"
+    output_path = cfg.models_dir / "outputs" / "customer_segments.parquet"
     report_path = (
-        Path("models") / "reports" / f"customer_segmentation_{generated_at:%Y%m%dT%H%M%SZ}.json"
+        cfg.models_dir / "reports" / f"customer_segmentation_{generated_at:%Y%m%dT%H%M%SZ}.json"
     )
     write_parquet(rfm, output_path)
     report_path.parent.mkdir(parents=True, exist_ok=True)

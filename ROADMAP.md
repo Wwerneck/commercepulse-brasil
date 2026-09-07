@@ -34,7 +34,7 @@ Legenda: `[ ]` nao iniciado, `[~]` em andamento, `[x]` concluido.
 
 ## Proximo Incremento
 
-1. Inicializar repositorio Git e organizar primeiro commit, se desejado.
+1. Revisar e commitar ajustes finais de README e documentacao.
 2. Criar repositorio remoto no GitHub.
-3. Enviar primeiro push.
-4. Adicionar screenshots do dashboard ao README quando houver imagens finais.
+3. Configurar `origin` e enviar o primeiro push.
+4. Criar release tag apos validar os links e screenshots no GitHub.

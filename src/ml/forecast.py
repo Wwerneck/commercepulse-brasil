@@ -1,7 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
-from pathlib import Path
 from typing import Any
 
 import numpy as np
@@ -90,7 +89,7 @@ def train_sales_forecast_baseline(settings: Settings | None = None) -> ForecastR
 
     best = min(metrics, key=lambda item: item.mae)
     generated_at = datetime.now(UTC)
-    report_path = Path("models") / "reports" / f"sales_forecast_{generated_at:%Y%m%dT%H%M%SZ}.json"
+    report_path = cfg.models_dir / "reports" / f"sales_forecast_{generated_at:%Y%m%dT%H%M%SZ}.json"
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report = ForecastReport(
         generated_at=generated_at,

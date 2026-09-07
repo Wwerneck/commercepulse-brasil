@@ -24,6 +24,7 @@ def test_ingest_olist_csvs_writes_bronze_parquet_and_manifest(tmp_path: Path) ->
         app_env="test",
         log_level="INFO",
         data_dir=tmp_path / "data",
+        models_dir=tmp_path / "models",
         bcb_base_url="https://api.bcb.gov.br/dados/serie",
         ibge_sidra_base_url="https://apisidra.ibge.gov.br/values",
         request_timeout_seconds=1,

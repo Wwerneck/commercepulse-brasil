@@ -10,14 +10,16 @@
 - Abrir `http://127.0.0.1:8501` e validar o dashboard.
 - Abrir `http://127.0.0.1:5000` e validar os runs do MLflow.
 - Conferir README e docs principais.
+- No Windows sem `make`, rodar os comandos equivalentes: `ruff check .`, parse da DAG e `pytest`.
 
 ## Comandos Sugeridos
 
 ```bash
-git init
 git add .
 git status
-git commit -m "Build CommercePulse Brasil data and AI platform"
+git commit -m "Finalize CommercePulse Brasil portfolio release"
+git remote add origin <github-repo-url>
+git push -u origin main
 ```
 
 ## Arquivos Que Devem Ficar Fora Do Git

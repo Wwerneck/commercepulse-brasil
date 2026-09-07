@@ -12,6 +12,8 @@ A API expõe dados Gold, relatórios analíticos e resultados de ML por endpoint
 uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
+A API usa `DATA_DIR` para datasets Gold e `MODELS_DIR` para saidas e relatorios de modelos. Por padrao, os valores sao `data` e `models`.
+
 Documentacao interativa:
 
 ```text

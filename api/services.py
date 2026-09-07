@@ -23,12 +23,12 @@ from src.monitoring.observability import build_observability_report
 from src.utils.parquet import read_parquet
 
 REPORT_PATTERNS = {
-    "kpis": Path("data/gold/_analytics_reports/kpis_*.json"),
-    "economic": Path("data/gold/_analytics_reports/economic_*.json"),
-    "forecast": Path("models/reports/sales_forecast_*.json"),
-    "segmentation": Path("models/reports/customer_segmentation_*.json"),
-    "anomaly": Path("models/reports/anomaly_detection_*.json"),
-    "reviews": Path("models/reports/review_intelligence_*.json"),
+    "kpis": ("gold", Path("_analytics_reports/kpis_*.json")),
+    "economic": ("gold", Path("_analytics_reports/economic_*.json")),
+    "forecast": ("models", Path("reports/sales_forecast_*.json")),
+    "segmentation": ("models", Path("reports/customer_segmentation_*.json")),
+    "anomaly": ("models", Path("reports/anomaly_detection_*.json")),
+    "reviews": ("models", Path("reports/review_intelligence_*.json")),
 }
 
 
@@ -53,11 +53,11 @@ def _json_safe(value: Any) -> Any:
     if isinstance(value, float) and (math.isnan(value) or math.isinf(value)):
         return None
     if isinstance(value, str):
-        return _normalize_path(value)
+        return normalize_path(value)
     return value
 
 
-def _normalize_path(path: Path | str) -> str:
+def normalize_path(path: Path | str) -> str:
     return str(path).replace("\\", "/")
 
 
@@ -69,25 +69,33 @@ def _read_gold(dataset: str, settings: Settings | None = None) -> pd.DataFrame:
     return read_parquet(path)
 
 
-def _read_model_output(filename: str) -> pd.DataFrame:
-    path = Path("models") / "outputs" / filename
+def _report_pattern(report_type: str, settings: Settings | None = None) -> Path:
+    cfg = _settings(settings)
+    pattern_config = REPORT_PATTERNS.get(report_type)
+    if pattern_config is None:
+        raise HTTPException(status_code=404, detail=f"Unknown report type: {report_type}")
+    base_name, relative_pattern = pattern_config
+    base_dir = cfg.gold_dir if base_name == "gold" else cfg.models_dir
+    return base_dir / relative_pattern
+
+
+def _read_model_output(filename: str, settings: Settings | None = None) -> pd.DataFrame:
+    path = _settings(settings).models_dir / "outputs" / filename
     if not path.exists():
         raise HTTPException(status_code=404, detail=f"Model output not found: {filename}")
     return read_parquet(path)
 
 
-def latest_report_path(report_type: str) -> Path:
-    pattern = REPORT_PATTERNS.get(report_type)
-    if pattern is None:
-        raise HTTPException(status_code=404, detail=f"Unknown report type: {report_type}")
+def latest_report_path(report_type: str, settings: Settings | None = None) -> Path:
+    pattern = _report_pattern(report_type, settings)
     matches = sorted(pattern.parent.glob(pattern.name))
     if not matches:
         raise HTTPException(status_code=404, detail=f"No reports found for type: {report_type}")
     return matches[-1]
 
 
-def latest_report(report_type: str) -> dict[str, Any]:
-    path = latest_report_path(report_type)
+def latest_report(report_type: str, settings: Settings | None = None) -> dict[str, Any]:
+    path = latest_report_path(report_type, settings)
     return _json_safe(json.loads(path.read_text(encoding="utf-8")))
 
 
@@ -95,7 +103,7 @@ def dataset_info(path: Path, name: str) -> DatasetInfo:
     df = read_parquet(path)
     return DatasetInfo(
         name=name,
-        path=_normalize_path(path),
+        path=normalize_path(path),
         rows=len(df),
         columns=list(df.columns),
     )
@@ -109,19 +117,19 @@ def catalog(settings: Settings | None = None) -> dict[str, Any]:
     ]
     model_infos = [
         dataset_info(path, path.stem)
-        for path in sorted((Path("models") / "outputs").glob("*.parquet"))
+        for path in sorted((cfg.models_dir / "outputs").glob("*.parquet"))
     ]
     reports = {}
     for report_type in REPORT_PATTERNS:
         try:
-            reports[report_type] = _normalize_path(latest_report_path(report_type))
+            reports[report_type] = normalize_path(latest_report_path(report_type, cfg))
         except HTTPException:
             continue
     return {"gold": gold_infos, "model_outputs": model_infos, "latest_reports": reports}
 
 
 def kpis(settings: Settings | None = None) -> KpiResponse:
-    payload = latest_report("kpis")
+    payload = latest_report("kpis", settings)
     metrics = payload["metrics"]
     top_categories_payload = metrics.get("top_categories") or []
     top_category = top_categories_payload[0]["category"] if top_categories_payload else None
@@ -189,8 +197,7 @@ def top_categories(limit: int, settings: Settings | None = None) -> list[Categor
 
 
 def customer_segments(settings: Settings | None = None) -> list[CustomerSegmentSummary]:
-    _settings(settings)
-    df = _read_model_output("customer_segments.parquet")
+    df = _read_model_output("customer_segments.parquet", settings)
     summary = (
         df.groupby("ml_segment", dropna=False)
         .agg(
@@ -205,8 +212,12 @@ def customer_segments(settings: Settings | None = None) -> list[CustomerSegmentS
     return [CustomerSegmentSummary(**record) for record in _records(summary)]
 
 
-def anomalies(limit: int, only_overlap: bool = False) -> list[AnomalyDay]:
-    df = _read_model_output("anomaly_method_comparison.parquet")
+def anomalies(
+    limit: int,
+    only_overlap: bool = False,
+    settings: Settings | None = None,
+) -> list[AnomalyDay]:
+    df = _read_model_output("anomaly_method_comparison.parquet", settings)
     if only_overlap:
         df = df[df["anomaly_method_overlap"]]
     else:

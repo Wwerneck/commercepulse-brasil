@@ -24,6 +24,7 @@ Para usar um servidor MLflow, altere a variavel de ambiente para algo como:
 
 ```text
 MLFLOW_TRACKING_URI=http://localhost:5000
+MODELS_DIR=models
 ```
 
 ## Experimento

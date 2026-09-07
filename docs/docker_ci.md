@@ -14,6 +14,8 @@ O projeto possui configuracao Docker para PostgreSQL, MLflow, FastAPI, Streamlit
 - `dashboard`: Streamlit em `http://127.0.0.1:8501`.
 - `airflow`: Airflow standalone em `http://127.0.0.1:8080`.
 
+No Docker Compose, o PostgreSQL usa a porta `5432`. Nos scripts PowerShell locais, a instancia isolada do projeto usa `55432` para evitar conflito com instalacoes existentes.
+
 ## Execucao Com Docker
 
 Build:

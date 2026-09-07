@@ -44,7 +44,7 @@ Python, Pandas, NumPy, PyArrow, DuckDB, PostgreSQL, dbt, Airflow, scikit-learn, 
 - MLflow com 4 runs registrados.
 - API e dashboard respondendo localmente.
 - Observabilidade com `25` checks, `0` falhas e `0` avisos.
-- Suite Python com `55` testes passando.
+- Suite Python com `59` testes passando.
 
 ## Como Apresentar
 

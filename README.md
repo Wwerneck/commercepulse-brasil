@@ -31,6 +31,34 @@ flowchart TD
 
 Python, Pandas, NumPy, Requests, PyArrow, DuckDB, PostgreSQL, dbt, Airflow, scikit-learn, MLflow, FastAPI, Streamlit, Plotly, Docker, Pytest, Ruff e GitHub Actions.
 
+## Dashboard
+
+Resumo executivo:
+
+![Resumo Executivo](docs/linkedin_screenshots/01_resumo_executivo.png)
+
+Vendas:
+
+![Vendas](docs/linkedin_screenshots/02_vendas.png)
+
+Categorias e analise economica:
+
+![Categorias](docs/linkedin_screenshots/03_categorias.png)
+
+![Analise Economica](docs/linkedin_screenshots/04_analise_economica.png)
+
+Aprendizado de maquina, anomalias e observabilidade:
+
+![Aprendizado de Maquina](docs/linkedin_screenshots/05_aprendizado_de_maquina.png)
+
+![Anomalias](docs/linkedin_screenshots/06_anomalias.png)
+
+![Observabilidade](docs/linkedin_screenshots/07_observabilidade.png)
+
+Catalogo:
+
+![Catalogo](docs/linkedin_screenshots/08_catalogo.png)
+
 ## Camadas
 
 - Bronze: dados proximos da fonte, com metadados de ingestao e manifestos.
@@ -144,7 +172,7 @@ http://127.0.0.1:5000
 - PostgreSQL/Data Warehouse e dbt concluidos.
 - Airflow, Docker e CI concluidos.
 - Analytics, ML, MLflow, FastAPI, Streamlit e Observabilidade concluidos.
-- Suite atual: `55` testes Python passando.
+- Suite atual: `59` testes Python passando.
 - Observabilidade local: `25` checks, `0` falhas, `0` avisos.
 
 ## Documentacao

@@ -47,21 +47,21 @@ REQUIRED_GOLD_DATASETS = [
 ]
 
 REQUIRED_MODEL_OUTPUTS = [
-    Path("models/outputs/customer_segments.parquet"),
-    Path("models/outputs/anomaly_method_comparison.parquet"),
-    Path("models/outputs/review_intelligence_summary.parquet"),
+    Path("outputs/customer_segments.parquet"),
+    Path("outputs/anomaly_method_comparison.parquet"),
+    Path("outputs/review_intelligence_summary.parquet"),
 ]
 
 REQUIRED_REPORT_GLOBS = {
-    "bronze_quality": Path("data/bronze/_quality_reports/bronze_validation_*.json"),
-    "silver_quality": Path("data/silver/_quality_reports/silver_quality_*.json"),
-    "gold_quality": Path("data/gold/_quality_reports/gold_quality_*.json"),
-    "kpis": Path("data/gold/_analytics_reports/kpis_*.json"),
-    "economic": Path("data/gold/_analytics_reports/economic_*.json"),
-    "forecast": Path("models/reports/sales_forecast_*.json"),
-    "segmentation": Path("models/reports/customer_segmentation_*.json"),
-    "anomaly": Path("models/reports/anomaly_detection_*.json"),
-    "reviews": Path("models/reports/review_intelligence_*.json"),
+    "bronze_quality": ("bronze", Path("_quality_reports/bronze_validation_*.json")),
+    "silver_quality": ("silver", Path("_quality_reports/silver_quality_*.json")),
+    "gold_quality": ("gold", Path("_quality_reports/gold_quality_*.json")),
+    "kpis": ("gold", Path("_analytics_reports/kpis_*.json")),
+    "economic": ("gold", Path("_analytics_reports/economic_*.json")),
+    "forecast": ("models", Path("reports/sales_forecast_*.json")),
+    "segmentation": ("models", Path("reports/customer_segmentation_*.json")),
+    "anomaly": ("models", Path("reports/anomaly_detection_*.json")),
+    "reviews": ("models", Path("reports/review_intelligence_*.json")),
 }
 
 
@@ -89,6 +89,18 @@ def _file_age_hours(path: Path, generated_at: datetime) -> float:
 def _latest_match(pattern: Path) -> Path | None:
     matches = sorted(pattern.parent.glob(pattern.name))
     return matches[-1] if matches else None
+
+
+def _base_dir(settings: Settings, base_name: str) -> Path:
+    if base_name == "bronze":
+        return settings.bronze_dir
+    if base_name == "silver":
+        return settings.silver_dir
+    if base_name == "gold":
+        return settings.gold_dir
+    if base_name == "models":
+        return settings.models_dir
+    raise ValueError(f"Unknown observability base directory: {base_name}")
 
 
 def _dataset_check(path: Path, name: str, generated_at: datetime) -> ObservabilityCheck:
@@ -160,10 +172,12 @@ def build_observability_report(settings: Settings | None = None) -> Observabilit
         path = cfg.gold_dir / dataset / f"{dataset}.parquet"
         checks.append(_dataset_check(path, f"gold_{dataset}", generated_at))
 
-    for output_path in REQUIRED_MODEL_OUTPUTS:
+    for relative_output_path in REQUIRED_MODEL_OUTPUTS:
+        output_path = cfg.models_dir / relative_output_path
         checks.append(_dataset_check(output_path, f"model_output_{output_path.stem}", generated_at))
 
-    for report_name, pattern in REQUIRED_REPORT_GLOBS.items():
+    for report_name, (base_name, relative_pattern) in REQUIRED_REPORT_GLOBS.items():
+        pattern = _base_dir(cfg, base_name) / relative_pattern
         checks.append(_report_check(pattern, f"report_{report_name}", generated_at))
 
     checks_failed = sum(

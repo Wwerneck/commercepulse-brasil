@@ -11,6 +11,7 @@ class Settings:
     app_env: str
     log_level: str
     data_dir: Path
+    models_dir: Path
     bcb_base_url: str
     ibge_sidra_base_url: str
     request_timeout_seconds: int
@@ -41,6 +42,7 @@ def get_settings() -> Settings:
         app_env=os.getenv("APP_ENV", "local"),
         log_level=os.getenv("LOG_LEVEL", "INFO"),
         data_dir=Path(os.getenv("DATA_DIR", "data")),
+        models_dir=Path(os.getenv("MODELS_DIR", "models")),
         bcb_base_url=os.getenv("BCB_BASE_URL", "https://api.bcb.gov.br/dados/serie"),
         ibge_sidra_base_url=os.getenv("IBGE_SIDRA_BASE_URL", "https://apisidra.ibge.gov.br/values"),
         request_timeout_seconds=max(int(os.getenv("REQUEST_TIMEOUT_SECONDS", "30")), 1),
