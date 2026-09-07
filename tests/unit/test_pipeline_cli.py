@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from src.pipeline import build_parser
 
 
@@ -5,7 +7,7 @@ def test_build_parser_accepts_ingest_olist_command() -> None:
     args = build_parser().parse_args(["ingest-olist", "--source-dir", "data/raw/olist"])
 
     assert args.command == "ingest-olist"
-    assert str(args.source_dir) == "data\\raw\\olist"
+    assert args.source_dir == Path("data/raw/olist")
 
 
 def test_build_parser_accepts_bcb_dates() -> None:
