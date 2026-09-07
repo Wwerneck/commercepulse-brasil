@@ -35,3 +35,9 @@ def test_sample_response_supports_cloud_dashboard_data() -> None:
     assert sample_response("/kpis/latest")["orders_total"] > 0
     assert len(sample_response("/sales/monthly", {"limit": 3})) == 3
     assert "payload" in sample_response("/ml/reports/forecast/latest")
+
+
+def test_sample_response_handles_missing_segment_categories(monkeypatch) -> None:
+    monkeypatch.setattr("dashboard.app.load_sample_data", lambda: {"customer_segments": []})
+
+    assert sample_response("/customers/segments/categories") == []

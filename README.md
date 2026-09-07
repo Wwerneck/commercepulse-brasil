@@ -178,7 +178,7 @@ http://127.0.0.1:5000
 - PostgreSQL/Data Warehouse e dbt concluidos.
 - Airflow, Docker e CI concluidos.
 - Analytics, ML, MLflow, FastAPI, Streamlit e Observabilidade concluidos.
-- Suite atual: `60` testes Python passando.
+- Suite atual: `61` testes Python passando.
 - Observabilidade local: `25` checks, `0` falhas, `0` avisos.
 
 ## Documentacao

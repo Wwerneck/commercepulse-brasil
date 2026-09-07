@@ -210,7 +210,7 @@ def sample_response(path: str, params: dict[str, Any] | None = None) -> Any:
     if path == "/customers/segments":
         return sample["customer_segments"]
     if path == "/customers/segments/categories":
-        return sample["segment_categories"]
+        return sample.get("segment_categories", [])
     if path == "/anomalies":
         anomalies = sample["anomalies"]
         if (params or {}).get("only_overlap"):
@@ -501,26 +501,29 @@ def render_overview() -> None:
         st.dataframe(segment_table, use_container_width=True, hide_index=True)
 
     segment_categories = dataframe_from_api("/customers/segments/categories")
-    segment_categories["segmento"] = (
-        segment_categories["ml_segment"].map(SEGMENT_LABELS).fillna(segment_categories["ml_segment"])
-    )
-    segment_categories["categoria"] = segment_categories["category"].map(humanize_label)
-    segment_categories["gmv_label"] = segment_categories["gmv"].map(format_compact_currency)
-    fig = px.bar(
-        segment_categories.sort_values(["segmento", "gmv"], ascending=[True, True]),
-        x="gmv",
-        y="categoria",
-        color="segmento",
-        facet_col="segmento",
-        facet_col_wrap=3,
-        text="gmv_label",
-        title="Categorias mais desejadas por segmento",
-        labels={"gmv": "GMV", "categoria": "Categoria", "segmento": "Segmento"},
-        color_discrete_sequence=EXECUTIVE_COLORS,
-    )
-    fig.update_traces(textposition="outside", cliponaxis=False)
-    fig.update_layout(showlegend=False)
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    if not segment_categories.empty:
+        segment_categories["segmento"] = (
+            segment_categories["ml_segment"]
+            .map(SEGMENT_LABELS)
+            .fillna(segment_categories["ml_segment"])
+        )
+        segment_categories["categoria"] = segment_categories["category"].map(humanize_label)
+        segment_categories["gmv_label"] = segment_categories["gmv"].map(format_compact_currency)
+        fig = px.bar(
+            segment_categories.sort_values(["segmento", "gmv"], ascending=[True, True]),
+            x="gmv",
+            y="categoria",
+            color="segmento",
+            facet_col="segmento",
+            facet_col_wrap=3,
+            text="gmv_label",
+            title="Categorias mais desejadas por segmento",
+            labels={"gmv": "GMV", "categoria": "Categoria", "segmento": "Segmento"},
+            color_discrete_sequence=EXECUTIVE_COLORS,
+        )
+        fig.update_traces(textposition="outside", cliponaxis=False)
+        fig.update_layout(showlegend=False)
+        st.plotly_chart(style_figure(fig), use_container_width=True)
 
 
 def render_sales() -> None:
