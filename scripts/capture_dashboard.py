@@ -25,7 +25,8 @@ def main() -> None:
         page = browser.new_page(viewport={"width": 1600, "height": 1100}, device_scale_factor=1)
         for filename, page_key in PAGES.items():
             page.goto(f"http://127.0.0.1:8501/?page={page_key}", wait_until="networkidle")
-            page.wait_for_timeout(3500)
+            page.wait_for_selector(".stMainBlockContainer", timeout=15000)
+            page.wait_for_timeout(8000)
             page.screenshot(path=output_dir / filename, full_page=True)
         browser.close()
 

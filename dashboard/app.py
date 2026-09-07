@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 import os
@@ -178,6 +178,8 @@ def apply_theme() -> None:
 
 @st.cache_data(ttl=300)
 def fetch_json(path: str, params: dict[str, Any] | None = None) -> Any:
+    if not is_api_available():
+        return sample_response(path, params=params)
     try:
         response = requests.get(f"{API_BASE_URL}{path}", params=params, timeout=10)
         response.raise_for_status()
@@ -308,13 +310,18 @@ def page_index_from_query(page_value: str | None) -> int:
     return PAGES.index(page) if page in PAGES else 0
 
 
-def api_status() -> bool:
+@st.cache_data(ttl=300)
+def is_api_available() -> bool:
     try:
         response = requests.get(f"{API_BASE_URL}/health", timeout=3)
         response.raise_for_status()
     except requests.RequestException:
         return False
     return True
+
+
+def api_status() -> bool:
+    return is_api_available()
 
 
 def style_figure(fig: go.Figure) -> go.Figure:
@@ -464,7 +471,7 @@ def render_overview() -> None:
             hover_data={"orders": ":,.0f", "customers": ":,.0f", "average_ticket": ":.2f"},
         )
         fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 8})
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        st.plotly_chart(style_figure(fig), width="stretch")
     with right:
         categories_chart = categories.sort_values("gmv")
         categories_chart["categoria"] = categories_chart["category"].map(humanize_label)
@@ -480,8 +487,12 @@ def render_overview() -> None:
             hover_data={"orders": ":,.0f", "items_sold": ":,.0f", "average_ticket": ":.2f"},
         )
         fig.update_traces(marker={"color": "#2E7D6B"})
-        add_bar_labels(fig)
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        fig.update_traces(
+            textposition="inside",
+            insidetextanchor="end",
+            textfont={"color": "#ffffff"},
+        )
+        st.plotly_chart(style_figure(fig), width="stretch")
 
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
     segments["clientes"] = segments["customers"].map(format_compact_number)
@@ -513,7 +524,7 @@ def render_overview() -> None:
         )
         fig.update_layout(coloraxis_colorbar={"title": "Valor medio"})
         add_bar_labels(fig)
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        st.plotly_chart(style_figure(fig), width="stretch")
     with right:
         segment_table = segments.sort_values("customers", ascending=False)[
             ["segmento", "clientes", "valor_medio", "average_recency_days"]
@@ -528,7 +539,7 @@ def render_overview() -> None:
         segment_table["Recencia media"] = segment_table["Recencia media"].map(
             lambda value: f"{value:.1f} dias"
         )
-        st.dataframe(segment_table, use_container_width=True, hide_index=True)
+        st.dataframe(segment_table, width="stretch", hide_index=True)
 
     segment_categories = dataframe_from_api("/customers/segments/categories")
     if not segment_categories.empty:
@@ -571,7 +582,7 @@ def render_overview() -> None:
                 )
                 fig.update_traces(marker={"color": "#1F4E79"})
                 add_bar_labels(fig)
-                st.plotly_chart(style_figure(fig), use_container_width=True)
+                st.plotly_chart(style_figure(fig), width="stretch")
                 st.dataframe(
                     segment_slice.sort_values("gmv", ascending=False)[
                         ["categoria", "gmv_label", "pedidos", "itens"]
@@ -583,7 +594,7 @@ def render_overview() -> None:
                             "itens": "Itens",
                         }
                     ),
-                    use_container_width=True,
+                    width="stretch",
                     hide_index=True,
                 )
 
@@ -609,7 +620,7 @@ def render_sales() -> None:
         hover_data={"orders": ":,.0f", "gmv": ":.2f", "average_ticket": ":.2f"},
     )
     fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 7})
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    st.plotly_chart(style_figure(fig), width="stretch")
 
     cols = st.columns(2)
     with cols[0]:
@@ -625,7 +636,7 @@ def render_sales() -> None:
         )
         fig.update_traces(marker={"color": "#2E7D6B"})
         add_bar_labels(fig)
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        st.plotly_chart(style_figure(fig), width="stretch")
     with cols[1]:
         fig = px.line(
             monthly,
@@ -637,8 +648,8 @@ def render_sales() -> None:
             hover_data={"orders": ":,.0f", "gmv": ":.2f"},
         )
         fig.update_traces(line={"width": 3, "color": "#B07D2B"}, marker={"size": 7})
-        st.plotly_chart(style_figure(fig), use_container_width=True)
-    st.dataframe(daily, use_container_width=True, hide_index=True)
+        st.plotly_chart(style_figure(fig), width="stretch")
+    st.dataframe(daily, width="stretch", hide_index=True)
 
 
 def render_categories() -> None:
@@ -647,28 +658,49 @@ def render_categories() -> None:
     categories = dataframe_from_api("/categories/top", {"limit": limit})
     categories["categoria"] = categories["category"].map(humanize_label)
     categories["gmv_label"] = categories["gmv"].map(format_compact_currency)
+    categories["orders_label"] = categories["orders"].map(format_compact_number)
+    categories["ticket_label"] = categories["average_ticket"].map(format_currency)
 
-    fig = px.scatter(
-        categories,
-        x="orders",
-        y="gmv",
-        size="items_sold",
+    ranked = categories.sort_values("gmv", ascending=True)
+    fig = px.bar(
+        ranked,
+        x="gmv",
+        y="categoria",
+        orientation="h",
+        text="gmv_label",
         color="average_ticket",
-        text="categoria",
-        hover_name="categoria",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
-        title="Categorias por escala, GMV e ticket médio",
+        title="Ranking de categorias por GMV",
         labels={
-            "orders": "Pedidos",
             "gmv": "GMV",
-            "items_sold": "Itens vendidos",
+            "categoria": "Categoria",
             "average_ticket": "Ticket médio",
         },
-        hover_data={"gmv_label": False, "revenue": ":.2f", "freight_value": ":.2f"},
+        hover_data={
+            "orders_label": True,
+            "ticket_label": True,
+            "items_sold": ":,.0f",
+            "revenue": ":.2f",
+            "freight_value": ":.2f",
+            "gmv_label": False,
+        },
     )
-    fig.update_traces(textposition="top center")
-    st.plotly_chart(style_figure(fig), use_container_width=True)
-    st.dataframe(categories, use_container_width=True, hide_index=True)
+    add_bar_labels(fig)
+    st.plotly_chart(style_figure(fig), width="stretch")
+
+    table = categories.sort_values("gmv", ascending=False)[
+        ["categoria", "gmv_label", "orders_label", "items_sold", "ticket_label"]
+    ].rename(
+        columns={
+            "categoria": "Categoria",
+            "gmv_label": "GMV",
+            "orders_label": "Pedidos",
+            "items_sold": "Itens",
+            "ticket_label": "Ticket médio",
+        }
+    )
+    table["Itens"] = table["Itens"].map(format_number)
+    st.dataframe(table, width="stretch", hide_index=True)
 
 
 def render_economic_analysis() -> None:
@@ -708,11 +740,11 @@ def render_economic_analysis() -> None:
         labels={"correlation": "Correlação", "indicator": "Indicador", "metric": "Métrica"},
         color_discrete_sequence=EXECUTIVE_COLORS,
     )
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    st.plotly_chart(style_figure(fig), width="stretch")
     st.info("As correlações são descritivas e não implicam causalidade.")
     st.dataframe(
         correlations.drop(columns=["correlacao_abs"]),
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
     )
 
@@ -758,7 +790,7 @@ def render_ml() -> None:
         labels={"segmento": "Segmento", "customers": "Clientes", "average_monetary": "Valor médio"},
     )
     add_bar_labels(fig)
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    st.plotly_chart(style_figure(fig), width="stretch")
 
     metric_rows = pd.DataFrame(forecast["metrics"])
     error_rows = metric_rows.melt(
@@ -781,15 +813,15 @@ def render_ml() -> None:
         color_discrete_sequence=EXECUTIVE_COLORS,
     )
     add_bar_labels(fig)
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    st.plotly_chart(style_figure(fig), width="stretch")
     metric_rows["mape"] = metric_rows["mape"].map(format_percent)
     metric_rows["mae"] = metric_rows["mae"].map(format_currency)
     metric_rows["rmse"] = metric_rows["rmse"].map(format_currency)
     metric_rows = metric_rows.rename(
         columns={"model_name": "Modelo", "mae": "MAE", "rmse": "RMSE", "mape": "MAPE"}
     )
-    st.dataframe(metric_rows, use_container_width=True, hide_index=True)
-    st.dataframe(segments, use_container_width=True, hide_index=True)
+    st.dataframe(metric_rows, width="stretch", hide_index=True)
+    st.dataframe(segments, width="stretch", hide_index=True)
 
 
 def render_anomalies() -> None:
@@ -829,8 +861,8 @@ def render_anomalies() -> None:
             "anomaly_method_overlap": "Sobreposição",
         },
     )
-    st.plotly_chart(style_figure(fig), use_container_width=True)
-    st.dataframe(anomalies, use_container_width=True, hide_index=True)
+    st.plotly_chart(style_figure(fig), width="stretch")
+    st.dataframe(anomalies, width="stretch", hide_index=True)
 
 
 def render_observability() -> None:
@@ -897,14 +929,15 @@ def render_observability() -> None:
             y="area",
             orientation="h",
             text="checks_label",
-            color="failures",
-            color_continuous_scale=["#2E7D6B", "#A64B3C"],
+            color="area",
             title="Checks por área monitorada",
-            labels={"checks": "Checks", "area": "Área", "failures": "Falhas"},
+            labels={"checks": "Checks", "area": "Área"},
             hover_data={"avg_age": True, "avg_age_hours": False},
+            color_discrete_sequence=["#1F4E79", "#2E7D6B", "#B07D2B"],
         )
+        fig.update_layout(showlegend=False)
         add_bar_labels(fig)
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        st.plotly_chart(style_figure(fig), width="stretch")
     with right:
         freshness = by_area.sort_values("avg_age_hours", ascending=False)
         st.write("Atualização dos artefatos")
@@ -912,7 +945,7 @@ def render_observability() -> None:
             freshness[["area", "checks_label", "avg_age"]].rename(
                 columns={"area": "Área", "checks_label": "Checks", "avg_age": "Idade média"}
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -932,7 +965,7 @@ def render_observability() -> None:
                     "path": "Caminho",
                 }
             ),
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -955,7 +988,7 @@ def render_observability() -> None:
     audit["Idade"] = audit["Idade"].map(lambda value: None if pd.isna(value) else value)
     audit["Idade"] = audit["Idade"].map(format_age)
     st.write("Inventário de checks")
-    st.dataframe(audit, use_container_width=True, hide_index=True)
+    st.dataframe(audit, width="stretch", hide_index=True)
 
 
 def render_catalog() -> None:
@@ -1002,7 +1035,7 @@ def render_catalog() -> None:
         gold["caminho"] = gold["path"].map(normalize_path)
         st.dataframe(
             gold[["nome", "linhas", "colunas", "caminho"]],
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -1016,7 +1049,7 @@ def render_catalog() -> None:
         outputs["caminho"] = outputs["path"].map(normalize_path)
         st.dataframe(
             outputs[["nome", "linhas", "colunas", "caminho"]],
-            use_container_width=True,
+            width="stretch",
             hide_index=True,
         )
 
@@ -1024,7 +1057,7 @@ def render_catalog() -> None:
     if reports.empty:
         st.info("Nenhum relatório recente encontrado.")
     else:
-        st.dataframe(reports, use_container_width=True, hide_index=True)
+        st.dataframe(reports, width="stretch", hide_index=True)
 
 
 def main() -> None:
@@ -1051,3 +1084,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
