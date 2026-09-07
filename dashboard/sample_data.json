@@ -3789,5 +3789,157 @@
       "anomaly": "models/reports/anomaly_detection_20260906T222155Z.json",
       "reviews": "models/reports/review_intelligence_20260906T222223Z.json"
     }
-  }
+  },
+  "segment_categories": [
+    {
+      "ml_segment": "at_risk",
+      "category": "bed_bath_table",
+      "orders": 2365,
+      "items": 2681,
+      "revenue": 262386.2,
+      "freight": 46998.13,
+      "gmv": 309384.33,
+      "rank": 1.0
+    },
+    {
+      "ml_segment": "at_risk",
+      "category": "health_beauty",
+      "orders": 1789,
+      "items": 1935,
+      "revenue": 208416.38,
+      "freight": 31737.87,
+      "gmv": 240154.25,
+      "rank": 2.0
+    },
+    {
+      "ml_segment": "at_risk",
+      "category": "sports_leisure",
+      "orders": 1845,
+      "items": 2096,
+      "revenue": 193690.35,
+      "freight": 39230.43,
+      "gmv": 232920.78,
+      "rank": 3.0
+    },
+    {
+      "ml_segment": "at_risk",
+      "category": "furniture_decor",
+      "orders": 1879,
+      "items": 2353,
+      "revenue": 180641.68,
+      "freight": 44729.06,
+      "gmv": 225370.74,
+      "rank": 4.0
+    },
+    {
+      "ml_segment": "at_risk",
+      "category": "cool_stuff",
+      "orders": 1215,
+      "items": 1266,
+      "revenue": 171017.82,
+      "freight": 24529.12,
+      "gmv": 195546.94,
+      "rank": 5.0
+    },
+    {
+      "ml_segment": "recent",
+      "category": "health_beauty",
+      "orders": 3906,
+      "items": 4298,
+      "revenue": 481925.42,
+      "freight": 80710.16,
+      "gmv": 562635.58,
+      "rank": 1.0
+    },
+    {
+      "ml_segment": "recent",
+      "category": "watches_gifts",
+      "orders": 2594,
+      "items": 2738,
+      "revenue": 416148.98,
+      "freight": 44821.37,
+      "gmv": 460970.35,
+      "rank": 2.0
+    },
+    {
+      "ml_segment": "recent",
+      "category": "bed_bath_table",
+      "orders": 3362,
+      "items": 4049,
+      "revenue": 350408.55,
+      "freight": 79331.87,
+      "gmv": 429740.42,
+      "rank": 3.0
+    },
+    {
+      "ml_segment": "recent",
+      "category": "sports_leisure",
+      "orders": 2619,
+      "items": 2931,
+      "revenue": 300646.47000000003,
+      "freight": 56479.85,
+      "gmv": 357126.32,
+      "rank": 4.0
+    },
+    {
+      "ml_segment": "recent",
+      "category": "housewares",
+      "orders": 2601,
+      "items": 3040,
+      "revenue": 268713.26,
+      "freight": 66518.42,
+      "gmv": 335231.68,
+      "rank": 5.0
+    },
+    {
+      "ml_segment": "standard",
+      "category": "watches_gifts",
+      "orders": 2268,
+      "items": 2434,
+      "revenue": 667493.13,
+      "freight": 42764.02,
+      "gmv": 710257.15,
+      "rank": 1.0
+    },
+    {
+      "ml_segment": "standard",
+      "category": "health_beauty",
+      "orders": 3141,
+      "items": 3437,
+      "revenue": 568339.54,
+      "freight": 70118.7,
+      "gmv": 638458.24,
+      "rank": 2.0
+    },
+    {
+      "ml_segment": "standard",
+      "category": "computers_accessories",
+      "orders": 2857,
+      "items": 3519,
+      "revenue": 504352.83,
+      "freight": 67647.15,
+      "gmv": 571999.98,
+      "rank": 3.0
+    },
+    {
+      "ml_segment": "standard",
+      "category": "sports_leisure",
+      "orders": 3256,
+      "items": 3614,
+      "revenue": 493712.15,
+      "freight": 72897.23,
+      "gmv": 566609.38,
+      "rank": 4.0
+    },
+    {
+      "ml_segment": "standard",
+      "category": "bed_bath_table",
+      "orders": 3690,
+      "items": 4385,
+      "revenue": 424193.93,
+      "freight": 78363.04,
+      "gmv": 502556.97,
+      "rank": 5.0
+    }
+  ]
 }
