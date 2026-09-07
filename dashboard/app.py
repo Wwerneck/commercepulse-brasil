@@ -274,6 +274,24 @@ def add_bar_labels(fig: go.Figure) -> go.Figure:
     return fig
 
 
+def format_age(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    if value < 1:
+        return f"{value * 60:.0f} min"
+    return f"{value:.1f} h"
+
+
+def observability_area(name: str) -> str:
+    if name.startswith("gold_"):
+        return "Gold"
+    if name.startswith("model_output_"):
+        return "ML outputs"
+    if name.startswith("report_"):
+        return "Relatórios"
+    return "Sistema"
+
+
 def humanize_label(value: str) -> str:
     words = value.replace("_", " ").split()
     return " ".join(word.capitalize() for word in words)
@@ -844,17 +862,100 @@ def render_observability() -> None:
     if checks.empty:
         st.info("Nenhum check registrado.")
         return
-    checks["status"] = checks["status"].map(STATUS_LABELS).fillna(checks["status"])
-    fig = px.histogram(
-        checks,
-        x="status",
-        color="severity",
-        barmode="group",
-        title="Distribuição dos checks operacionais",
-        labels={"status": "Status", "severity": "Severidade"},
+    checks["area"] = checks["name"].map(observability_area)
+    checks["status_label"] = checks["status"].map(STATUS_LABELS).fillna(checks["status"])
+    checks["check"] = checks["name"].map(humanize_label)
+    checks["rows"] = checks["details"].map(
+        lambda item: item.get("rows") if isinstance(item, dict) else None
     )
-    st.plotly_chart(style_figure(fig), use_container_width=True)
-    st.dataframe(checks.drop(columns=["details"]), use_container_width=True, hide_index=True)
+    checks["age_hours"] = checks["details"].map(
+        lambda item: item.get("age_hours") if isinstance(item, dict) else None
+    )
+    checks["path"] = checks["details"].map(
+        lambda item: normalize_path(item.get("path", item.get("pattern", "")))
+        if isinstance(item, dict)
+        else ""
+    )
+
+    by_area = (
+        checks.groupby("area", as_index=False)
+        .agg(
+            checks=("name", "count"),
+            failures=("status", lambda values: int((values == "failed").sum())),
+            avg_age_hours=("age_hours", "mean"),
+        )
+        .sort_values("checks", ascending=True)
+    )
+    by_area["checks_label"] = by_area["checks"].map(format_number)
+    by_area["avg_age"] = by_area["avg_age_hours"].map(format_age)
+
+    left, right = st.columns((1, 1))
+    with left:
+        fig = px.bar(
+            by_area,
+            x="checks",
+            y="area",
+            orientation="h",
+            text="checks_label",
+            color="failures",
+            color_continuous_scale=["#2E7D6B", "#A64B3C"],
+            title="Checks por área monitorada",
+            labels={"checks": "Checks", "area": "Área", "failures": "Falhas"},
+            hover_data={"avg_age": True, "avg_age_hours": False},
+        )
+        add_bar_labels(fig)
+        st.plotly_chart(style_figure(fig), use_container_width=True)
+    with right:
+        freshness = by_area.sort_values("avg_age_hours", ascending=False)
+        st.write("Atualização dos artefatos")
+        st.dataframe(
+            freshness[["area", "checks_label", "avg_age"]].rename(
+                columns={"area": "Área", "checks_label": "Checks", "avg_age": "Idade média"}
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    attention = checks[checks["status"] == "failed"]
+    if attention.empty:
+        st.success("Todos os checks monitorados estao aprovados.")
+    else:
+        st.warning("Existem checks que precisam de revisão.")
+        st.dataframe(
+            attention[["area", "check", "status_label", "severity", "message", "path"]].rename(
+                columns={
+                    "area": "Área",
+                    "check": "Check",
+                    "status_label": "Status",
+                    "severity": "Severidade",
+                    "message": "Mensagem",
+                    "path": "Caminho",
+                }
+            ),
+            use_container_width=True,
+            hide_index=True,
+        )
+
+    audit = checks.sort_values(["area", "severity", "check"])[
+        ["area", "check", "status_label", "severity", "rows", "age_hours", "path"]
+    ].rename(
+        columns={
+            "area": "Área",
+            "check": "Check",
+            "status_label": "Status",
+            "severity": "Severidade",
+            "rows": "Linhas",
+            "age_hours": "Idade",
+            "path": "Caminho",
+        }
+    )
+    audit["Linhas"] = audit["Linhas"].map(
+        lambda value: "-" if pd.isna(value) else format_number(value)
+    )
+    audit["Idade"] = audit["Idade"].map(lambda value: None if pd.isna(value) else value)
+    audit["Idade"] = audit["Idade"].map(format_age)
+    st.write("Inventário de checks")
+    st.dataframe(audit, use_container_width=True, hide_index=True)
 
 
 def render_catalog() -> None:
