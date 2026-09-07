@@ -453,15 +453,50 @@ def render_overview() -> None:
         st.plotly_chart(style_figure(fig), use_container_width=True)
 
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
-    fig = px.treemap(
-        segments,
-        path=["segmento"],
-        values="customers",
-        color="average_monetary",
-        color_continuous_scale=["#dfe8f2", "#1F4E79"],
-        title="Composição da base por segmento de cliente",
-    )
-    st.plotly_chart(style_figure(fig), use_container_width=True)
+    segments["clientes"] = segments["customers"].map(format_compact_number)
+    segments["valor_medio"] = segments["average_monetary"].map(format_currency)
+    segments_chart = segments.sort_values("customers", ascending=True)
+
+    left, right = st.columns((2, 1))
+    with left:
+        fig = px.bar(
+            segments_chart,
+            x="customers",
+            y="segmento",
+            orientation="h",
+            text="clientes",
+            color="average_monetary",
+            color_continuous_scale=["#dfe8f2", "#1F4E79"],
+            title="Clientes por segmento",
+            labels={
+                "customers": "Clientes",
+                "segmento": "Segmento",
+                "average_monetary": "Valor medio",
+            },
+            hover_data={
+                "clientes": False,
+                "average_monetary": ":.2f",
+                "average_recency_days": ":.1f",
+                "average_frequency": ":.2f",
+            },
+        )
+        fig.update_traces(textposition="outside", marker_line_width=0, cliponaxis=False)
+        st.plotly_chart(style_figure(fig), use_container_width=True)
+    with right:
+        segment_table = segments.sort_values("customers", ascending=False)[
+            ["segmento", "clientes", "valor_medio", "average_recency_days"]
+        ].rename(
+            columns={
+                "segmento": "Segmento",
+                "clientes": "Clientes",
+                "valor_medio": "Valor medio",
+                "average_recency_days": "Recencia media",
+            }
+        )
+        segment_table["Recencia media"] = segment_table["Recencia media"].map(
+            lambda value: f"{value:.1f} dias"
+        )
+        st.dataframe(segment_table, use_container_width=True, hide_index=True)
 
 
 def render_sales() -> None:
