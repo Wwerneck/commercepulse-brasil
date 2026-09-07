@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import json
 import os
+from pathlib import Path
 from typing import Any
 
 import pandas as pd
@@ -10,6 +12,7 @@ import requests
 import streamlit as st
 
 API_BASE_URL = os.getenv("COMMERCEPULSE_API_URL", "http://127.0.0.1:8000")
+SAMPLE_DATA_PATH = Path(__file__).with_name("sample_data.json")
 
 EXECUTIVE_COLORS = ["#1F4E79", "#2E7D6B", "#B07D2B", "#6E5A8A", "#A64B3C", "#4F6F52"]
 
@@ -175,9 +178,50 @@ def apply_theme() -> None:
 
 @st.cache_data(ttl=300)
 def fetch_json(path: str, params: dict[str, Any] | None = None) -> Any:
-    response = requests.get(f"{API_BASE_URL}{path}", params=params, timeout=10)
-    response.raise_for_status()
-    return response.json()
+    try:
+        response = requests.get(f"{API_BASE_URL}{path}", params=params, timeout=10)
+        response.raise_for_status()
+        return response.json()
+    except requests.RequestException:
+        return sample_response(path, params=params)
+
+
+@st.cache_data
+def load_sample_data() -> dict[str, Any]:
+    if not SAMPLE_DATA_PATH.exists():
+        return {}
+    return json.loads(SAMPLE_DATA_PATH.read_text(encoding="utf-8"))
+
+
+def sample_response(path: str, params: dict[str, Any] | None = None) -> Any:
+    sample = load_sample_data()
+    limit = int((params or {}).get("limit", 500))
+
+    if path == "/health":
+        return {"status": "demo", "app": "commercepulse-brasil", "version": "0.1.0"}
+    if path == "/kpis/latest":
+        return sample["kpis"]
+    if path == "/sales/daily":
+        return sample["sales_daily"][:limit]
+    if path == "/sales/monthly":
+        return sample["sales_monthly"][:limit]
+    if path == "/categories/top":
+        return sample["categories_top"][:limit]
+    if path == "/customers/segments":
+        return sample["customer_segments"]
+    if path == "/anomalies":
+        anomalies = sample["anomalies"]
+        if (params or {}).get("only_overlap"):
+            anomalies = [item for item in anomalies if item["anomaly_method_overlap"]]
+        return anomalies[:limit]
+    if path == "/observability":
+        return sample["observability"]
+    if path == "/catalog":
+        return sample["catalog"]
+    if path.startswith("/ml/reports/") and path.endswith("/latest"):
+        report_type = path.split("/")[3]
+        return {"report_type": report_type, "path": "", "payload": sample["reports"][report_type]}
+    raise requests.HTTPError(f"Unsupported sample endpoint: {path}")
 
 
 def dataframe_from_api(path: str, params: dict[str, Any] | None = None) -> pd.DataFrame:
@@ -240,7 +284,8 @@ def page_index_from_query(page_value: str | None) -> int:
 
 def api_status() -> bool:
     try:
-        fetch_json("/health")
+        response = requests.get(f"{API_BASE_URL}/health", timeout=3)
+        response.raise_for_status()
     except requests.RequestException:
         return False
     return True
@@ -281,7 +326,7 @@ def render_kpi_card(label: str, value: str, note: str = "", accent: str = "#1F4E
 def render_header() -> str:
     online = api_status()
     status_class = "status-ok" if online else "status-off"
-    status_text = "online" if online else "offline"
+    status_text = "online" if online else "modo demonstracao"
     st.title("CommercePulse Brasil")
     st.markdown(
         f"""
@@ -733,9 +778,6 @@ def render_catalog() -> None:
 def main() -> None:
     apply_theme()
     page = render_header()
-    if not api_status():
-        st.error("API indisponível. Inicie com: uvicorn api.main:app --host 127.0.0.1 --port 8000")
-        return
 
     if page == "Resumo Executivo":
         render_overview()

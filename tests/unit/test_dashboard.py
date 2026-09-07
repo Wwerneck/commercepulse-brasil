@@ -4,6 +4,7 @@ from dashboard.app import (
     format_currency,
     format_number,
     page_index_from_query,
+    sample_response,
 )
 
 
@@ -28,3 +29,9 @@ def test_compact_formatters_keep_large_cards_short() -> None:
 def test_page_index_from_query_supports_short_links() -> None:
     assert page_index_from_query("economia") > 0
     assert page_index_from_query("inexistente") == 0
+
+
+def test_sample_response_supports_cloud_dashboard_data() -> None:
+    assert sample_response("/kpis/latest")["orders_total"] > 0
+    assert len(sample_response("/sales/monthly", {"limit": 3})) == 3
+    assert "payload" in sample_response("/ml/reports/forecast/latest")

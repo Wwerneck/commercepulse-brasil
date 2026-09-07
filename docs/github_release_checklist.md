@@ -11,6 +11,7 @@
 - Abrir `http://127.0.0.1:5000` e validar os runs do MLflow.
 - Conferir README e docs principais.
 - No Windows sem `make`, rodar os comandos equivalentes: `ruff check .`, parse da DAG e `pytest`.
+- Publicar no Streamlit Cloud com `streamlit_app.py` como arquivo principal.
 
 ## Comandos Sugeridos
 

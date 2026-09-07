@@ -1,0 +1,3793 @@
+{
+  "kpis": {
+    "period_start": "2016-09-04",
+    "period_end": "2018-09-03",
+    "gmv_total": 15843553.24,
+    "revenue_total": 13591643.7,
+    "orders_total": 98666,
+    "customers_total": 98666,
+    "items_sold_total": 112650,
+    "average_ticket": 140.64,
+    "average_freight": 19.79,
+    "active_sellers": 3095,
+    "average_delivery_days": 12.59,
+    "average_delay_rate": 0.0631,
+    "average_review_score": 3.98,
+    "best_month_by_gmv": "2017-11-01",
+    "top_category_by_gmv": "health_beauty",
+    "report_path": "data/gold/_analytics_reports/kpis_20260906T164939Z.json"
+  },
+  "sales_daily": [
+    {
+      "period": "2018-09-03",
+      "orders": 1,
+      "customers": 1,
+      "items_sold": 1,
+      "revenue": 145.0,
+      "freight_value": 21.46,
+      "gmv": 166.46,
+      "average_ticket": 166.46
+    },
+    {
+      "period": "2018-08-29",
+      "orders": 11,
+      "customers": 11,
+      "items_sold": 16,
+      "revenue": 1546.04,
+      "freight_value": 216.66,
+      "gmv": 1762.7000000000003,
+      "average_ticket": 110.16875000000002
+    },
+    {
+      "period": "2018-08-28",
+      "orders": 39,
+      "customers": 39,
+      "items_sold": 45,
+      "revenue": 3673.9100000000003,
+      "freight_value": 447.31,
+      "gmv": 4121.219999999999,
+      "average_ticket": 91.58266666666665
+    },
+    {
+      "period": "2018-08-27",
+      "orders": 66,
+      "customers": 66,
+      "items_sold": 71,
+      "revenue": 5345.909999999998,
+      "freight_value": 765.6999999999997,
+      "gmv": 6111.610000000002,
+      "average_ticket": 86.07901408450708
+    },
+    {
+      "period": "2018-08-26",
+      "orders": 73,
+      "customers": 73,
+      "items_sold": 82,
+      "revenue": 8070.709999999994,
+      "freight_value": 1262.45,
+      "gmv": 9333.16,
+      "average_ticket": 113.8190243902439
+    },
+    {
+      "period": "2018-08-25",
+      "orders": 69,
+      "customers": 69,
+      "items_sold": 75,
+      "revenue": 10599.40999999999,
+      "freight_value": 1138.35,
+      "gmv": 11737.759999999997,
+      "average_ticket": 156.5034666666666
+    },
+    {
+      "period": "2018-08-24",
+      "orders": 98,
+      "customers": 98,
+      "items_sold": 117,
+      "revenue": 9633.60999999999,
+      "freight_value": 1679.7799999999993,
+      "gmv": 11313.390000000001,
+      "average_ticket": 96.69564102564104
+    },
+    {
+      "period": "2018-08-23",
+      "orders": 142,
+      "customers": 142,
+      "items_sold": 161,
+      "revenue": 17030.869999999984,
+      "freight_value": 2509.6900000000005,
+      "gmv": 19540.560000000012,
+      "average_ticket": 121.36993788819883
+    },
+    {
+      "period": "2018-08-22",
+      "orders": 186,
+      "customers": 186,
+      "items_sold": 216,
+      "revenue": 20297.130000000012,
+      "freight_value": 3965.479999999998,
+      "gmv": 24262.610000000022,
+      "average_ticket": 112.32689814814825
+    },
+    {
+      "period": "2018-08-21",
+      "orders": 239,
+      "customers": 239,
+      "items_sold": 258,
+      "revenue": 26323.060000000045,
+      "freight_value": 4507.629999999998,
+      "gmv": 30830.690000000006,
+      "average_ticket": 119.49879844961242
+    },
+    {
+      "period": "2018-08-20",
+      "orders": 252,
+      "customers": 252,
+      "items_sold": 283,
+      "revenue": 34479.50000000009,
+      "freight_value": 5372.369999999997,
+      "gmv": 39851.86999999996,
+      "average_ticket": 140.81932862190797
+    },
+    {
+      "period": "2018-08-19",
+      "orders": 204,
+      "customers": 204,
+      "items_sold": 226,
+      "revenue": 25487.390000000036,
+      "freight_value": 4479.109999999998,
+      "gmv": 29966.499999999993,
+      "average_ticket": 132.5951327433628
+    },
+    {
+      "period": "2018-08-18",
+      "orders": 196,
+      "customers": 196,
+      "items_sold": 206,
+      "revenue": 24340.95000000003,
+      "freight_value": 4357.150000000001,
+      "gmv": 28698.099999999988,
+      "average_ticket": 139.31116504854364
+    },
+    {
+      "period": "2018-08-17",
+      "orders": 255,
+      "customers": 255,
+      "items_sold": 289,
+      "revenue": 31730.670000000046,
+      "freight_value": 5908.320000000006,
+      "gmv": 37638.99,
+      "average_ticket": 130.23871972318338
+    },
+    {
+      "period": "2018-08-16",
+      "orders": 318,
+      "customers": 318,
+      "items_sold": 353,
+      "revenue": 35670.61000000012,
+      "freight_value": 6546.700000000004,
+      "gmv": 42217.310000000005,
+      "average_ticket": 119.59577903682721
+    },
+    {
+      "period": "2018-08-15",
+      "orders": 285,
+      "customers": 285,
+      "items_sold": 317,
+      "revenue": 45574.04000000007,
+      "freight_value": 6784.609999999996,
+      "gmv": 52358.65000000009,
+      "average_ticket": 165.16924290220848
+    },
+    {
+      "period": "2018-08-14",
+      "orders": 315,
+      "customers": 315,
+      "items_sold": 342,
+      "revenue": 44192.84000000006,
+      "freight_value": 7278.529999999999,
+      "gmv": 51471.37000000002,
+      "average_ticket": 150.5010818713451
+    },
+    {
+      "period": "2018-08-13",
+      "orders": 288,
+      "customers": 288,
+      "items_sold": 321,
+      "revenue": 38613.13000000008,
+      "freight_value": 7263.78,
+      "gmv": 45876.91,
+      "average_ticket": 142.91872274143304
+    },
+    {
+      "period": "2018-08-12",
+      "orders": 197,
+      "customers": 197,
+      "items_sold": 227,
+      "revenue": 31524.210000000046,
+      "freight_value": 5215.540000000001,
+      "gmv": 36739.75000000001,
+      "average_ticket": 161.8491189427313
+    },
+    {
+      "period": "2018-08-11",
+      "orders": 186,
+      "customers": 186,
+      "items_sold": 216,
+      "revenue": 25960.930000000037,
+      "freight_value": 4604.799999999995,
+      "gmv": 30565.730000000007,
+      "average_ticket": 141.5080092592593
+    },
+    {
+      "period": "2018-08-10",
+      "orders": 253,
+      "customers": 253,
+      "items_sold": 268,
+      "revenue": 33424.7300000001,
+      "freight_value": 6160.560000000002,
+      "gmv": 39585.28999999998,
+      "average_ticket": 147.70630597014917
+    },
+    {
+      "period": "2018-08-09",
+      "orders": 283,
+      "customers": 283,
+      "items_sold": 322,
+      "revenue": 40040.2800000001,
+      "freight_value": 6694.580000000003,
+      "gmv": 46734.859999999986,
+      "average_ticket": 145.1393167701863
+    },
+    {
+      "period": "2018-08-08",
+      "orders": 315,
+      "customers": 315,
+      "items_sold": 360,
+      "revenue": 43333.0700000001,
+      "freight_value": 8027.42999999999,
+      "gmv": 51360.500000000015,
+      "average_ticket": 142.66805555555558
+    },
+    {
+      "period": "2018-08-07",
+      "orders": 366,
+      "customers": 366,
+      "items_sold": 431,
+      "revenue": 49178.98000000011,
+      "freight_value": 9115.400000000001,
+      "gmv": 58294.380000000005,
+      "average_ticket": 135.25378190255222
+    },
+    {
+      "period": "2018-08-06",
+      "orders": 372,
+      "customers": 372,
+      "items_sold": 430,
+      "revenue": 56427.390000000094,
+      "freight_value": 9433.029999999997,
+      "gmv": 65860.42000000001,
+      "average_ticket": 153.1637674418605
+    },
+    {
+      "period": "2018-08-05",
+      "orders": 276,
+      "customers": 276,
+      "items_sold": 312,
+      "revenue": 35583.76000000008,
+      "freight_value": 6688.3099999999995,
+      "gmv": 42272.06999999999,
+      "average_ticket": 135.48740384615382
+    },
+    {
+      "period": "2018-08-04",
+      "orders": 245,
+      "customers": 245,
+      "items_sold": 274,
+      "revenue": 35511.960000000094,
+      "freight_value": 5715.839999999997,
+      "gmv": 41227.800000000025,
+      "average_ticket": 150.46642335766433
+    },
+    {
+      "period": "2018-08-03",
+      "orders": 314,
+      "customers": 314,
+      "items_sold": 347,
+      "revenue": 42075.180000000146,
+      "freight_value": 7442.4000000000015,
+      "gmv": 49517.57999999997,
+      "average_ticket": 142.7019596541786
+    },
+    {
+      "period": "2018-08-02",
+      "orders": 299,
+      "customers": 299,
+      "items_sold": 336,
+      "revenue": 38462.260000000104,
+      "freight_value": 7163.400000000002,
+      "gmv": 45625.66,
+      "average_ticket": 135.79065476190476
+    },
+    {
+      "period": "2018-08-01",
+      "orders": 310,
+      "customers": 310,
+      "items_sold": 347,
+      "revenue": 40553.8000000001,
+      "freight_value": 7877.230000000004,
+      "gmv": 48431.030000000035,
+      "average_ticket": 139.5706916426514
+    },
+    {
+      "period": "2018-07-31",
+      "orders": 320,
+      "customers": 320,
+      "items_sold": 377,
+      "revenue": 45316.28000000009,
+      "freight_value": 8085.959999999996,
+      "gmv": 53402.24000000002,
+      "average_ticket": 141.65050397877988
+    },
+    {
+      "period": "2018-07-30",
+      "orders": 284,
+      "customers": 284,
+      "items_sold": 312,
+      "revenue": 39070.660000000105,
+      "freight_value": 6743.359999999995,
+      "gmv": 45814.02000000001,
+      "average_ticket": 146.83980769230772
+    },
+    {
+      "period": "2018-07-29",
+      "orders": 188,
+      "customers": 188,
+      "items_sold": 211,
+      "revenue": 31434.080000000024,
+      "freight_value": 5034.200000000003,
+      "gmv": 36468.280000000006,
+      "average_ticket": 172.83545023696686
+    },
+    {
+      "period": "2018-07-28",
+      "orders": 175,
+      "customers": 175,
+      "items_sold": 210,
+      "revenue": 25210.12000000004,
+      "freight_value": 4855.0,
+      "gmv": 30065.120000000014,
+      "average_ticket": 143.16723809523816
+    },
+    {
+      "period": "2018-07-27",
+      "orders": 189,
+      "customers": 189,
+      "items_sold": 216,
+      "revenue": 28371.750000000047,
+      "freight_value": 4959.379999999997,
+      "gmv": 33331.12999999997,
+      "average_ticket": 154.3107870370369
+    },
+    {
+      "period": "2018-07-26",
+      "orders": 247,
+      "customers": 247,
+      "items_sold": 286,
+      "revenue": 35292.72000000006,
+      "freight_value": 6492.0000000000055,
+      "gmv": 41784.71999999998,
+      "average_ticket": 146.1004195804195
+    },
+    {
+      "period": "2018-07-25",
+      "orders": 268,
+      "customers": 268,
+      "items_sold": 327,
+      "revenue": 40417.5000000001,
+      "freight_value": 7495.089999999998,
+      "gmv": 47912.59000000003,
+      "average_ticket": 146.52168195718664
+    },
+    {
+      "period": "2018-07-24",
+      "orders": 270,
+      "customers": 270,
+      "items_sold": 303,
+      "revenue": 41525.7600000001,
+      "freight_value": 6557.680000000002,
+      "gmv": 48083.44,
+      "average_ticket": 158.6912211221122
+    },
+    {
+      "period": "2018-07-23",
+      "orders": 305,
+      "customers": 305,
+      "items_sold": 347,
+      "revenue": 39911.2200000001,
+      "freight_value": 8064.4,
+      "gmv": 47975.62000000005,
+      "average_ticket": 138.2582708933719
+    },
+    {
+      "period": "2018-07-22",
+      "orders": 215,
+      "customers": 215,
+      "items_sold": 243,
+      "revenue": 27753.42000000004,
+      "freight_value": 5208.839999999998,
+      "gmv": 32962.26,
+      "average_ticket": 135.64716049382716
+    },
+    {
+      "period": "2018-07-21",
+      "orders": 187,
+      "customers": 187,
+      "items_sold": 208,
+      "revenue": 21113.580000000034,
+      "freight_value": 4388.499999999998,
+      "gmv": 25502.079999999994,
+      "average_ticket": 122.60615384615382
+    },
+    {
+      "period": "2018-07-20",
+      "orders": 249,
+      "customers": 249,
+      "items_sold": 287,
+      "revenue": 32031.440000000097,
+      "freight_value": 6030.409999999997,
+      "gmv": 38061.84999999998,
+      "average_ticket": 132.61968641114976
+    },
+    {
+      "period": "2018-07-19",
+      "orders": 253,
+      "customers": 253,
+      "items_sold": 287,
+      "revenue": 38705.58000000008,
+      "freight_value": 6205.66,
+      "gmv": 44911.24000000004,
+      "average_ticket": 156.48515679442522
+    },
+    {
+      "period": "2018-07-18",
+      "orders": 305,
+      "customers": 305,
+      "items_sold": 340,
+      "revenue": 41193.490000000085,
+      "freight_value": 7790.6599999999935,
+      "gmv": 48984.15000000003,
+      "average_ticket": 144.07102941176478
+    },
+    {
+      "period": "2018-07-17",
+      "orders": 221,
+      "customers": 221,
+      "items_sold": 244,
+      "revenue": 30421.480000000047,
+      "freight_value": 5336.929999999999,
+      "gmv": 35758.40999999999,
+      "average_ticket": 146.55086065573767
+    },
+    {
+      "period": "2018-07-16",
+      "orders": 245,
+      "customers": 245,
+      "items_sold": 264,
+      "revenue": 31308.290000000066,
+      "freight_value": 6469.839999999997,
+      "gmv": 37778.13000000003,
+      "average_ticket": 143.09897727272738
+    },
+    {
+      "period": "2018-07-15",
+      "orders": 152,
+      "customers": 152,
+      "items_sold": 167,
+      "revenue": 30037.490000000074,
+      "freight_value": 4451.910000000002,
+      "gmv": 34489.399999999994,
+      "average_ticket": 206.52335329341315
+    },
+    {
+      "period": "2018-07-14",
+      "orders": 148,
+      "customers": 148,
+      "items_sold": 160,
+      "revenue": 22257.690000000013,
+      "freight_value": 4169.330000000002,
+      "gmv": 26427.02,
+      "average_ticket": 165.168875
+    },
+    {
+      "period": "2018-07-13",
+      "orders": 167,
+      "customers": 167,
+      "items_sold": 190,
+      "revenue": 27644.230000000058,
+      "freight_value": 4885.169999999998,
+      "gmv": 32529.399999999987,
+      "average_ticket": 171.20736842105256
+    },
+    {
+      "period": "2018-07-12",
+      "orders": 121,
+      "customers": 121,
+      "items_sold": 128,
+      "revenue": 28891.770000000026,
+      "freight_value": 3677.9399999999996,
+      "gmv": 32569.70999999999,
+      "average_ticket": 254.4508593749999
+    },
+    {
+      "period": "2018-07-11",
+      "orders": 127,
+      "customers": 127,
+      "items_sold": 145,
+      "revenue": 18519.980000000007,
+      "freight_value": 3620.639999999998,
+      "gmv": 22140.62,
+      "average_ticket": 152.69393103448274
+    },
+    {
+      "period": "2018-07-10",
+      "orders": 132,
+      "customers": 132,
+      "items_sold": 151,
+      "revenue": 18724.57,
+      "freight_value": 3522.1999999999985,
+      "gmv": 22246.770000000004,
+      "average_ticket": 147.32960264900666
+    },
+    {
+      "period": "2018-07-09",
+      "orders": 148,
+      "customers": 148,
+      "items_sold": 158,
+      "revenue": 19564.85,
+      "freight_value": 3557.32,
+      "gmv": 23122.170000000006,
+      "average_ticket": 146.34284810126584
+    },
+    {
+      "period": "2018-07-08",
+      "orders": 122,
+      "customers": 122,
+      "items_sold": 147,
+      "revenue": 14410.78999999998,
+      "freight_value": 3143.9500000000003,
+      "gmv": 17554.74,
+      "average_ticket": 119.42000000000002
+    },
+    {
+      "period": "2018-07-07",
+      "orders": 91,
+      "customers": 91,
+      "items_sold": 101,
+      "revenue": 9076.559999999989,
+      "freight_value": 2200.6800000000003,
+      "gmv": 11277.239999999998,
+      "average_ticket": 111.6558415841584
+    },
+    {
+      "period": "2018-07-06",
+      "orders": 121,
+      "customers": 121,
+      "items_sold": 130,
+      "revenue": 19005.540000000023,
+      "freight_value": 3103.1299999999987,
+      "gmv": 22108.670000000002,
+      "average_ticket": 170.06669230769234
+    },
+    {
+      "period": "2018-07-05",
+      "orders": 195,
+      "customers": 195,
+      "items_sold": 221,
+      "revenue": 28809.330000000067,
+      "freight_value": 5140.15,
+      "gmv": 33949.48,
+      "average_ticket": 153.617556561086
+    },
+    {
+      "period": "2018-07-04",
+      "orders": 256,
+      "customers": 256,
+      "items_sold": 290,
+      "revenue": 35651.650000000074,
+      "freight_value": 5928.149999999992,
+      "gmv": 41579.80000000003,
+      "average_ticket": 143.3786206896553
+    },
+    {
+      "period": "2018-07-03",
+      "orders": 216,
+      "customers": 216,
+      "items_sold": 239,
+      "revenue": 26307.31000000004,
+      "freight_value": 5147.289999999999,
+      "gmv": 31454.599999999995,
+      "average_ticket": 131.60920502092048
+    },
+    {
+      "period": "2018-07-02",
+      "orders": 195,
+      "customers": 195,
+      "items_sold": 217,
+      "revenue": 23158.620000000014,
+      "freight_value": 6263.809999999997,
+      "gmv": 29422.430000000008,
+      "average_ticket": 135.5872350230415
+    },
+    {
+      "period": "2018-07-01",
+      "orders": 161,
+      "customers": 161,
+      "items_sold": 186,
+      "revenue": 24369.470000000027,
+      "freight_value": 4691.229999999999,
+      "gmv": 29060.699999999997,
+      "average_ticket": 156.24032258064514
+    },
+    {
+      "period": "2018-06-30",
+      "orders": 124,
+      "customers": 124,
+      "items_sold": 139,
+      "revenue": 15379.879999999985,
+      "freight_value": 3241.8199999999997,
+      "gmv": 18621.7,
+      "average_ticket": 133.96906474820145
+    },
+    {
+      "period": "2018-06-29",
+      "orders": 174,
+      "customers": 174,
+      "items_sold": 197,
+      "revenue": 20473.47999999999,
+      "freight_value": 4625.209999999997,
+      "gmv": 25098.68999999999,
+      "average_ticket": 127.40451776649742
+    },
+    {
+      "period": "2018-06-28",
+      "orders": 243,
+      "customers": 243,
+      "items_sold": 284,
+      "revenue": 32171.970000000085,
+      "freight_value": 6567.080000000002,
+      "gmv": 38739.050000000025,
+      "average_ticket": 136.4051056338029
+    },
+    {
+      "period": "2018-06-27",
+      "orders": 214,
+      "customers": 214,
+      "items_sold": 243,
+      "revenue": 26496.480000000054,
+      "freight_value": 6009.449999999998,
+      "gmv": 32505.92999999997,
+      "average_ticket": 133.76925925925914
+    },
+    {
+      "period": "2018-06-26",
+      "orders": 242,
+      "customers": 242,
+      "items_sold": 292,
+      "revenue": 30957.570000000094,
+      "freight_value": 6658.969999999994,
+      "gmv": 37616.54000000001,
+      "average_ticket": 128.8237671232877
+    },
+    {
+      "period": "2018-06-25",
+      "orders": 240,
+      "customers": 240,
+      "items_sold": 281,
+      "revenue": 36135.520000000084,
+      "freight_value": 5744.400000000008,
+      "gmv": 41879.919999999984,
+      "average_ticket": 149.03886120996435
+    },
+    {
+      "period": "2018-06-24",
+      "orders": 199,
+      "customers": 199,
+      "items_sold": 218,
+      "revenue": 24432.600000000028,
+      "freight_value": 5065.980000000001,
+      "gmv": 29498.58,
+      "average_ticket": 135.31458715596332
+    },
+    {
+      "period": "2018-06-23",
+      "orders": 151,
+      "customers": 151,
+      "items_sold": 172,
+      "revenue": 17501.920000000002,
+      "freight_value": 3679.1900000000014,
+      "gmv": 21181.11,
+      "average_ticket": 123.14598837209303
+    },
+    {
+      "period": "2018-06-22",
+      "orders": 179,
+      "customers": 179,
+      "items_sold": 206,
+      "revenue": 24807.270000000048,
+      "freight_value": 3945.8899999999994,
+      "gmv": 28753.160000000003,
+      "average_ticket": 139.57844660194178
+    },
+    {
+      "period": "2018-06-21",
+      "orders": 234,
+      "customers": 234,
+      "items_sold": 264,
+      "revenue": 27703.58000000005,
+      "freight_value": 5598.409999999998,
+      "gmv": 33301.99000000001,
+      "average_ticket": 126.14390151515157
+    },
+    {
+      "period": "2018-06-20",
+      "orders": 217,
+      "customers": 217,
+      "items_sold": 251,
+      "revenue": 28793.990000000045,
+      "freight_value": 5536.279999999997,
+      "gmv": 34330.27,
+      "average_ticket": 136.77398406374502
+    },
+    {
+      "period": "2018-06-19",
+      "orders": 231,
+      "customers": 231,
+      "items_sold": 261,
+      "revenue": 34630.3300000001,
+      "freight_value": 5383.270000000006,
+      "gmv": 40013.6,
+      "average_ticket": 153.3088122605364
+    },
+    {
+      "period": "2018-06-18",
+      "orders": 246,
+      "customers": 246,
+      "items_sold": 279,
+      "revenue": 34718.30000000008,
+      "freight_value": 6305.099999999997,
+      "gmv": 41023.4,
+      "average_ticket": 147.0372759856631
+    },
+    {
+      "period": "2018-06-17",
+      "orders": 152,
+      "customers": 152,
+      "items_sold": 175,
+      "revenue": 17316.32999999999,
+      "freight_value": 3435.190000000001,
+      "gmv": 20751.520000000015,
+      "average_ticket": 118.58011428571437
+    },
+    {
+      "period": "2018-06-16",
+      "orders": 165,
+      "customers": 165,
+      "items_sold": 177,
+      "revenue": 24616.05000000004,
+      "freight_value": 4384.03,
+      "gmv": 29000.079999999994,
+      "average_ticket": 163.8422598870056
+    },
+    {
+      "period": "2018-06-15",
+      "orders": 186,
+      "customers": 186,
+      "items_sold": 209,
+      "revenue": 26617.560000000038,
+      "freight_value": 4881.199999999998,
+      "gmv": 31498.75999999999,
+      "average_ticket": 150.7117703349282
+    },
+    {
+      "period": "2018-06-14",
+      "orders": 212,
+      "customers": 212,
+      "items_sold": 237,
+      "revenue": 27504.600000000046,
+      "freight_value": 5202.609999999998,
+      "gmv": 32707.209999999995,
+      "average_ticket": 138.00510548523204
+    },
+    {
+      "period": "2018-06-13",
+      "orders": 259,
+      "customers": 259,
+      "items_sold": 305,
+      "revenue": 34616.96000000013,
+      "freight_value": 6969.670000000001,
+      "gmv": 41586.63000000003,
+      "average_ticket": 136.34960655737714
+    },
+    {
+      "period": "2018-06-12",
+      "orders": 246,
+      "customers": 246,
+      "items_sold": 288,
+      "revenue": 40369.000000000065,
+      "freight_value": 6393.429999999992,
+      "gmv": 46762.43,
+      "average_ticket": 162.3695486111111
+    },
+    {
+      "period": "2018-06-11",
+      "orders": 294,
+      "customers": 294,
+      "items_sold": 338,
+      "revenue": 49669.70000000006,
+      "freight_value": 7643.579999999996,
+      "gmv": 57313.28000000002,
+      "average_ticket": 169.5659171597634
+    },
+    {
+      "period": "2018-06-10",
+      "orders": 193,
+      "customers": 193,
+      "items_sold": 224,
+      "revenue": 25501.970000000067,
+      "freight_value": 4786.279999999998,
+      "gmv": 30288.250000000007,
+      "average_ticket": 135.2154017857143
+    },
+    {
+      "period": "2018-06-09",
+      "orders": 172,
+      "customers": 172,
+      "items_sold": 192,
+      "revenue": 29325.080000000064,
+      "freight_value": 4708.689999999999,
+      "gmv": 34033.77,
+      "average_ticket": 177.25921874999997
+    },
+    {
+      "period": "2018-06-08",
+      "orders": 198,
+      "customers": 198,
+      "items_sold": 234,
+      "revenue": 26870.410000000054,
+      "freight_value": 4926.789999999998,
+      "gmv": 31797.200000000026,
+      "average_ticket": 135.8854700854702
+    },
+    {
+      "period": "2018-06-07",
+      "orders": 223,
+      "customers": 223,
+      "items_sold": 251,
+      "revenue": 37020.40000000006,
+      "freight_value": 5655.979999999996,
+      "gmv": 42676.37999999999,
+      "average_ticket": 170.0254183266932
+    },
+    {
+      "period": "2018-06-06",
+      "orders": 227,
+      "customers": 227,
+      "items_sold": 277,
+      "revenue": 26134.400000000056,
+      "freight_value": 6042.579999999996,
+      "gmv": 32176.980000000003,
+      "average_ticket": 116.16238267148016
+    },
+    {
+      "period": "2018-06-05",
+      "orders": 197,
+      "customers": 197,
+      "items_sold": 240,
+      "revenue": 30709.36000000008,
+      "freight_value": 5392.359999999998,
+      "gmv": 36101.71999999997,
+      "average_ticket": 150.42383333333322
+    },
+    {
+      "period": "2018-06-04",
+      "orders": 225,
+      "customers": 225,
+      "items_sold": 258,
+      "revenue": 28622.400000000067,
+      "freight_value": 5703.999999999995,
+      "gmv": 34326.4,
+      "average_ticket": 133.0480620155039
+    },
+    {
+      "period": "2018-06-03",
+      "orders": 191,
+      "customers": 191,
+      "items_sold": 217,
+      "revenue": 28461.660000000065,
+      "freight_value": 4408.239999999996,
+      "gmv": 32869.89999999999,
+      "average_ticket": 151.47419354838703
+    },
+    {
+      "period": "2018-06-02",
+      "orders": 142,
+      "customers": 142,
+      "items_sold": 158,
+      "revenue": 25266.62000000003,
+      "freight_value": 3673.370000000001,
+      "gmv": 28939.99000000001,
+      "average_ticket": 183.16449367088615
+    },
+    {
+      "period": "2018-06-01",
+      "orders": 184,
+      "customers": 184,
+      "items_sold": 211,
+      "revenue": 32298.920000000064,
+      "freight_value": 4983.749999999998,
+      "gmv": 37282.66999999999,
+      "average_ticket": 176.69511848341227
+    },
+    {
+      "period": "2018-05-31",
+      "orders": 133,
+      "customers": 133,
+      "items_sold": 146,
+      "revenue": 25111.280000000013,
+      "freight_value": 3045.2399999999993,
+      "gmv": 28156.520000000004,
+      "average_ticket": 192.8528767123288
+    },
+    {
+      "period": "2018-05-30",
+      "orders": 140,
+      "customers": 140,
+      "items_sold": 155,
+      "revenue": 19214.000000000004,
+      "freight_value": 3315.0800000000004,
+      "gmv": 22529.08,
+      "average_ticket": 145.34890322580645
+    },
+    {
+      "period": "2018-05-29",
+      "orders": 149,
+      "customers": 149,
+      "items_sold": 173,
+      "revenue": 25572.08000000002,
+      "freight_value": 3858.5500000000015,
+      "gmv": 29430.63000000003,
+      "average_ticket": 170.11924855491347
+    },
+    {
+      "period": "2018-05-28",
+      "orders": 143,
+      "customers": 143,
+      "items_sold": 170,
+      "revenue": 26877.47000000002,
+      "freight_value": 3427.4799999999996,
+      "gmv": 30304.949999999997,
+      "average_ticket": 178.26441176470587
+    },
+    {
+      "period": "2018-05-27",
+      "orders": 100,
+      "customers": 100,
+      "items_sold": 112,
+      "revenue": 12523.249999999985,
+      "freight_value": 2170.43,
+      "gmv": 14693.679999999993,
+      "average_ticket": 131.19357142857137
+    },
+    {
+      "period": "2018-05-26",
+      "orders": 99,
+      "customers": 99,
+      "items_sold": 116,
+      "revenue": 14799.169999999986,
+      "freight_value": 2114.9199999999996,
+      "gmv": 16914.090000000004,
+      "average_ticket": 145.8111206896552
+    },
+    {
+      "period": "2018-05-25",
+      "orders": 103,
+      "customers": 103,
+      "items_sold": 128,
+      "revenue": 15888.919999999984,
+      "freight_value": 2248.450000000001,
+      "gmv": 18137.37,
+      "average_ticket": 141.698203125
+    },
+    {
+      "period": "2018-05-24",
+      "orders": 114,
+      "customers": 114,
+      "items_sold": 130,
+      "revenue": 20073.26,
+      "freight_value": 2201.41,
+      "gmv": 22274.67000000001,
+      "average_ticket": 171.34361538461545
+    },
+    {
+      "period": "2018-05-23",
+      "orders": 132,
+      "customers": 132,
+      "items_sold": 150,
+      "revenue": 17501.049999999992,
+      "freight_value": 2761.2400000000002,
+      "gmv": 20262.290000000005,
+      "average_ticket": 135.08193333333335
+    },
+    {
+      "period": "2018-05-22",
+      "orders": 199,
+      "customers": 199,
+      "items_sold": 232,
+      "revenue": 27793.910000000073,
+      "freight_value": 4276.77,
+      "gmv": 32070.67999999997,
+      "average_ticket": 138.23568965517228
+    },
+    {
+      "period": "2018-05-21",
+      "orders": 204,
+      "customers": 204,
+      "items_sold": 239,
+      "revenue": 25404.06000000006,
+      "freight_value": 4261.91,
+      "gmv": 29665.97000000001,
+      "average_ticket": 124.12539748953978
+    },
+    {
+      "period": "2018-05-20",
+      "orders": 161,
+      "customers": 161,
+      "items_sold": 192,
+      "revenue": 19586.539999999997,
+      "freight_value": 3499.580000000002,
+      "gmv": 23086.12,
+      "average_ticket": 120.24020833333333
+    },
+    {
+      "period": "2018-05-19",
+      "orders": 139,
+      "customers": 139,
+      "items_sold": 169,
+      "revenue": 25201.290000000055,
+      "freight_value": 3118.439999999999,
+      "gmv": 28319.729999999992,
+      "average_ticket": 167.57236686390527
+    },
+    {
+      "period": "2018-05-18",
+      "orders": 236,
+      "customers": 236,
+      "items_sold": 277,
+      "revenue": 31621.520000000088,
+      "freight_value": 4808.260000000002,
+      "gmv": 36429.77999999999,
+      "average_ticket": 131.51545126353787
+    },
+    {
+      "period": "2018-05-17",
+      "orders": 227,
+      "customers": 227,
+      "items_sold": 256,
+      "revenue": 31488.47000000009,
+      "freight_value": 4478.260000000003,
+      "gmv": 35966.73000000001,
+      "average_ticket": 140.49503906250004
+    },
+    {
+      "period": "2018-05-16",
+      "orders": 357,
+      "customers": 357,
+      "items_sold": 406,
+      "revenue": 56283.7300000001,
+      "freight_value": 8455.360000000008,
+      "gmv": 64739.08999999996,
+      "average_ticket": 159.4558866995073
+    },
+    {
+      "period": "2018-05-15",
+      "orders": 352,
+      "customers": 352,
+      "items_sold": 423,
+      "revenue": 41119.85000000007,
+      "freight_value": 8386.169999999991,
+      "gmv": 49506.019999999975,
+      "average_ticket": 117.03550827423162
+    },
+    {
+      "period": "2018-05-14",
+      "orders": 364,
+      "customers": 364,
+      "items_sold": 413,
+      "revenue": 53842.38000000012,
+      "freight_value": 8388.34,
+      "gmv": 62230.72000000001,
+      "average_ticket": 150.67970944309928
+    },
+    {
+      "period": "2018-05-13",
+      "orders": 206,
+      "customers": 206,
+      "items_sold": 246,
+      "revenue": 31313.520000000102,
+      "freight_value": 4888.7699999999995,
+      "gmv": 36202.29,
+      "average_ticket": 147.16378048780487
+    },
+    {
+      "period": "2018-05-12",
+      "orders": 204,
+      "customers": 204,
+      "items_sold": 239,
+      "revenue": 29604.140000000076,
+      "freight_value": 5108.229999999998,
+      "gmv": 34712.37000000002,
+      "average_ticket": 145.24004184100426
+    },
+    {
+      "period": "2018-05-11",
+      "orders": 246,
+      "customers": 246,
+      "items_sold": 284,
+      "revenue": 37859.1900000001,
+      "freight_value": 5390.82,
+      "gmv": 43250.00999999997,
+      "average_ticket": 152.2887676056337
+    },
+    {
+      "period": "2018-05-10",
+      "orders": 279,
+      "customers": 279,
+      "items_sold": 335,
+      "revenue": 51458.67000000006,
+      "freight_value": 7413.219999999993,
+      "gmv": 58871.890000000036,
+      "average_ticket": 175.73698507462697
+    },
+    {
+      "period": "2018-05-09",
+      "orders": 342,
+      "customers": 342,
+      "items_sold": 392,
+      "revenue": 43589.120000000104,
+      "freight_value": 7379.520000000001,
+      "gmv": 50968.64000000001,
+      "average_ticket": 130.02204081632655
+    },
+    {
+      "period": "2018-05-08",
+      "orders": 327,
+      "customers": 327,
+      "items_sold": 378,
+      "revenue": 47800.690000000075,
+      "freight_value": 6919.399999999992,
+      "gmv": 54720.09000000004,
+      "average_ticket": 144.76214285714298
+    },
+    {
+      "period": "2018-05-07",
+      "orders": 371,
+      "customers": 371,
+      "items_sold": 421,
+      "revenue": 54167.480000000076,
+      "freight_value": 8292.72999999999,
+      "gmv": 62460.210000000036,
+      "average_ticket": 148.36154394299297
+    },
+    {
+      "period": "2018-05-06",
+      "orders": 210,
+      "customers": 210,
+      "items_sold": 240,
+      "revenue": 28565.970000000085,
+      "freight_value": 4428.259999999996,
+      "gmv": 32994.23,
+      "average_ticket": 137.47595833333335
+    },
+    {
+      "period": "2018-05-05",
+      "orders": 197,
+      "customers": 197,
+      "items_sold": 221,
+      "revenue": 28306.45000000005,
+      "freight_value": 4301.700000000001,
+      "gmv": 32608.149999999994,
+      "average_ticket": 147.54819004524884
+    },
+    {
+      "period": "2018-05-04",
+      "orders": 265,
+      "customers": 265,
+      "items_sold": 309,
+      "revenue": 39730.930000000095,
+      "freight_value": 5763.170000000002,
+      "gmv": 45494.09999999999,
+      "average_ticket": 147.23009708737862
+    },
+    {
+      "period": "2018-05-03",
+      "orders": 304,
+      "customers": 304,
+      "items_sold": 357,
+      "revenue": 42497.77000000009,
+      "freight_value": 7077.949999999997,
+      "gmv": 49575.719999999994,
+      "average_ticket": 138.86756302521007
+    },
+    {
+      "period": "2018-05-02",
+      "orders": 295,
+      "customers": 295,
+      "items_sold": 339,
+      "revenue": 38557.72000000012,
+      "freight_value": 6206.599999999995,
+      "gmv": 44764.319999999985,
+      "average_ticket": 132.0481415929203
+    },
+    {
+      "period": "2018-05-01",
+      "orders": 255,
+      "customers": 255,
+      "items_sold": 277,
+      "revenue": 33163.80000000009,
+      "freight_value": 5277.880000000003,
+      "gmv": 38441.67999999999,
+      "average_ticket": 138.77862815884475
+    },
+    {
+      "period": "2018-04-30",
+      "orders": 240,
+      "customers": 240,
+      "items_sold": 285,
+      "revenue": 35682.610000000044,
+      "freight_value": 5353.999999999997,
+      "gmv": 41036.61000000003,
+      "average_ticket": 143.988105263158
+    },
+    {
+      "period": "2018-04-29",
+      "orders": 171,
+      "customers": 171,
+      "items_sold": 188,
+      "revenue": 19411.699999999997,
+      "freight_value": 3649.2500000000005,
+      "gmv": 23060.94999999999,
+      "average_ticket": 122.6646276595744
+    },
+    {
+      "period": "2018-04-28",
+      "orders": 169,
+      "customers": 169,
+      "items_sold": 191,
+      "revenue": 23560.560000000052,
+      "freight_value": 3417.960000000001,
+      "gmv": 26978.519999999997,
+      "average_ticket": 141.2487958115183
+    },
+    {
+      "period": "2018-04-27",
+      "orders": 242,
+      "customers": 242,
+      "items_sold": 285,
+      "revenue": 40752.540000000095,
+      "freight_value": 6010.530000000001,
+      "gmv": 46763.07,
+      "average_ticket": 164.08094736842105
+    },
+    {
+      "period": "2018-04-26",
+      "orders": 254,
+      "customers": 254,
+      "items_sold": 294,
+      "revenue": 31631.36000000008,
+      "freight_value": 5281.409999999994,
+      "gmv": 36912.77000000002,
+      "average_ticket": 125.55363945578237
+    },
+    {
+      "period": "2018-04-25",
+      "orders": 284,
+      "customers": 284,
+      "items_sold": 321,
+      "revenue": 40995.02000000009,
+      "freight_value": 6361.449999999999,
+      "gmv": 47356.470000000016,
+      "average_ticket": 147.5279439252337
+    },
+    {
+      "period": "2018-04-24",
+      "orders": 271,
+      "customers": 271,
+      "items_sold": 311,
+      "revenue": 43083.77000000005,
+      "freight_value": 6821.2800000000025,
+      "gmv": 49905.05,
+      "average_ticket": 160.46639871382638
+    },
+    {
+      "period": "2018-04-23",
+      "orders": 285,
+      "customers": 285,
+      "items_sold": 329,
+      "revenue": 37674.270000000055,
+      "freight_value": 6689.030000000003,
+      "gmv": 44363.30000000001,
+      "average_ticket": 134.84285714285718
+    },
+    {
+      "period": "2018-04-22",
+      "orders": 200,
+      "customers": 200,
+      "items_sold": 233,
+      "revenue": 27350.900000000034,
+      "freight_value": 4640.910000000004,
+      "gmv": 31991.81000000001,
+      "average_ticket": 137.30390557939918
+    },
+    {
+      "period": "2018-04-21",
+      "orders": 156,
+      "customers": 156,
+      "items_sold": 169,
+      "revenue": 18966.340000000015,
+      "freight_value": 3499.5499999999984,
+      "gmv": 22465.890000000014,
+      "average_ticket": 132.93426035502966
+    },
+    {
+      "period": "2018-04-20",
+      "orders": 196,
+      "customers": 196,
+      "items_sold": 229,
+      "revenue": 28353.840000000044,
+      "freight_value": 4312.64,
+      "gmv": 32666.480000000014,
+      "average_ticket": 142.64838427947603
+    },
+    {
+      "period": "2018-04-19",
+      "orders": 292,
+      "customers": 292,
+      "items_sold": 355,
+      "revenue": 43287.21000000008,
+      "freight_value": 6585.039999999998,
+      "gmv": 49872.25000000007,
+      "average_ticket": 140.48521126760585
+    },
+    {
+      "period": "2018-04-18",
+      "orders": 280,
+      "customers": 280,
+      "items_sold": 315,
+      "revenue": 39472.710000000094,
+      "freight_value": 6823.020000000001,
+      "gmv": 46295.73000000001,
+      "average_ticket": 146.97057142857147
+    },
+    {
+      "period": "2018-04-17",
+      "orders": 265,
+      "customers": 265,
+      "items_sold": 311,
+      "revenue": 36682.97000000009,
+      "freight_value": 5929.819999999994,
+      "gmv": 42612.79000000001,
+      "average_ticket": 137.01861736334408
+    },
+    {
+      "period": "2018-04-16",
+      "orders": 280,
+      "customers": 280,
+      "items_sold": 320,
+      "revenue": 40412.26000000009,
+      "freight_value": 6947.219999999998,
+      "gmv": 47359.48000000007,
+      "average_ticket": 147.9983750000002
+    },
+    {
+      "period": "2018-04-15",
+      "orders": 223,
+      "customers": 223,
+      "items_sold": 264,
+      "revenue": 30524.040000000055,
+      "freight_value": 6034.15,
+      "gmv": 36558.18999999999,
+      "average_ticket": 138.4779924242424
+    },
+    {
+      "period": "2018-04-14",
+      "orders": 146,
+      "customers": 146,
+      "items_sold": 172,
+      "revenue": 18845.699999999997,
+      "freight_value": 3552.1700000000023,
+      "gmv": 22397.870000000003,
+      "average_ticket": 130.22017441860467
+    },
+    {
+      "period": "2018-04-13",
+      "orders": 202,
+      "customers": 202,
+      "items_sold": 242,
+      "revenue": 31150.360000000048,
+      "freight_value": 5290.169999999996,
+      "gmv": 36440.53000000001,
+      "average_ticket": 150.5807024793389
+    },
+    {
+      "period": "2018-04-12",
+      "orders": 255,
+      "customers": 255,
+      "items_sold": 298,
+      "revenue": 34117.580000000096,
+      "freight_value": 5827.809999999999,
+      "gmv": 39945.39000000003,
+      "average_ticket": 134.04493288590615
+    },
+    {
+      "period": "2018-04-11",
+      "orders": 274,
+      "customers": 274,
+      "items_sold": 310,
+      "revenue": 40782.9600000001,
+      "freight_value": 6421.500000000001,
+      "gmv": 47204.460000000014,
+      "average_ticket": 152.27245161290327
+    },
+    {
+      "period": "2018-04-10",
+      "orders": 201,
+      "customers": 201,
+      "items_sold": 231,
+      "revenue": 27870.56000000005,
+      "freight_value": 4664.7,
+      "gmv": 32535.26000000002,
+      "average_ticket": 140.84528138528148
+    },
+    {
+      "period": "2018-04-09",
+      "orders": 253,
+      "customers": 253,
+      "items_sold": 290,
+      "revenue": 49308.73000000008,
+      "freight_value": 6474.090000000002,
+      "gmv": 55782.82000000005,
+      "average_ticket": 192.3545517241381
+    },
+    {
+      "period": "2018-04-08",
+      "orders": 185,
+      "customers": 185,
+      "items_sold": 207,
+      "revenue": 23463.85000000005,
+      "freight_value": 4413.83,
+      "gmv": 27877.680000000004,
+      "average_ticket": 134.67478260869566
+    },
+    {
+      "period": "2018-04-07",
+      "orders": 164,
+      "customers": 164,
+      "items_sold": 184,
+      "revenue": 25517.380000000034,
+      "freight_value": 3497.4899999999993,
+      "gmv": 29014.869999999984,
+      "average_ticket": 157.68951086956514
+    },
+    {
+      "period": "2018-04-06",
+      "orders": 189,
+      "customers": 189,
+      "items_sold": 213,
+      "revenue": 27784.74000000005,
+      "freight_value": 4500.5999999999985,
+      "gmv": 32285.339999999993,
+      "average_ticket": 151.57436619718305
+    },
+    {
+      "period": "2018-04-05",
+      "orders": 266,
+      "customers": 266,
+      "items_sold": 298,
+      "revenue": 36058.790000000095,
+      "freight_value": 6160.009999999987,
+      "gmv": 42218.8,
+      "average_ticket": 141.67382550335572
+    },
+    {
+      "period": "2018-04-04",
+      "orders": 257,
+      "customers": 257,
+      "items_sold": 287,
+      "revenue": 37982.73000000007,
+      "freight_value": 5585.089999999997,
+      "gmv": 43567.82,
+      "average_ticket": 151.80425087108014
+    },
+    {
+      "period": "2018-04-03",
+      "orders": 246,
+      "customers": 246,
+      "items_sold": 279,
+      "revenue": 36246.510000000075,
+      "freight_value": 5823.999999999998,
+      "gmv": 42070.51000000002,
+      "average_ticket": 150.79035842293914
+    },
+    {
+      "period": "2018-04-02",
+      "orders": 281,
+      "customers": 281,
+      "items_sold": 332,
+      "revenue": 40279.100000000086,
+      "freight_value": 7689.230000000008,
+      "gmv": 47968.33000000001,
+      "average_ticket": 144.482921686747
+    },
+    {
+      "period": "2018-04-01",
+      "orders": 207,
+      "customers": 207,
+      "items_sold": 232,
+      "revenue": 29396.660000000065,
+      "freight_value": 4792.340000000001,
+      "gmv": 34189.00000000001,
+      "average_ticket": 147.36637931034485
+    },
+    {
+      "period": "2018-03-31",
+      "orders": 167,
+      "customers": 167,
+      "items_sold": 193,
+      "revenue": 25203.730000000036,
+      "freight_value": 3849.439999999998,
+      "gmv": 29053.170000000016,
+      "average_ticket": 150.5345595854923
+    },
+    {
+      "period": "2018-03-30",
+      "orders": 165,
+      "customers": 165,
+      "items_sold": 185,
+      "revenue": 22088.140000000032,
+      "freight_value": 4186.94,
+      "gmv": 26275.080000000013,
+      "average_ticket": 142.02745945945952
+    },
+    {
+      "period": "2018-03-29",
+      "orders": 194,
+      "customers": 194,
+      "items_sold": 224,
+      "revenue": 28926.730000000065,
+      "freight_value": 4635.940000000003,
+      "gmv": 33562.670000000006,
+      "average_ticket": 149.83334821428573
+    },
+    {
+      "period": "2018-03-28",
+      "orders": 219,
+      "customers": 219,
+      "items_sold": 242,
+      "revenue": 29713.340000000037,
+      "freight_value": 4703.320000000003,
+      "gmv": 34416.65999999999,
+      "average_ticket": 142.21760330578508
+    },
+    {
+      "period": "2018-03-27",
+      "orders": 245,
+      "customers": 245,
+      "items_sold": 289,
+      "revenue": 34732.56000000008,
+      "freight_value": 5897.639999999998,
+      "gmv": 40630.19999999996,
+      "average_ticket": 140.58892733564
+    },
+    {
+      "period": "2018-03-26",
+      "orders": 271,
+      "customers": 271,
+      "items_sold": 320,
+      "revenue": 35779.01000000008,
+      "freight_value": 6176.67,
+      "gmv": 41955.680000000015,
+      "average_ticket": 131.11150000000004
+    },
+    {
+      "period": "2018-03-25",
+      "orders": 190,
+      "customers": 190,
+      "items_sold": 226,
+      "revenue": 25557.290000000023,
+      "freight_value": 4635.5,
+      "gmv": 30192.790000000023,
+      "average_ticket": 133.59641592920363
+    },
+    {
+      "period": "2018-03-24",
+      "orders": 165,
+      "customers": 165,
+      "items_sold": 189,
+      "revenue": 23787.77000000003,
+      "freight_value": 3923.6500000000015,
+      "gmv": 27711.419999999995,
+      "average_ticket": 146.62126984126982
+    },
+    {
+      "period": "2018-03-23",
+      "orders": 219,
+      "customers": 219,
+      "items_sold": 256,
+      "revenue": 29621.24000000008,
+      "freight_value": 5016.919999999999,
+      "gmv": 34638.159999999996,
+      "average_ticket": 135.30531249999999
+    },
+    {
+      "period": "2018-03-22",
+      "orders": 254,
+      "customers": 254,
+      "items_sold": 296,
+      "revenue": 31119.4100000001,
+      "freight_value": 5870.38,
+      "gmv": 36989.79000000001,
+      "average_ticket": 124.96550675675678
+    },
+    {
+      "period": "2018-03-21",
+      "orders": 285,
+      "customers": 285,
+      "items_sold": 315,
+      "revenue": 39714.43000000011,
+      "freight_value": 6719.529999999997,
+      "gmv": 46433.96,
+      "average_ticket": 147.4093968253968
+    },
+    {
+      "period": "2018-03-20",
+      "orders": 297,
+      "customers": 297,
+      "items_sold": 348,
+      "revenue": 35749.47000000009,
+      "freight_value": 7138.44999999999,
+      "gmv": 42887.920000000064,
+      "average_ticket": 123.24114942528755
+    },
+    {
+      "period": "2018-03-19",
+      "orders": 302,
+      "customers": 302,
+      "items_sold": 366,
+      "revenue": 44645.190000000104,
+      "freight_value": 7936.559999999999,
+      "gmv": 52581.75000000005,
+      "average_ticket": 143.66598360655752
+    },
+    {
+      "period": "2018-03-18",
+      "orders": 215,
+      "customers": 215,
+      "items_sold": 232,
+      "revenue": 31119.330000000096,
+      "freight_value": 4957.049999999999,
+      "gmv": 36076.38000000002,
+      "average_ticket": 155.50163793103457
+    },
+    {
+      "period": "2018-03-17",
+      "orders": 180,
+      "customers": 180,
+      "items_sold": 191,
+      "revenue": 20078.5,
+      "freight_value": 3918.3599999999997,
+      "gmv": 23996.859999999997,
+      "average_ticket": 125.63801047120417
+    },
+    {
+      "period": "2018-03-16",
+      "orders": 252,
+      "customers": 252,
+      "items_sold": 290,
+      "revenue": 32832.190000000075,
+      "freight_value": 5927.819999999997,
+      "gmv": 38760.010000000024,
+      "average_ticket": 133.65520689655182
+    },
+    {
+      "period": "2018-03-15",
+      "orders": 286,
+      "customers": 286,
+      "items_sold": 327,
+      "revenue": 44311.460000000065,
+      "freight_value": 7132.599999999998,
+      "gmv": 51444.06000000002,
+      "average_ticket": 157.32128440366978
+    },
+    {
+      "period": "2018-03-14",
+      "orders": 198,
+      "customers": 198,
+      "items_sold": 235,
+      "revenue": 23528.79000000005,
+      "freight_value": 4795.049999999998,
+      "gmv": 28323.84,
+      "average_ticket": 120.52697872340426
+    },
+    {
+      "period": "2018-03-13",
+      "orders": 227,
+      "customers": 227,
+      "items_sold": 270,
+      "revenue": 36074.24000000008,
+      "freight_value": 6105.3700000000035,
+      "gmv": 42179.60999999996,
+      "average_ticket": 156.2207777777776
+    },
+    {
+      "period": "2018-03-12",
+      "orders": 232,
+      "customers": 232,
+      "items_sold": 259,
+      "revenue": 30644.660000000087,
+      "freight_value": 5286.249999999992,
+      "gmv": 35930.910000000025,
+      "average_ticket": 138.72938223938235
+    },
+    {
+      "period": "2018-03-11",
+      "orders": 218,
+      "customers": 218,
+      "items_sold": 239,
+      "revenue": 31320.43000000004,
+      "freight_value": 5297.919999999995,
+      "gmv": 36618.35,
+      "average_ticket": 153.21485355648534
+    },
+    {
+      "period": "2018-03-10",
+      "orders": 192,
+      "customers": 192,
+      "items_sold": 214,
+      "revenue": 26203.910000000054,
+      "freight_value": 4597.2300000000005,
+      "gmv": 30801.140000000007,
+      "average_ticket": 143.93056074766358
+    },
+    {
+      "period": "2018-03-09",
+      "orders": 203,
+      "customers": 203,
+      "items_sold": 229,
+      "revenue": 28405.440000000053,
+      "freight_value": 5311.07,
+      "gmv": 33716.51,
+      "average_ticket": 147.23366812227076
+    },
+    {
+      "period": "2018-03-08",
+      "orders": 234,
+      "customers": 234,
+      "items_sold": 273,
+      "revenue": 28156.390000000083,
+      "freight_value": 5685.7299999999905,
+      "gmv": 33842.119999999995,
+      "average_ticket": 123.9638095238095
+    },
+    {
+      "period": "2018-03-07",
+      "orders": 258,
+      "customers": 258,
+      "items_sold": 289,
+      "revenue": 36137.8900000001,
+      "freight_value": 6333.269999999992,
+      "gmv": 42471.15999999997,
+      "average_ticket": 146.9590311418684
+    },
+    {
+      "period": "2018-03-06",
+      "orders": 271,
+      "customers": 271,
+      "items_sold": 305,
+      "revenue": 39173.9900000001,
+      "freight_value": 6797.259999999991,
+      "gmv": 45971.24999999997,
+      "average_ticket": 150.72540983606547
+    },
+    {
+      "period": "2018-03-05",
+      "orders": 262,
+      "customers": 262,
+      "items_sold": 316,
+      "revenue": 38323.07000000006,
+      "freight_value": 7061.399999999998,
+      "gmv": 45384.470000000045,
+      "average_ticket": 143.62174050632925
+    },
+    {
+      "period": "2018-03-04",
+      "orders": 235,
+      "customers": 235,
+      "items_sold": 250,
+      "revenue": 32441.900000000085,
+      "freight_value": 4909.090000000001,
+      "gmv": 37350.98999999998,
+      "average_ticket": 149.40395999999993
+    }
+  ],
+  "sales_monthly": [
+    {
+      "period": "2018-09-01",
+      "orders": 1,
+      "customers": 1,
+      "items_sold": 1,
+      "revenue": 145.0,
+      "freight_value": 21.46,
+      "gmv": 166.46,
+      "average_ticket": 166.46
+    },
+    {
+      "period": "2018-08-01",
+      "orders": 6452,
+      "customers": 6452,
+      "items_sold": 7248,
+      "revenue": 854686.3300000255,
+      "freight_value": 148622.13999999876,
+      "gmv": 1003308.4699999936,
+      "average_ticket": 138.42556153421546
+    },
+    {
+      "period": "2018-07-01",
+      "orders": 6273,
+      "customers": 6273,
+      "items_sold": 7092,
+      "revenue": 895507.2200000229,
+      "freight_value": 163220.80999999956,
+      "gmv": 1058728.0299999986,
+      "average_ticket": 149.28483220530157
+    },
+    {
+      "period": "2018-06-01",
+      "orders": 6160,
+      "customers": 6160,
+      "items_sold": 7078,
+      "revenue": 865124.3100000215,
+      "freight_value": 157552.80000000045,
+      "gmv": 1022677.1099999951,
+      "average_ticket": 144.48673495337596
+    },
+    {
+      "period": "2018-05-01",
+      "orders": 6853,
+      "customers": 6853,
+      "items_sold": 7925,
+      "revenue": 996517.6800000271,
+      "freight_value": 153264.1400000013,
+      "gmv": 1149781.8199999945,
+      "average_ticket": 145.08287949526743
+    },
+    {
+      "period": "2018-04-01",
+      "orders": 6934,
+      "customers": 6934,
+      "items_sold": 7975,
+      "revenue": 996647.7500000333,
+      "freight_value": 163050.29000000123,
+      "gmv": 1159698.0399999984,
+      "average_ticket": 145.41668213166125
+    },
+    {
+      "period": "2018-03-01",
+      "orders": 7188,
+      "customers": 7188,
+      "items_sold": 8217,
+      "revenue": 983213.4400000331,
+      "freight_value": 171913.3800000028,
+      "gmv": 1155126.819999998,
+      "average_ticket": 140.57768285262236
+    },
+    {
+      "period": "2018-02-01",
+      "orders": 6694,
+      "customers": 6694,
+      "items_sold": 7672,
+      "revenue": 844178.7100000294,
+      "freight_value": 142730.25000000178,
+      "gmv": 986908.9600000003,
+      "average_ticket": 128.63776850886345
+    },
+    {
+      "period": "2018-01-01",
+      "orders": 7220,
+      "customers": 7220,
+      "items_sold": 8208,
+      "revenue": 950030.3600000378,
+      "freight_value": 157271.53000000172,
+      "gmv": 1107301.8900000046,
+      "average_ticket": 134.90520102339238
+    },
+    {
+      "period": "2017-12-01",
+      "orders": 5624,
+      "customers": 5624,
+      "items_sold": 6308,
+      "revenue": 743914.1700000202,
+      "freight_value": 119633.06000000096,
+      "gmv": 863547.2299999993,
+      "average_ticket": 136.89715123652493
+    },
+    {
+      "period": "2017-11-01",
+      "orders": 7451,
+      "customers": 7451,
+      "items_sold": 8665,
+      "revenue": 1010271.3700000371,
+      "freight_value": 168872.4000000028,
+      "gmv": 1179143.7700000012,
+      "average_ticket": 136.0812198499713
+    },
+    {
+      "period": "2017-10-01",
+      "orders": 4568,
+      "customers": 4568,
+      "items_sold": 5322,
+      "revenue": 664219.4300000176,
+      "freight_value": 105092.94000000108,
+      "gmv": 769312.3699999982,
+      "average_ticket": 144.55324502066858
+    },
+    {
+      "period": "2017-09-01",
+      "orders": 4243,
+      "customers": 4243,
+      "items_sold": 4831,
+      "revenue": 624401.6900000146,
+      "freight_value": 95997.22000000041,
+      "gmv": 720398.9100000003,
+      "average_ticket": 149.12003932933146
+    },
+    {
+      "period": "2017-08-01",
+      "orders": 4293,
+      "customers": 4293,
+      "items_sold": 4910,
+      "revenue": 573971.6800000137,
+      "freight_value": 94232.92000000065,
+      "gmv": 668204.6000000006,
+      "average_ticket": 136.09054989816713
+    },
+    {
+      "period": "2017-07-01",
+      "orders": 3969,
+      "customers": 3969,
+      "items_sold": 4519,
+      "revenue": 498031.48000001034,
+      "freight_value": 86940.13999999994,
+      "gmv": 584971.6200000047,
+      "average_ticket": 129.44713874751153
+    },
+    {
+      "period": "2017-06-01",
+      "orders": 3217,
+      "customers": 3217,
+      "items_sold": 3583,
+      "revenue": 433038.60000000504,
+      "freight_value": 69924.43999999945,
+      "gmv": 502963.0400000038,
+      "average_ticket": 140.3748367289991
+    },
+    {
+      "period": "2017-05-01",
+      "orders": 3660,
+      "customers": 3660,
+      "items_sold": 4136,
+      "revenue": 506071.14000001014,
+      "freight_value": 80119.81000000014,
+      "gmv": 586190.9500000018,
+      "average_ticket": 141.728953094778
+    },
+    {
+      "period": "2017-04-01",
+      "orders": 2391,
+      "customers": 2391,
+      "items_sold": 2684,
+      "revenue": 359927.2300000015,
+      "freight_value": 52495.00999999969,
+      "gmv": 412422.24000000034,
+      "average_ticket": 153.6595529061104
+    },
+    {
+      "period": "2017-03-01",
+      "orders": 2641,
+      "customers": 2641,
+      "items_sold": 3000,
+      "revenue": 374344.30000000086,
+      "freight_value": 57704.289999999695,
+      "gmv": 432048.5899999997,
+      "average_ticket": 144.01619666666656
+    },
+    {
+      "period": "2017-02-01",
+      "orders": 1733,
+      "customers": 1733,
+      "items_sold": 1951,
+      "revenue": 247303.01999999545,
+      "freight_value": 38977.59999999995,
+      "gmv": 286280.6199999993,
+      "average_ticket": 146.73532547411548
+    },
+    {
+      "period": "2017-01-01",
+      "orders": 789,
+      "customers": 789,
+      "items_sold": 955,
+      "revenue": 120312.86999999953,
+      "freight_value": 16875.620000000014,
+      "gmv": 137188.48999999964,
+      "average_ticket": 143.65286910994726
+    },
+    {
+      "period": "2016-12-01",
+      "orders": 1,
+      "customers": 1,
+      "items_sold": 1,
+      "revenue": 10.9,
+      "freight_value": 8.72,
+      "gmv": 19.62,
+      "average_ticket": 19.62
+    },
+    {
+      "period": "2016-10-01",
+      "orders": 308,
+      "customers": 308,
+      "items_sold": 363,
+      "revenue": 49507.66000000016,
+      "freight_value": 7301.180000000001,
+      "gmv": 56808.83999999995,
+      "average_ticket": 156.49818181818168
+    },
+    {
+      "period": "2016-09-01",
+      "orders": 3,
+      "customers": 3,
+      "items_sold": 6,
+      "revenue": 267.36,
+      "freight_value": 87.39,
+      "gmv": 354.75,
+      "average_ticket": 59.125
+    }
+  ],
+  "categories_top": [
+    {
+      "category": "health_beauty",
+      "orders": 8836,
+      "items_sold": 9670,
+      "revenue": 1258681.3399999682,
+      "freight_value": 182566.73000000278,
+      "gmv": 1441248.0700000045,
+      "average_ticket": 149.0432337125134
+    },
+    {
+      "category": "watches_gifts",
+      "orders": 5624,
+      "items_sold": 5991,
+      "revenue": 1205005.6799999995,
+      "freight_value": 100535.93000000028,
+      "gmv": 1305541.6100000055,
+      "average_ticket": 217.91714404940836
+    },
+    {
+      "category": "bed_bath_table",
+      "orders": 9417,
+      "items_sold": 11115,
+      "revenue": 1036988.6800000712,
+      "freight_value": 204693.04000000242,
+      "gmv": 1241681.7200000042,
+      "average_ticket": 111.71225551057168
+    },
+    {
+      "category": "sports_leisure",
+      "orders": 7720,
+      "items_sold": 8641,
+      "revenue": 988048.9700000401,
+      "freight_value": 168607.510000002,
+      "gmv": 1156656.4800000042,
+      "average_ticket": 133.85678509431827
+    },
+    {
+      "category": "computers_accessories",
+      "orders": 6689,
+      "items_sold": 7827,
+      "revenue": 911954.3200000388,
+      "freight_value": 147318.07999999973,
+      "gmv": 1059272.3999999957,
+      "average_ticket": 135.3356841701796
+    },
+    {
+      "category": "furniture_decor",
+      "orders": 6449,
+      "items_sold": 8334,
+      "revenue": 729762.4900000411,
+      "freight_value": 172749.3000000001,
+      "gmv": 902511.7899999992,
+      "average_ticket": 108.29275137988951
+    },
+    {
+      "category": "housewares",
+      "orders": 5884,
+      "items_sold": 6964,
+      "revenue": 632248.6600000213,
+      "freight_value": 146149.1100000008,
+      "gmv": 778397.7699999984,
+      "average_ticket": 111.77452182653624
+    },
+    {
+      "category": "cool_stuff",
+      "orders": 3632,
+      "items_sold": 3796,
+      "revenue": 635290.8500000009,
+      "freight_value": 84039.1,
+      "gmv": 719329.9500000002,
+      "average_ticket": 189.496825605901
+    },
+    {
+      "category": "auto",
+      "orders": 3897,
+      "items_sold": 4235,
+      "revenue": 592720.1100000107,
+      "freight_value": 92664.21000000018,
+      "gmv": 685384.3199999981,
+      "average_ticket": 161.838092089728
+    },
+    {
+      "category": "garden_tools",
+      "orders": 3518,
+      "items_sold": 4347,
+      "revenue": 485256.46000001475,
+      "freight_value": 98962.75000000033,
+      "gmv": 584219.2100000011,
+      "average_ticket": 134.3959535311712
+    },
+    {
+      "category": "toys",
+      "orders": 3886,
+      "items_sold": 4117,
+      "revenue": 483946.6000000053,
+      "freight_value": 77425.94999999988,
+      "gmv": 561372.55,
+      "average_ticket": 136.35476074811757
+    },
+    {
+      "category": "baby",
+      "orders": 2885,
+      "items_sold": 3065,
+      "revenue": 411764.8900000044,
+      "freight_value": 68353.10999999967,
+      "gmv": 480117.9999999982,
+      "average_ticket": 156.64535073409402
+    },
+    {
+      "category": "perfumery",
+      "orders": 3162,
+      "items_sold": 3419,
+      "revenue": 399124.87000000145,
+      "freight_value": 54213.83999999993,
+      "gmv": 453338.7100000041,
+      "average_ticket": 132.5939485229611
+    },
+    {
+      "category": "telephony",
+      "orders": 4199,
+      "items_sold": 4545,
+      "revenue": 323667.529999989,
+      "freight_value": 71215.78999999905,
+      "gmv": 394883.320000006,
+      "average_ticket": 86.8830187018715
+    },
+    {
+      "category": "office_furniture",
+      "orders": 1273,
+      "items_sold": 1691,
+      "revenue": 273960.69999999716,
+      "freight_value": 68571.94999999998,
+      "gmv": 342532.6500000008,
+      "average_ticket": 202.5621821407456
+    },
+    {
+      "category": "stationery",
+      "orders": 2311,
+      "items_sold": 2517,
+      "revenue": 230943.22999999588,
+      "freight_value": 46798.47999999985,
+      "gmv": 277741.710000001,
+      "average_ticket": 110.34632896305165
+    },
+    {
+      "category": "pet_shop",
+      "orders": 1710,
+      "items_sold": 1947,
+      "revenue": 214315.40999999666,
+      "freight_value": 39561.23999999984,
+      "gmv": 253876.65000000072,
+      "average_ticket": 130.3937596302007
+    },
+    {
+      "category": "computers",
+      "orders": 181,
+      "items_sold": 203,
+      "revenue": 222963.1299999998,
+      "freight_value": 9836.300000000001,
+      "gmv": 232799.43000000008,
+      "average_ticket": 1146.7952216748772
+    },
+    {
+      "category": "musical_instruments",
+      "orders": 628,
+      "items_sold": 680,
+      "revenue": 191498.879999999,
+      "freight_value": 18638.490000000013,
+      "gmv": 210137.37000000014,
+      "average_ticket": 309.02554411764726
+    },
+    {
+      "category": "unknown",
+      "orders": 1451,
+      "items_sold": 1603,
+      "revenue": 179535.2799999979,
+      "freight_value": 28169.810000000005,
+      "gmv": 207705.09000000043,
+      "average_ticket": 129.5727323767938
+    },
+    {
+      "category": "electronics",
+      "orders": 2550,
+      "items_sold": 2767,
+      "revenue": 160246.7399999967,
+      "freight_value": 46578.31999999982,
+      "gmv": 206825.06000000073,
+      "average_ticket": 74.74704011564899
+    },
+    {
+      "category": "small_appliances",
+      "orders": 630,
+      "items_sold": 679,
+      "revenue": 190648.57999999935,
+      "freight_value": 16020.250000000002,
+      "gmv": 206668.82999999987,
+      "average_ticket": 304.3723564064799
+    },
+    {
+      "category": "fashion_bags_accessories",
+      "orders": 1864,
+      "items_sold": 2031,
+      "revenue": 152823.53999999765,
+      "freight_value": 31449.99999999974,
+      "gmv": 184273.54000000012,
+      "average_ticket": 90.73044805514532
+    },
+    {
+      "category": "consoles_games",
+      "orders": 1062,
+      "items_sold": 1137,
+      "revenue": 157465.21999999895,
+      "freight_value": 19828.019999999993,
+      "gmv": 177293.24000000028,
+      "average_ticket": 155.93072999120517
+    },
+    {
+      "category": "luggage_accessories",
+      "orders": 1034,
+      "items_sold": 1092,
+      "revenue": 140429.97999999832,
+      "freight_value": 30445.22999999996,
+      "gmv": 170875.21000000005,
+      "average_ticket": 156.4791300366301
+    },
+    {
+      "category": "construction_tools_construction",
+      "orders": 748,
+      "items_sold": 929,
+      "revenue": 144677.58999999968,
+      "freight_value": 20650.409999999996,
+      "gmv": 165327.9999999999,
+      "average_ticket": 177.9634015069967
+    },
+    {
+      "category": "home_appliances_2",
+      "orders": 234,
+      "items_sold": 238,
+      "revenue": 113317.7399999999,
+      "freight_value": 10600.180000000006,
+      "gmv": 123917.92000000001,
+      "average_ticket": 520.6635294117648
+    },
+    {
+      "category": "home_construction",
+      "orders": 490,
+      "items_sold": 604,
+      "revenue": 83088.12,
+      "freight_value": 13832.239999999994,
+      "gmv": 96920.3599999999,
+      "average_ticket": 160.4641721854303
+    },
+    {
+      "category": "home_appliances",
+      "orders": 764,
+      "items_sold": 771,
+      "revenue": 80171.53000000006,
+      "freight_value": 14818.900000000012,
+      "gmv": 94990.43000000002,
+      "average_ticket": 123.20418936446177
+    },
+    {
+      "category": "furniture_living_room",
+      "orders": 422,
+      "items_sold": 503,
+      "revenue": 68916.5600000002,
+      "freight_value": 17968.170000000024,
+      "gmv": 86884.73,
+      "average_ticket": 172.73306163021869
+    },
+    {
+      "category": "agro_industry_and_commerce",
+      "orders": 182,
+      "items_sold": 212,
+      "revenue": 72530.47000000002,
+      "freight_value": 5843.6,
+      "gmv": 78374.06999999993,
+      "average_ticket": 369.6890094339619
+    },
+    {
+      "category": "home_confort",
+      "orders": 397,
+      "items_sold": 434,
+      "revenue": 58572.04000000023,
+      "freight_value": 8501.229999999994,
+      "gmv": 67073.26999999993,
+      "average_ticket": 154.54670506912427
+    },
+    {
+      "category": "fixed_telephony",
+      "orders": 217,
+      "items_sold": 264,
+      "revenue": 59582.99999999998,
+      "freight_value": 4637.810000000006,
+      "gmv": 64220.8099999999,
+      "average_ticket": 243.26064393939356
+    },
+    {
+      "category": "air_conditioning",
+      "orders": 253,
+      "items_sold": 297,
+      "revenue": 55024.96000000008,
+      "freight_value": 6749.229999999997,
+      "gmv": 61774.18999999996,
+      "average_ticket": 207.99390572390558
+    },
+    {
+      "category": "kitchen_dining_laundry_garden_furniture",
+      "orders": 248,
+      "items_sold": 281,
+      "revenue": 46328.37000000006,
+      "freight_value": 11999.430000000002,
+      "gmv": 58327.80000000002,
+      "average_ticket": 207.57224199288262
+    },
+    {
+      "category": "audio",
+      "orders": 350,
+      "items_sold": 364,
+      "revenue": 50688.50000000011,
+      "freight_value": 5710.439999999998,
+      "gmv": 56398.93999999998,
+      "average_ticket": 154.9421428571428
+    },
+    {
+      "category": "books_general_interest",
+      "orders": 512,
+      "items_sold": 553,
+      "revenue": 46856.8800000002,
+      "freight_value": 9195.520000000006,
+      "gmv": 56052.4,
+      "average_ticket": 101.36057866184449
+    },
+    {
+      "category": "small_appliances_home_oven_and_coffee",
+      "orders": 75,
+      "items_sold": 76,
+      "revenue": 47445.71000000001,
+      "freight_value": 2747.8599999999997,
+      "gmv": 50193.57000000001,
+      "average_ticket": 660.4417105263159
+    },
+    {
+      "category": "construction_tools_lights",
+      "orders": 244,
+      "items_sold": 304,
+      "revenue": 41080.00000000006,
+      "freight_value": 7583.799999999995,
+      "gmv": 48663.800000000025,
+      "average_ticket": 160.0782894736843
+    },
+    {
+      "category": "industry_commerce_and_business",
+      "orders": 235,
+      "items_sold": 268,
+      "revenue": 39669.610000000044,
+      "freight_value": 7884.6799999999985,
+      "gmv": 47554.289999999986,
+      "average_ticket": 177.44138059701487
+    },
+    {
+      "category": "construction_tools_safety",
+      "orders": 167,
+      "items_sold": 194,
+      "revenue": 40544.52000000005,
+      "freight_value": 3919.099999999998,
+      "gmv": 44463.62000000002,
+      "average_ticket": 229.1939175257733
+    },
+    {
+      "category": "food",
+      "orders": 450,
+      "items_sold": 510,
+      "revenue": 29393.41000000016,
+      "freight_value": 7271.030000000003,
+      "gmv": 36664.43999999993,
+      "average_ticket": 71.89105882352928
+    },
+    {
+      "category": "market_place",
+      "orders": 280,
+      "items_sold": 311,
+      "revenue": 28378.470000000096,
+      "freight_value": 5456.060000000003,
+      "gmv": 33834.53000000001,
+      "average_ticket": 108.79270096463027
+    },
+    {
+      "category": "costruction_tools_garden",
+      "orders": 194,
+      "items_sold": 238,
+      "revenue": 25715.89000000004,
+      "freight_value": 5311.399999999998,
+      "gmv": 31027.29,
+      "average_ticket": 130.36676470588236
+    },
+    {
+      "category": "fashion_shoes",
+      "orders": 240,
+      "items_sold": 262,
+      "revenue": 23562.770000000062,
+      "freight_value": 4918.87,
+      "gmv": 28481.639999999985,
+      "average_ticket": 108.70854961832055
+    },
+    {
+      "category": "art",
+      "orders": 202,
+      "items_sold": 209,
+      "revenue": 24202.639999999992,
+      "freight_value": 4045.1700000000014,
+      "gmv": 28247.809999999998,
+      "average_ticket": 135.156985645933
+    },
+    {
+      "category": "drinks",
+      "orders": 297,
+      "items_sold": 379,
+      "revenue": 22428.70000000004,
+      "freight_value": 5741.249999999986,
+      "gmv": 28169.95,
+      "average_ticket": 74.32704485488127
+    },
+    {
+      "category": "signaling_and_security",
+      "orders": 140,
+      "items_sold": 199,
+      "revenue": 21509.230000000018,
+      "freight_value": 6507.819999999996,
+      "gmv": 28017.050000000014,
+      "average_ticket": 140.78919597989957
+    },
+    {
+      "category": "furniture_bedroom",
+      "orders": 95,
+      "items_sold": 109,
+      "revenue": 20028.78000000001,
+      "freight_value": 4632.229999999998,
+      "gmv": 24661.010000000002,
+      "average_ticket": 226.24779816513762
+    },
+    {
+      "category": "books_technical",
+      "orders": 260,
+      "items_sold": 267,
+      "revenue": 19096.059999999983,
+      "freight_value": 4283.0599999999995,
+      "gmv": 23379.119999999977,
+      "average_ticket": 87.56224719101115
+    }
+  ],
+  "customer_segments": [
+    {
+      "ml_segment": "standard",
+      "customers": 39129,
+      "average_recency_days": 259.4859311508089,
+      "average_frequency": 1.0,
+      "average_monetary": 199.01233356334177
+    },
+    {
+      "ml_segment": "recent",
+      "customers": 36449,
+      "average_recency_days": 92.66292628055639,
+      "average_frequency": 1.0,
+      "average_monetary": 137.1036637493484
+    },
+    {
+      "ml_segment": "at_risk",
+      "customers": 23088,
+      "average_recency_days": 464.00402806652806,
+      "average_frequency": 1.0,
+      "average_monetary": 132.49775641025641
+    }
+  ],
+  "anomalies": [
+    {
+      "date": "2018-08-07",
+      "gmv": 58294.380000000005,
+      "orders": 366,
+      "average_ticket": 135.25378190255222,
+      "freight_value": 9115.400000000001,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2018-08-06",
+      "gmv": 65860.42000000001,
+      "orders": 372,
+      "average_ticket": 153.1637674418605,
+      "freight_value": 9433.029999999997,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2018-07-12",
+      "gmv": 32569.70999999999,
+      "orders": 121,
+      "average_ticket": 254.4508593749999,
+      "freight_value": 3677.9399999999996,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2018-05-16",
+      "gmv": 64739.08999999996,
+      "orders": 357,
+      "average_ticket": 159.4558866995073,
+      "freight_value": 8455.360000000008,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-11-27",
+      "gmv": 56644.84999999999,
+      "orders": 400,
+      "average_ticket": 119.50390295358648,
+      "freight_value": 8721.19,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-11-26",
+      "gmv": 53595.199999999946,
+      "orders": 388,
+      "average_ticket": 117.53333333333322,
+      "freight_value": 8279.920000000002,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-11-25",
+      "gmv": 71858.15999999996,
+      "orders": 498,
+      "average_ticket": 123.89337931034476,
+      "freight_value": 10934.680000000011,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-11-24",
+      "gmv": 178377.62999999974,
+      "orders": 1166,
+      "average_ticket": 130.58391654465575,
+      "freight_value": 25723.88999999999,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-09-29",
+      "gmv": 33703.99999999998,
+      "orders": 116,
+      "average_ticket": 249.6592592592591,
+      "freight_value": 2825.439999999999,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-08-29",
+      "gmv": 37025.68999999999,
+      "orders": 137,
+      "average_ticket": 238.87541935483864,
+      "freight_value": 3269.209999999998,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-04-18",
+      "gmv": 23433.859999999993,
+      "orders": 71,
+      "average_ticket": 278.9745238095237,
+      "freight_value": 2147.1399999999994,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-04-06",
+      "gmv": 25242.809999999987,
+      "orders": 95,
+      "average_ticket": 229.4800909090908,
+      "freight_value": 2073.919999999999,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-04-01",
+      "gmv": 19053.909999999993,
+      "orders": 67,
+      "average_ticket": 276.1436231884057,
+      "freight_value": 1356.5400000000002,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-03-18",
+      "gmv": 17938.49,
+      "orders": 73,
+      "average_ticket": 232.9674025974026,
+      "freight_value": 1504.6699999999994,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-02-12",
+      "gmv": 16646.33000000001,
+      "orders": 63,
+      "average_ticket": 252.21712121212136,
+      "freight_value": 1520.1799999999998,
+      "isolation_forest_anomaly": false,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2017-01-13",
+      "gmv": 2780.7200000000003,
+      "orders": 11,
+      "average_ticket": 252.7927272727273,
+      "freight_value": 275.14000000000004,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-01-11",
+      "gmv": 3062.33,
+      "orders": 12,
+      "average_ticket": 255.19416666666666,
+      "freight_value": 286.16999999999996,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-01-10",
+      "gmv": 1571.17,
+      "orders": 6,
+      "average_ticket": 261.8616666666667,
+      "freight_value": 136.3,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-01-07",
+      "gmv": 1447.99,
+      "orders": 4,
+      "average_ticket": 289.598,
+      "freight_value": 96.09,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-01-06",
+      "gmv": 988.2800000000001,
+      "orders": 4,
+      "average_ticket": 247.07000000000002,
+      "freight_value": 71.9,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2017-01-05",
+      "gmv": 707.27,
+      "orders": 32,
+      "average_ticket": 22.1021875,
+      "freight_value": 310.3700000000001,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2016-12-23",
+      "gmv": 19.62,
+      "orders": 1,
+      "average_ticket": 19.62,
+      "freight_value": 8.72,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2016-09-15",
+      "gmv": 143.46,
+      "orders": 1,
+      "average_ticket": 47.82,
+      "freight_value": 8.49,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": true,
+      "anomaly_method_overlap": true
+    },
+    {
+      "date": "2016-09-05",
+      "gmv": 75.06,
+      "orders": 1,
+      "average_ticket": 75.06,
+      "freight_value": 15.56,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    },
+    {
+      "date": "2016-09-04",
+      "gmv": 136.23,
+      "orders": 1,
+      "average_ticket": 68.115,
+      "freight_value": 63.34,
+      "isolation_forest_anomaly": true,
+      "any_zscore_anomaly": false,
+      "anomaly_method_overlap": false
+    }
+  ],
+  "reports": {
+    "economic": {
+      "generated_at": "2026-09-06T16:49:39.645494+00:00",
+      "correlations": [
+        {
+          "metric": "gmv",
+          "indicator": "selic_target",
+          "observations": 24,
+          "correlation": -0.8254071223984968,
+          "covariance": -993757.8701780665
+        },
+        {
+          "metric": "gmv",
+          "indicator": "usd_brl",
+          "observations": 24,
+          "correlation": 0.1650056375709241,
+          "covariance": 19449.954418325717
+        },
+        {
+          "metric": "gmv",
+          "indicator": "ibc_br",
+          "observations": 24,
+          "correlation": 0.3527519543621944,
+          "covariance": 403356.6740125497
+        },
+        {
+          "metric": "gmv",
+          "indicator": "ipca",
+          "observations": 24,
+          "correlation": 0.1148235032517679,
+          "covariance": 12639.277877536004
+        },
+        {
+          "metric": "orders",
+          "indicator": "selic_target",
+          "observations": 24,
+          "correlation": -0.8243098562653624,
+          "covariance": -6216.986186315924
+        },
+        {
+          "metric": "orders",
+          "indicator": "usd_brl",
+          "observations": 24,
+          "correlation": 0.14819673235253436,
+          "covariance": 109.42976681165239
+        },
+        {
+          "metric": "orders",
+          "indicator": "ibc_br",
+          "observations": 24,
+          "correlation": 0.34183566001583376,
+          "covariance": 2448.5795908695627
+        },
+        {
+          "metric": "orders",
+          "indicator": "ipca",
+          "observations": 24,
+          "correlation": 0.09511935164609084,
+          "covariance": 65.58996376811595
+        },
+        {
+          "metric": "average_ticket",
+          "indicator": "selic_target",
+          "observations": 24,
+          "correlation": -0.42449031211713667,
+          "covariance": -37.98950875421089
+        },
+        {
+          "metric": "average_ticket",
+          "indicator": "usd_brl",
+          "observations": 24,
+          "correlation": 0.14132966304672667,
+          "covariance": 1.2383307416246694
+        },
+        {
+          "metric": "average_ticket",
+          "indicator": "ibc_br",
+          "observations": 24,
+          "correlation": 0.1103790354086495,
+          "covariance": 9.381881404104126
+        },
+        {
+          "metric": "average_ticket",
+          "indicator": "ipca",
+          "observations": 24,
+          "correlation": 0.1216458901756944,
+          "covariance": 0.9953422411325312
+        }
+      ],
+      "notes": [
+        "Correlations are descriptive and do not imply causality.",
+        "Economic coverage depends on the available configured BCB and SIDRA series."
+      ],
+      "report_path": "data/gold/_analytics_reports/economic_20260906T164939Z.json"
+    },
+    "forecast": {
+      "generated_at": "2026-09-06T22:20:54.875948+00:00",
+      "target": "gmv",
+      "train_rows": 487,
+      "test_rows": 122,
+      "feature_columns": [
+        "orders",
+        "customers",
+        "items_sold",
+        "freight_value",
+        "average_ticket",
+        "sales_lag_1",
+        "sales_lag_7",
+        "rolling_mean_7",
+        "rolling_mean_30",
+        "day_of_week",
+        "month"
+      ],
+      "metrics": [
+        {
+          "model_name": "linear_regression",
+          "mae": 2083.549625488911,
+          "rmse": 2595.613108347131,
+          "mape": 0.2332791896021055
+        },
+        {
+          "model_name": "random_forest",
+          "mae": 2226.6526418032827,
+          "rmse": 3365.3011534550637,
+          "mape": 0.09581582283139238
+        }
+      ],
+      "best_model": "linear_regression",
+      "report_path": "models/reports/sales_forecast_20260906T222054Z.json"
+    },
+    "segmentation": {
+      "generated_at": "2026-09-06T22:21:35.097726+00:00",
+      "rows": 98666,
+      "selected_k": 4,
+      "scores": [
+        {
+          "k": 2,
+          "inertia": 12750.944272194205,
+          "silhouette": 0.44937884360813585
+        },
+        {
+          "k": 3,
+          "inertia": 7555.279813311714,
+          "silhouette": 0.4851359460556634
+        },
+        {
+          "k": 4,
+          "inertia": 5800.766800852811,
+          "silhouette": 0.4949211777773724
+        },
+        {
+          "k": 5,
+          "inertia": 4224.257148854605,
+          "silhouette": 0.4250835830711803
+        },
+        {
+          "k": 6,
+          "inertia": 3622.2937010290766,
+          "silhouette": 0.4331253228099722
+        }
+      ],
+      "segment_counts": {
+        "standard": 39129,
+        "recent": 36449,
+        "at_risk": 23088
+      },
+      "output_path": "models/outputs/customer_segments.parquet",
+      "report_path": "models/reports/customer_segmentation_20260906T222135Z.json"
+    },
+    "anomaly": {
+      "generated_at": "2026-09-06T22:21:55.699154+00:00",
+      "rows": 616,
+      "zscore_anomaly_days": 18,
+      "isolation_forest_anomaly_days": 19,
+      "overlap_days": 12,
+      "output_path": "models/outputs/anomaly_method_comparison.parquet",
+      "report_path": "models/reports/anomaly_detection_20260906T222155Z.json"
+    },
+    "reviews": {
+      "generated_at": "2026-09-06T22:22:23.040394+00:00",
+      "rows": 99224,
+      "text_coverage_ratio": 0.41270257195839716,
+      "average_review_score": 4.08642062404257,
+      "negative_review_ratio": 0.14688986535515602,
+      "nlp_recommendation": "text_quality_sufficient_for_future_nlp",
+      "output_path": "models/outputs/review_intelligence_summary.parquet",
+      "report_path": "models/reports/review_intelligence_20260906T222223Z.json"
+    }
+  },
+  "observability": {
+    "generated_at": "2026-09-07T14:02:13.820847Z",
+    "status": "passed",
+    "checks_total": 25,
+    "checks_failed": 0,
+    "checks_warned": 0,
+    "checks": [
+      {
+        "name": "gold_sales_daily",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/sales_daily/sales_daily.parquet",
+          "rows": 616,
+          "columns": [
+            "date",
+            "orders",
+            "customers",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "gmv",
+            "average_ticket",
+            "average_freight"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_sales_monthly",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/sales_monthly/sales_monthly.parquet",
+          "rows": 24,
+          "columns": [
+            "month",
+            "orders",
+            "customers",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "gmv",
+            "average_ticket",
+            "gmv_mom_growth"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_category_performance",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/category_performance/category_performance.parquet",
+          "rows": 74,
+          "columns": [
+            "category",
+            "orders",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "gmv",
+            "average_ticket"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_customer_metrics",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/customer_metrics/customer_metrics.parquet",
+          "rows": 99441,
+          "columns": [
+            "customer_id",
+            "customer_unique_id",
+            "customer_state",
+            "customer_city",
+            "orders",
+            "gmv",
+            "average_ticket",
+            "first_order_date",
+            "last_order_date"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_seller_metrics",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/seller_metrics/seller_metrics.parquet",
+          "rows": 3095,
+          "columns": [
+            "seller_id",
+            "seller_state",
+            "seller_city",
+            "orders",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "average_ticket"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_delivery_metrics",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/delivery_metrics/delivery_metrics.parquet",
+          "rows": 634,
+          "columns": [
+            "date",
+            "orders",
+            "avg_delivery_days",
+            "avg_estimated_days",
+            "delayed_orders",
+            "delay_rate"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_review_metrics",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/review_metrics/review_metrics.parquet",
+          "rows": 636,
+          "columns": [
+            "date",
+            "reviews",
+            "average_review_score",
+            "positive_reviews",
+            "negative_reviews"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_economic_indicators",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/economic_indicators/economic_indicators.parquet",
+          "rows": 25,
+          "columns": [
+            "reference_month",
+            "ibc_br",
+            "ipca",
+            "selic_target",
+            "usd_brl"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_sales_economic_features",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/sales_economic_features/sales_economic_features.parquet",
+          "rows": 24,
+          "columns": [
+            "month",
+            "orders",
+            "customers",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "gmv",
+            "average_ticket",
+            "gmv_mom_growth",
+            "reference_month",
+            "ibc_br",
+            "ipca",
+            "selic_target",
+            "usd_brl",
+            "selic_target_change",
+            "usd_brl_change",
+            "ibc_br_change",
+            "ipca_change",
+            "sales_growth",
+            "ticket_growth"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_customer_rfm",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/customer_rfm/customer_rfm.parquet",
+          "rows": 98666,
+          "columns": [
+            "customer_id",
+            "recency_days",
+            "frequency",
+            "monetary",
+            "recency_score",
+            "frequency_score",
+            "monetary_score",
+            "rfm_score",
+            "segment"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_ml_features",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/ml_features/ml_features.parquet",
+          "rows": 616,
+          "columns": [
+            "date",
+            "orders",
+            "customers",
+            "items_sold",
+            "revenue",
+            "freight_value",
+            "gmv",
+            "average_ticket",
+            "average_freight",
+            "sales_lag_1",
+            "sales_lag_7",
+            "sales_lag_30",
+            "rolling_mean_7",
+            "rolling_mean_30",
+            "rolling_std_7",
+            "rolling_std_30",
+            "log_gmv"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_anomaly_metrics",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/anomaly_metrics/anomaly_metrics.parquet",
+          "rows": 616,
+          "columns": [
+            "date",
+            "gmv",
+            "orders",
+            "average_ticket",
+            "freight_value",
+            "gmv_zscore_anomaly",
+            "orders_zscore_anomaly",
+            "average_ticket_zscore_anomaly",
+            "freight_value_zscore_anomaly"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "gold_dim_date",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "data/gold/dim_date/dim_date.parquet",
+          "rows": 730,
+          "columns": [
+            "date_key",
+            "date",
+            "day",
+            "day_of_week",
+            "day_name",
+            "week",
+            "month",
+            "month_name",
+            "quarter",
+            "year",
+            "is_weekend"
+          ],
+          "age_hours": 21.21
+        }
+      },
+      {
+        "name": "model_output_customer_segments",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "models/outputs/customer_segments.parquet",
+          "rows": 98666,
+          "columns": [
+            "customer_id",
+            "recency_days",
+            "frequency",
+            "monetary",
+            "recency_score",
+            "frequency_score",
+            "monetary_score",
+            "rfm_score",
+            "segment",
+            "cluster",
+            "ml_segment"
+          ],
+          "age_hours": 15.68
+        }
+      },
+      {
+        "name": "model_output_anomaly_method_comparison",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "models/outputs/anomaly_method_comparison.parquet",
+          "rows": 616,
+          "columns": [
+            "date",
+            "gmv",
+            "orders",
+            "average_ticket",
+            "freight_value",
+            "gmv_zscore_anomaly",
+            "orders_zscore_anomaly",
+            "average_ticket_zscore_anomaly",
+            "freight_value_zscore_anomaly",
+            "isolation_forest_anomaly",
+            "any_zscore_anomaly",
+            "anomaly_method_overlap"
+          ],
+          "age_hours": 15.67
+        }
+      },
+      {
+        "name": "model_output_review_intelligence_summary",
+        "status": "passed",
+        "severity": "info",
+        "message": "Dataset is readable and non-empty.",
+        "details": {
+          "path": "models/outputs/review_intelligence_summary.parquet",
+          "rows": 10,
+          "columns": [
+            "review_score",
+            "was_delayed",
+            "reviews",
+            "text_reviews"
+          ],
+          "age_hours": 15.66
+        }
+      },
+      {
+        "name": "report_bronze_quality",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "data/bronze/_quality_reports/bronze_validation_20260906T164918Z.json",
+          "age_hours": 21.22,
+          "keys": [
+            "bronze_dir",
+            "checks",
+            "files_checked",
+            "files_failed",
+            "generated_at",
+            "passed",
+            "report_path"
+          ]
+        }
+      },
+      {
+        "name": "report_silver_quality",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "data/silver/_quality_reports/silver_quality_20260906T164930Z.json",
+          "age_hours": 21.21,
+          "keys": [
+            "critical_failures",
+            "files_checked",
+            "generated_at",
+            "passed",
+            "report_path",
+            "results",
+            "warning_failures"
+          ]
+        }
+      },
+      {
+        "name": "report_gold_quality",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "data/gold/_quality_reports/gold_quality_20260906T164939Z.json",
+          "age_hours": 21.21,
+          "keys": [
+            "critical_failures",
+            "datasets_checked",
+            "generated_at",
+            "missing_datasets",
+            "passed",
+            "report_path",
+            "results",
+            "warning_failures"
+          ]
+        }
+      },
+      {
+        "name": "report_kpis",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "data/gold/_analytics_reports/kpis_20260906T164939Z.json",
+          "age_hours": 21.21,
+          "keys": [
+            "generated_at",
+            "metrics",
+            "report_path"
+          ]
+        }
+      },
+      {
+        "name": "report_economic",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "data/gold/_analytics_reports/economic_20260906T164939Z.json",
+          "age_hours": 21.21,
+          "keys": [
+            "correlations",
+            "generated_at",
+            "notes",
+            "report_path"
+          ]
+        }
+      },
+      {
+        "name": "report_forecast",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "models/reports/sales_forecast_20260906T222054Z.json",
+          "age_hours": 15.69,
+          "keys": [
+            "best_model",
+            "feature_columns",
+            "generated_at",
+            "metrics",
+            "report_path",
+            "target",
+            "test_rows",
+            "train_rows"
+          ]
+        }
+      },
+      {
+        "name": "report_segmentation",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "models/reports/customer_segmentation_20260906T222135Z.json",
+          "age_hours": 15.68,
+          "keys": [
+            "generated_at",
+            "output_path",
+            "report_path",
+            "rows",
+            "scores",
+            "segment_counts",
+            "selected_k"
+          ]
+        }
+      },
+      {
+        "name": "report_anomaly",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "models/reports/anomaly_detection_20260906T222155Z.json",
+          "age_hours": 15.67,
+          "keys": [
+            "generated_at",
+            "isolation_forest_anomaly_days",
+            "output_path",
+            "overlap_days",
+            "report_path",
+            "rows",
+            "zscore_anomaly_days"
+          ]
+        }
+      },
+      {
+        "name": "report_reviews",
+        "status": "passed",
+        "severity": "info",
+        "message": "Latest report is available and parseable.",
+        "details": {
+          "path": "models/reports/review_intelligence_20260906T222223Z.json",
+          "age_hours": 15.66,
+          "keys": [
+            "average_review_score",
+            "generated_at",
+            "negative_review_ratio",
+            "nlp_recommendation",
+            "output_path",
+            "report_path",
+            "rows",
+            "text_coverage_ratio"
+          ]
+        }
+      }
+    ],
+    "report_path": "data/gold/_monitoring_reports/observability_20260907T140213Z.json"
+  },
+  "catalog": {
+    "gold": [
+      {
+        "name": "anomaly_metrics",
+        "path": "data/gold/anomaly_metrics/anomaly_metrics.parquet",
+        "rows": 616,
+        "columns": [
+          "date",
+          "gmv",
+          "orders",
+          "average_ticket",
+          "freight_value",
+          "gmv_zscore_anomaly",
+          "orders_zscore_anomaly",
+          "average_ticket_zscore_anomaly",
+          "freight_value_zscore_anomaly"
+        ]
+      },
+      {
+        "name": "category_performance",
+        "path": "data/gold/category_performance/category_performance.parquet",
+        "rows": 74,
+        "columns": [
+          "category",
+          "orders",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "gmv",
+          "average_ticket"
+        ]
+      },
+      {
+        "name": "customer_metrics",
+        "path": "data/gold/customer_metrics/customer_metrics.parquet",
+        "rows": 99441,
+        "columns": [
+          "customer_id",
+          "customer_unique_id",
+          "customer_state",
+          "customer_city",
+          "orders",
+          "gmv",
+          "average_ticket",
+          "first_order_date",
+          "last_order_date"
+        ]
+      },
+      {
+        "name": "customer_rfm",
+        "path": "data/gold/customer_rfm/customer_rfm.parquet",
+        "rows": 98666,
+        "columns": [
+          "customer_id",
+          "recency_days",
+          "frequency",
+          "monetary",
+          "recency_score",
+          "frequency_score",
+          "monetary_score",
+          "rfm_score",
+          "segment"
+        ]
+      },
+      {
+        "name": "delivery_metrics",
+        "path": "data/gold/delivery_metrics/delivery_metrics.parquet",
+        "rows": 634,
+        "columns": [
+          "date",
+          "orders",
+          "avg_delivery_days",
+          "avg_estimated_days",
+          "delayed_orders",
+          "delay_rate"
+        ]
+      },
+      {
+        "name": "dim_date",
+        "path": "data/gold/dim_date/dim_date.parquet",
+        "rows": 730,
+        "columns": [
+          "date_key",
+          "date",
+          "day",
+          "day_of_week",
+          "day_name",
+          "week",
+          "month",
+          "month_name",
+          "quarter",
+          "year",
+          "is_weekend"
+        ]
+      },
+      {
+        "name": "economic_indicators",
+        "path": "data/gold/economic_indicators/economic_indicators.parquet",
+        "rows": 25,
+        "columns": [
+          "reference_month",
+          "ibc_br",
+          "ipca",
+          "selic_target",
+          "usd_brl"
+        ]
+      },
+      {
+        "name": "ml_features",
+        "path": "data/gold/ml_features/ml_features.parquet",
+        "rows": 616,
+        "columns": [
+          "date",
+          "orders",
+          "customers",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "gmv",
+          "average_ticket",
+          "average_freight",
+          "sales_lag_1",
+          "sales_lag_7",
+          "sales_lag_30",
+          "rolling_mean_7",
+          "rolling_mean_30",
+          "rolling_std_7",
+          "rolling_std_30",
+          "log_gmv"
+        ]
+      },
+      {
+        "name": "review_metrics",
+        "path": "data/gold/review_metrics/review_metrics.parquet",
+        "rows": 636,
+        "columns": [
+          "date",
+          "reviews",
+          "average_review_score",
+          "positive_reviews",
+          "negative_reviews"
+        ]
+      },
+      {
+        "name": "sales_daily",
+        "path": "data/gold/sales_daily/sales_daily.parquet",
+        "rows": 616,
+        "columns": [
+          "date",
+          "orders",
+          "customers",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "gmv",
+          "average_ticket",
+          "average_freight"
+        ]
+      },
+      {
+        "name": "sales_economic_features",
+        "path": "data/gold/sales_economic_features/sales_economic_features.parquet",
+        "rows": 24,
+        "columns": [
+          "month",
+          "orders",
+          "customers",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "gmv",
+          "average_ticket",
+          "gmv_mom_growth",
+          "reference_month",
+          "ibc_br",
+          "ipca",
+          "selic_target",
+          "usd_brl",
+          "selic_target_change",
+          "usd_brl_change",
+          "ibc_br_change",
+          "ipca_change",
+          "sales_growth",
+          "ticket_growth"
+        ]
+      },
+      {
+        "name": "sales_monthly",
+        "path": "data/gold/sales_monthly/sales_monthly.parquet",
+        "rows": 24,
+        "columns": [
+          "month",
+          "orders",
+          "customers",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "gmv",
+          "average_ticket",
+          "gmv_mom_growth"
+        ]
+      },
+      {
+        "name": "seller_metrics",
+        "path": "data/gold/seller_metrics/seller_metrics.parquet",
+        "rows": 3095,
+        "columns": [
+          "seller_id",
+          "seller_state",
+          "seller_city",
+          "orders",
+          "items_sold",
+          "revenue",
+          "freight_value",
+          "average_ticket"
+        ]
+      }
+    ],
+    "model_outputs": [
+      {
+        "name": "anomaly_method_comparison",
+        "path": "models/outputs/anomaly_method_comparison.parquet",
+        "rows": 616,
+        "columns": [
+          "date",
+          "gmv",
+          "orders",
+          "average_ticket",
+          "freight_value",
+          "gmv_zscore_anomaly",
+          "orders_zscore_anomaly",
+          "average_ticket_zscore_anomaly",
+          "freight_value_zscore_anomaly",
+          "isolation_forest_anomaly",
+          "any_zscore_anomaly",
+          "anomaly_method_overlap"
+        ]
+      },
+      {
+        "name": "customer_segments",
+        "path": "models/outputs/customer_segments.parquet",
+        "rows": 98666,
+        "columns": [
+          "customer_id",
+          "recency_days",
+          "frequency",
+          "monetary",
+          "recency_score",
+          "frequency_score",
+          "monetary_score",
+          "rfm_score",
+          "segment",
+          "cluster",
+          "ml_segment"
+        ]
+      },
+      {
+        "name": "review_intelligence_summary",
+        "path": "models/outputs/review_intelligence_summary.parquet",
+        "rows": 10,
+        "columns": [
+          "review_score",
+          "was_delayed",
+          "reviews",
+          "text_reviews"
+        ]
+      }
+    ],
+    "latest_reports": {
+      "kpis": "data/gold/_analytics_reports/kpis_20260906T164939Z.json",
+      "economic": "data/gold/_analytics_reports/economic_20260906T164939Z.json",
+      "forecast": "models/reports/sales_forecast_20260906T222054Z.json",
+      "segmentation": "models/reports/customer_segmentation_20260906T222135Z.json",
+      "anomaly": "models/reports/anomaly_detection_20260906T222155Z.json",
+      "reviews": "models/reports/review_intelligence_20260906T222223Z.json"
+    }
+  }
+}

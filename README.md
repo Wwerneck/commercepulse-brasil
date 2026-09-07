@@ -160,6 +160,12 @@ Dashboard local:
 http://127.0.0.1:8501
 ```
 
+Dashboard no Streamlit Cloud:
+
+```text
+Main file path: streamlit_app.py
+```
+
 MLflow local:
 
 ```text
@@ -172,7 +178,7 @@ http://127.0.0.1:5000
 - PostgreSQL/Data Warehouse e dbt concluidos.
 - Airflow, Docker e CI concluidos.
 - Analytics, ML, MLflow, FastAPI, Streamlit e Observabilidade concluidos.
-- Suite atual: `59` testes Python passando.
+- Suite atual: `60` testes Python passando.
 - Observabilidade local: `25` checks, `0` falhas, `0` avisos.
 
 ## Documentacao
@@ -189,6 +195,7 @@ http://127.0.0.1:5000
 - [MLflow](docs/mlflow.md)
 - [FastAPI](docs/api.md)
 - [Streamlit](docs/dashboard.md)
+- [Streamlit Cloud](docs/streamlit_cloud.md)
 - [Docker e CI](docs/docker_ci.md)
 - [Observabilidade](docs/observability.md)
 - [Revisao Arquitetural](docs/architecture_review.md)
