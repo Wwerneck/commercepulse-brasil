@@ -268,6 +268,12 @@ def format_compact_number(value: float | int | None) -> str:
     return format_number(value)
 
 
+def add_bar_labels(fig: go.Figure) -> go.Figure:
+    fig.update_traces(textposition="outside", cliponaxis=False)
+    fig.update_layout(uniformtext={"mode": "hide", "minsize": 10})
+    return fig
+
+
 def humanize_label(value: str) -> str:
     words = value.replace("_", " ").split()
     return " ".join(word.capitalize() for word in words)
@@ -436,22 +442,27 @@ def render_overview() -> None:
             y="GMV",
             markers=True,
             title="Evolução mensal do GMV",
-            labels={"period": "Mês"},
+            labels={"period": "Mês", "GMV": "GMV"},
+            hover_data={"orders": ":,.0f", "customers": ":,.0f", "average_ticket": ":.2f"},
         )
         fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 8})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with right:
         categories_chart = categories.sort_values("gmv")
         categories_chart["categoria"] = categories_chart["category"].map(humanize_label)
+        categories_chart["gmv_label"] = categories_chart["gmv"].map(format_compact_currency)
         fig = px.bar(
             categories_chart,
             x="gmv",
             y="categoria",
             orientation="h",
+            text="gmv_label",
             title="Categorias líderes",
-            labels={"gmv": "GMV", "category": "Categoria"},
+            labels={"gmv": "GMV", "categoria": "Categoria"},
+            hover_data={"orders": ":,.0f", "items_sold": ":,.0f", "average_ticket": ":.2f"},
         )
         fig.update_traces(marker={"color": "#2E7D6B"})
+        add_bar_labels(fig)
         st.plotly_chart(style_figure(fig), use_container_width=True)
 
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
@@ -482,7 +493,8 @@ def render_overview() -> None:
                 "average_frequency": ":.2f",
             },
         )
-        fig.update_traces(textposition="outside", marker_line_width=0, cliponaxis=False)
+        fig.update_layout(coloraxis_colorbar={"title": "Valor medio"})
+        add_bar_labels(fig)
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with right:
         segment_table = segments.sort_values("customers", ascending=False)[
@@ -509,21 +521,53 @@ def render_overview() -> None:
         )
         segment_categories["categoria"] = segment_categories["category"].map(humanize_label)
         segment_categories["gmv_label"] = segment_categories["gmv"].map(format_compact_currency)
-        fig = px.bar(
-            segment_categories.sort_values(["segmento", "gmv"], ascending=[True, True]),
-            x="gmv",
-            y="categoria",
-            color="segmento",
-            facet_col="segmento",
-            facet_col_wrap=3,
-            text="gmv_label",
-            title="Categorias mais desejadas por segmento",
-            labels={"gmv": "GMV", "categoria": "Categoria", "segmento": "Segmento"},
-            color_discrete_sequence=EXECUTIVE_COLORS,
-        )
-        fig.update_traces(textposition="outside", cliponaxis=False)
-        fig.update_layout(showlegend=False)
-        st.plotly_chart(style_figure(fig), use_container_width=True)
+        segment_categories["pedidos"] = segment_categories["orders"].map(format_number)
+        segment_categories["itens"] = segment_categories["items"].map(format_number)
+        st.subheader("Categorias mais desejadas por segmento")
+        for tab, segment_name in zip(
+            st.tabs(["Padrão", "Recentes", "Em risco"]),
+            ["Padrao", "Recentes", "Em risco"],
+            strict=False,
+        ):
+            with tab:
+                segment_slice = segment_categories[
+                    segment_categories["segmento"] == segment_name
+                ].sort_values("gmv", ascending=True)
+                if segment_slice.empty:
+                    st.info("Sem categorias para este segmento.")
+                    continue
+                fig = px.bar(
+                    segment_slice,
+                    x="gmv",
+                    y="categoria",
+                    orientation="h",
+                    text="gmv_label",
+                    title=f"Top categorias - {segment_name}",
+                    labels={"gmv": "GMV", "categoria": "Categoria"},
+                    hover_data={
+                        "pedidos": False,
+                        "itens": False,
+                        "orders": ":,.0f",
+                        "items": ":,.0f",
+                    },
+                )
+                fig.update_traces(marker={"color": "#1F4E79"})
+                add_bar_labels(fig)
+                st.plotly_chart(style_figure(fig), use_container_width=True)
+                st.dataframe(
+                    segment_slice.sort_values("gmv", ascending=False)[
+                        ["categoria", "gmv_label", "pedidos", "itens"]
+                    ].rename(
+                        columns={
+                            "categoria": "Categoria",
+                            "gmv_label": "GMV",
+                            "pedidos": "Pedidos",
+                            "itens": "Itens",
+                        }
+                    ),
+                    use_container_width=True,
+                    hide_index=True,
+                )
 
 
 def render_sales() -> None:
@@ -544,17 +588,36 @@ def render_sales() -> None:
         y=metric,
         labels={"period": "Data", metric: METRIC_LABELS[metric]},
         title=f"{METRIC_LABELS[metric]} diário",
+        hover_data={"orders": ":,.0f", "gmv": ":.2f", "average_ticket": ":.2f"},
     )
     fig.update_traces(line={"width": 3, "color": "#1F4E79"}, marker={"size": 7})
     st.plotly_chart(style_figure(fig), use_container_width=True)
 
     cols = st.columns(2)
     with cols[0]:
-        fig = px.bar(monthly, x="period", y="orders", title="Pedidos mensais")
+        monthly["orders_label"] = monthly["orders"].map(format_compact_number)
+        fig = px.bar(
+            monthly,
+            x="period",
+            y="orders",
+            text="orders_label",
+            title="Pedidos mensais",
+            labels={"period": "Mês", "orders": "Pedidos"},
+            hover_data={"gmv": ":.2f", "average_ticket": ":.2f"},
+        )
         fig.update_traces(marker={"color": "#2E7D6B"})
+        add_bar_labels(fig)
         st.plotly_chart(style_figure(fig), use_container_width=True)
     with cols[1]:
-        fig = px.line(monthly, x="period", y="average_ticket", markers=True, title="Ticket médio")
+        fig = px.line(
+            monthly,
+            x="period",
+            y="average_ticket",
+            markers=True,
+            title="Ticket médio mensal",
+            labels={"period": "Mês", "average_ticket": "Ticket médio"},
+            hover_data={"orders": ":,.0f", "gmv": ":.2f"},
+        )
         fig.update_traces(line={"width": 3, "color": "#B07D2B"}, marker={"size": 7})
         st.plotly_chart(style_figure(fig), use_container_width=True)
     st.dataframe(daily, use_container_width=True, hide_index=True)
@@ -565,6 +628,7 @@ def render_categories() -> None:
     limit = st.slider("Quantidade de categorias", min_value=5, max_value=50, value=20)
     categories = dataframe_from_api("/categories/top", {"limit": limit})
     categories["categoria"] = categories["category"].map(humanize_label)
+    categories["gmv_label"] = categories["gmv"].map(format_compact_currency)
 
     fig = px.scatter(
         categories,
@@ -572,6 +636,7 @@ def render_categories() -> None:
         y="gmv",
         size="items_sold",
         color="average_ticket",
+        text="categoria",
         hover_name="categoria",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Categorias por escala, GMV e ticket médio",
@@ -581,7 +646,9 @@ def render_categories() -> None:
             "items_sold": "Itens vendidos",
             "average_ticket": "Ticket médio",
         },
+        hover_data={"gmv_label": False, "revenue": ":.2f", "freight_value": ":.2f"},
     )
+    fig.update_traces(textposition="top center")
     st.plotly_chart(style_figure(fig), use_container_width=True)
     st.dataframe(categories, use_container_width=True, hide_index=True)
 
@@ -639,6 +706,7 @@ def render_ml() -> None:
     reviews = fetch_json("/ml/reports/reviews/latest")["payload"]
     segments = dataframe_from_api("/customers/segments")
     segments["segmento"] = segments["ml_segment"].map(SEGMENT_LABELS).fillna(segments["ml_segment"])
+    segments["clientes"] = segments["customers"].map(format_compact_number)
 
     cols = st.columns(4)
     with cols[0]:
@@ -661,27 +729,48 @@ def render_ml() -> None:
         )
 
     fig = px.bar(
-        segments,
-        x="segmento",
-        y="customers",
+        segments.sort_values("customers", ascending=True),
+        x="customers",
+        y="segmento",
+        orientation="h",
+        text="clientes",
         color="average_monetary",
         color_continuous_scale=["#dfe8f2", "#1F4E79"],
         title="Clientes por segmento",
         labels={"segmento": "Segmento", "customers": "Clientes", "average_monetary": "Valor médio"},
     )
+    add_bar_labels(fig)
     st.plotly_chart(style_figure(fig), use_container_width=True)
 
-    metric_rows = pd.DataFrame(forecast["metrics"]).rename(columns=METRIC_LABELS)
+    metric_rows = pd.DataFrame(forecast["metrics"])
+    error_rows = metric_rows.melt(
+        id_vars=["model_name"],
+        value_vars=["mae", "rmse"],
+        var_name="metric",
+        value_name="value",
+    )
+    error_rows["metric"] = error_rows["metric"].map(METRIC_LABELS)
+    error_rows["value_label"] = error_rows["value"].map(format_compact_currency)
     fig = px.bar(
-        metric_rows,
+        error_rows,
         x="model_name",
-        y=["MAE", "RMSE", "MAPE"],
+        y="value",
+        color="metric",
+        text="value_label",
         barmode="group",
-        title="Comparação dos modelos de previsão",
-        labels={"model_name": "Modelo", "value": "Valor", "variable": "Métrica"},
+        title="Erro dos modelos de previsão",
+        labels={"model_name": "Modelo", "value": "Erro em GMV", "metric": "Métrica"},
         color_discrete_sequence=EXECUTIVE_COLORS,
     )
+    add_bar_labels(fig)
     st.plotly_chart(style_figure(fig), use_container_width=True)
+    metric_rows["mape"] = metric_rows["mape"].map(format_percent)
+    metric_rows["mae"] = metric_rows["mae"].map(format_currency)
+    metric_rows["rmse"] = metric_rows["rmse"].map(format_currency)
+    metric_rows = metric_rows.rename(
+        columns={"model_name": "Modelo", "mae": "MAE", "rmse": "RMSE", "mape": "MAPE"}
+    )
+    st.dataframe(metric_rows, use_container_width=True, hide_index=True)
     st.dataframe(segments, use_container_width=True, hide_index=True)
 
 
